@@ -16,14 +16,14 @@ atrans(A, B)
 Performs the Tucker product between an array and a list of matrices.
 }
 \details{
-The Tucker product between a list of matrices \code{B} and an array
-\code{A} is formally equivalent to performing the \eqn{k}-mode poduct
-between \code{A} and each list element in \code{B}. For example,
-if the dimension of \code{A} is three, then
-\code{atrans(A,B) = amprod(amprod(amprod(A,B[[1]],1),B[[2]],2),B[[3]],3)}.
-The ordering of this \eqn{k}-mode product does not matter. See
-\href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{
-Kolda and Bader (2009)} for details.
+The Tucker product between a list of matrices \code{B} and an array \code{A}
+is formally equivalent to performing the \eqn{k}-mode product between
+\code{A} and each list element in \code{B}. For example, if the dimension of
+\code{A} is three, then \code{atrans(A,B) =
+amprod(amprod(amprod(A,B[[1]],1),B[[2]],2),B[[3]],3)}.  The ordering of this
+\eqn{k}-mode product does not matter. See
+\href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{ Kolda and Bader
+(2009)} for details.
 }
 \examples{
 A <- array(1:8, dim = c(2,2,2))
@@ -36,7 +36,13 @@ atrans(A,B)
 \author{
 Peter Hoff.
 }
+\references{
+Kolda, T. G., & Bader, B. W. (2009).
+  \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
+  decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
+}
 \seealso{
-\code{\link{amprod}}.
+\code{\link{amprod}} for multiplying one matrix along one mode of an
+  array.
 }
 

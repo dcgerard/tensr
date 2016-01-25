@@ -13,11 +13,11 @@ rsan(dim)
 Generate an array of iid standard normal variables.
 }
 \details{
-This functions generates an array of dimension \code{dim} filled with iid
-standard normal variables.
+This functions generates an array of dimension \code{dim} filled
+with iid standard normal variables.
 }
 \examples{
-rsan(c(5,4,3))
+tensr:::rsan(c(5,4,3))
 }
 \author{
 Peter Hoff.

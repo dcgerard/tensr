@@ -14,15 +14,16 @@ kendalltau(x, y, nmc = 1e+05)
 \item{nmc}{an integer number of Monte Carlo simulations.}
 }
 \value{
-A Monte Carlo approximation to Kendall's tau measure of association.
+A Monte Carlo approximation to Kendall's tau measure of
+    association.
 }
 \description{
-This function provides a Monte Carlo approximation to Kendall's tau measure
-of association.
+This function provides a Monte Carlo approximation to Kendall's tau
+measure of association.
 }
 \examples{
-mu<-rexp(30)
-kendalltau( rpois(30,mu), rpois(30,mu) )
+mu <- rexp(30)
+tensr:::kendalltau(rpois(30, mu), rpois(30, mu))
 
 }
 \author{

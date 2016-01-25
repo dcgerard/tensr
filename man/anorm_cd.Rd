@@ -7,48 +7,60 @@
 anorm_cd(Y, M, S, saidx)
 }
 \arguments{
-\item{Y}{a real valued array}
+\item{Y}{A real valued array.}
 
-\item{M}{mean of \code{Y}}
+\item{M}{Mean of \code{Y}.}
 
-\item{S}{list of mode-specific covariance matrices of \code{Y}}
+\item{S}{List of mode-specific covariance matrices of \code{Y}.}
 
-\item{saidx}{list of indices for which the conditional mean and variance
-should be computed}
+\item{saidx}{List of indices for indexing sub-array for which the conditional
+mean and variance should be computed. For example, \code{said_x = list(1:2,
+1:2, 1:2)} will compute the conditional means and variances for the \eqn{2}
+by \eqn{2} by \eqn{2} sub-array Y[1:2, 1:2, 1:2]. This is conditional on
+every other element in \code{Y}.}
 }
 \description{
 Conditional mean and variance of a subarray.
 }
 \details{
 This function calculates the conditional mean and variance in the array
-normal model.
+normal model. Let \eqn{Y} be array normal and let \eqn{Y_a} be a subarray of
+\eqn{Y}. Then this function will calculate the conditional means and
+variances of \eqn{Y_a}, conditional on every other element in \eqn{Y}.
 }
 \examples{
-m<-c(6,5,4)
-K<-length(m)
-M<-rsan(m)
-S<-list() ; for(k in 1:K) { S[[k]]<-rwish(diag(m[k]))/m[k] }
-Y<-M+atrans(rsan(m),lapply(S,mhalf))
+# Generate array normally distributed data array Y.
+m <- c(6, 5, 4)
+K <- length(m)
+M <- tensr:::rsan(m)
+S <- list(); for(k in 1:K) { S[[k]] <- tensr:::rwish(diag(m[k])) / m[k] }
+Y <- M + atrans(tensr:::rsan(m), lapply(S, mhalf))
 
-SY<-Y*0
-SS<-list() ; for(k in 1:K) { SS[[k]]<-matrix(0,m[k],m[k]) }
+SY <- Y * 0
+SS <- list() ; for(k in 1:K) { SS[[k]] <- matrix(0, m[k], m[k]) }
 for(s in 1:1e4)
 {
-  saidx<-list()
-  for(k in 1:K){ saidx[[k]]<-sort(sample(1:m[k],1+rbinom(1,m[k]-1,.5))) }
-  MS<-anorm_cd(Y,M,S,saidx)
-  Ya<- MS$Mab + atrans(rsan(sapply(saidx,length)),lapply(MS$Sab,mhalf))
-  Y[arrIndices(saidx)]<-Ya
-  SY<-SY+Y
-  for(k in 1:K){SS[[k]]<-SS[[k]]+mat(Y-M,k)\%*\%t(mat(Y-M,k)) }
+  saidx <- list()
+  for(k in 1:K) { saidx[[k]] <- sort(sample(1:m[k], 1 + rbinom(1, m[k] - 1, 0.5))) }
+  MS <- anorm_cd(Y, M, S, saidx)
+  Ya <- MS$Mab + atrans(tensr:::rsan(sapply(saidx, length)), lapply(MS$Sab, mhalf))
+  Y[arrIndices(saidx)] <- Ya
+  SY <- SY + Y
+  for(k in 1:K){SS[[k]] <- SS[[k]] + mat(Y - M, k) \%*\% t(mat(Y - M, k)) }
 }
-par(mfrow=c(2,2))
-plot(M,SY/s)  ; abline(0,1)
-for (k in 1:K) {plot(S[[k]]/tr(S[[k]]),SS[[k]]/tr(SS[[k]])) ; abline(0,1) }
+par(mfrow = c(2, 2))
+plot(M, SY / s)  ; abline(0, 1)
+for (k in 1:K) { plot(S[[k]] / tr(S[[k]]), SS[[k]] / tr(SS[[k]])) ; abline(0, 1) }
 }
 \author{
 Peter Hoff.
 }
-\keyword{arrays}
+\references{
+Hoff, P. D. (2011).
+  \href{http://arxiv.org/abs/1008.2169}{Separable covariance arrays via the
+  Tucker product, with applications to multivariate relational data}.
+  \emph{Bayesian Analysis}, 6(2), 179-196.
+}
+\keyword{arrays.}
 \keyword{multivariate}
 

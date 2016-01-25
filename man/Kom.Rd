@@ -11,20 +11,36 @@ Kom(m, n)
 
 \item{n}{another natural number.}
 }
+\value{
+\code{K} The \code{m * n} by \code{m * n} commutation
+    matrix.
+}
 \description{
 Construct the communtation matrix.
 }
 \details{
-This function constructs the commutation matrix K_mn, which maps c(A) to
-c(t(A)) for an m*n matrix A.
+This function constructs the commutation matrix \code{K}, which maps
+\code{c(A)} to \code{c(t(A))} for an \eqn{m} by \eqn{n} matrix
+\code{A}.
 }
 \examples{
-m<-5 ; n<-4
-A<-matrix(rnorm(m*n),m,n)
-Kom(5,4)\%*\% c(A) - c(t(A))
+m <- 5 ; n <- 4
+A <- matrix(rnorm(m * n), m, n)
+Kom(5, 4) \%*\% c(A) - c(t(A))
 }
 \author{
 Peter Hoff.
+}
+\references{
+Magnus, J. R., & Neudecker,
+    H. (1979). \href{http://www.janmagnus.nl/papers/JRM005.pdf}{The
+    commutation matrix: some properties and
+    applications}. \emph{The Annals of Statistics}, 381-394.
+
+Tracy, D. S., & Dwyer,
+P. S. (1969). \href{http://www.che.iitm.ac.in/~naras/ch544/maxmin_matrixderivatives.pdf}{Multivariate
+maxima and minima with matrix derivatives}. \emph{Journal of the
+American Statistical Association}, 64(328), 1576-1594.
 }
 \keyword{algebra}
 

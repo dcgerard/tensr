@@ -109,6 +109,7 @@ Gerard, D. C., & Hoff, P. D. (2014).
   separable covariance models}. \emph{arXiv preprint arXiv:1410.1094.}
 }
 \seealso{
-\code{\link{lrt_stat}}
+\code{\link{lrt_stat}} for calculating the likelihood ratio test
+  statistic.
 }
 

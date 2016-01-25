@@ -23,40 +23,72 @@
 #'   \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ decomposition for
 #'   separable covariance models}. \emph{arXiv preprint arXiv:1410.1094.}
 #'
-#' @seealso \code{\link{lrt_null_dist_dim_same}}
+#' @seealso \code{\link{holq}} for obtaining the MLE of the total variation
+#'   parameter.
+#'
+#'   \code{\link{lrt_null_dist_dim_same}} for getting the null distribution of
+#'   the likelihood ratio test statistic.
+#'
 lrt_stat <- function(sig_null, sig_alt, p) {
     return((log(sig_null) - log(sig_alt)) * prod(p) * 2)
 }
 
 #' Calculate the AIC and BIC.
 #'
-#' Calculate the AIC and BIC for Kronecker structured covariance
-#' models, assuming the array normal distribution.
+#' Calculate the AIC and BIC for Kronecker structured covariance models,
+#' assuming the array normal distribution.
 #'
-#' The AIC and BIC depend only on the data through the MLE of the
-#' total variation parameter. Given this, the dimension of the array,
-#' and a specification of which modes are the identity and which are
-#' unstructured, this function will calculate the AIC and BIC.
+#' The AIC and BIC depend only on the data through the MLE of the total
+#' variation parameter. Given this, the dimension of the array, and a
+#' specification of which modes are the identity and which are unstructured,
+#' this function will calculate the AIC and BIC.
 #'
-#' @param sig_squared A numeric. The MLE of sigma^2 in the array
-#'     normal model (the 'variance' form of the total variation
-#'     parameter).
-#' @param p A vector of integers. The dimension of the data array
-#'     (including replication modes).
-#' @param mode_ident A vector of integers. The modes assumed to have
-#'     identity covariances.
-#' @param mode_diag A vector of integers. The modes assumed to have
-#'     diagional covariances.
-#' @param mode_unstructured A vector of integers. The modes of assumed
-#'     to have unstructured covariances.
+#' @param sig_squared A numeric. The MLE of sigma^2 in the array normal model
+#'   (the 'variance' form of the total variation parameter).
+#' @param p A vector of integers. The dimension of the data array (including
+#'   replication modes).
+#' @param mode_ident A vector of integers. The modes assumed to have identity
+#'   covariances.
+#' @param mode_diag A vector of integers. The modes assumed to have diagional
+#'   covariances.
+#' @param mode_unstructured A vector of integers. The modes of assumed to have
+#'   unstructured covariances.
 #'
 #' @export
+#'
+#' @seealso \code{\link{holq}} for obtaining \code{sig_squared}.
 #'
 #' @author David Gerard.
 #'
 #' @return \code{AIC} A numeric. The AIC of the model.
 #'
 #'   \code{BIC} A numeric. The BIC of the model.
+#'
+#' @examples
+#' # Generate random array data with first mode having unstructured covariance
+#' #  second having diagonal covariance structure and third mode having identity
+#' #  covariance structure.
+#' set.seed(857)
+#' p <- c(4, 4, 4)
+#' Z <- array(rnorm(prod(p)), dim = p)
+#' Y <- atrans(Z, list(tensr:::rwish(diag(p[1])), diag(1:p[2]), diag(p[3])))
+#'
+#' # Use holq() to fit various models.
+#' false_fit1 <- holq(Y, mode_rep = 1:3) ## identity for all modes
+#' false_fit2 <- holq(Y, mode_rep = 2:3) ## unstructured first mode
+#' true_fit <- holq(Y, mode_rep = 3, mode_diag = 2) ## correct model
+#'
+#' # Get AIC and BIC values.
+#' false_aic1 <- array_bic_aic(false_fit1$sig ^ 2, p, mode_ident = 1:length(p))
+#' false_aic2 <- array_bic_aic(false_fit2$sig ^ 2, p, mode_ident = 2:length(p), mode_unstructured = 1)
+#' true_aic <- array_bic_aic(true_fit$sig ^ 2, p, mode_ident = 2:length(p), mode_diag = 1)
+#'
+#' # Plot the results.
+#' plot(c(false_aic1$AIC, false_aic2$AIC, true_aic$AIC), type = "l", xaxt = "n", xlab = "Model", ylab = "AIC", main = "AIC")
+#' axis(side = 1, at = 1:3, labels = c("Wrong Model 1", "Wrong Model 2", "Right Model"))
+#'
+#' plot(c(false_aic1$BIC, false_aic2$BIC, true_aic$BIC), type = "l", xaxt = "n", xlab = "Model", ylab = "BIC", main = "BIC")
+#' axis(side = 1, at = 1:3, labels = c("Wrong Model 1", "Wrong Model 2", "Right Model"))
 array_bic_aic <- function(sig_squared, p, mode_ident = NULL, mode_diag = NULL, mode_unstructured = NULL) {
 
     if (!is.null(mode_ident)) {
@@ -87,51 +119,48 @@ array_bic_aic <- function(sig_squared, p, mode_ident = NULL, mode_diag = NULL, m
 
 #' Draw from null distribution of likelihood ratio test statistic.
 #'
-#' When testing for the covariance structure of modes, this function
-#' may be used to draw a sample from the null distribution of the
-#' likelihood ratio test stistics, whose distribution doesn't depend
-#' on any unknown parameters under the null.
+#' When testing for the covariance structure of modes, this function may be used
+#' to draw a sample from the null distribution of the likelihood ratio test
+#' stistics, whose distribution doesn't depend on any unknown parameters under
+#' the null.
 #'
-#' Let \eqn{vec(X) ~ N(0,\Sigma)}. Given two nested hypotheses,
-#' \deqn{H_1: \Sigma = \Psi_K\otimes\cdots\otimes\Psi_1} versus
-#' \deqn{H_0: \Sigma = \Omega_K\otimes\cdots\otimes\Omega_1,} this
-#' function will draw from the null distribution of the likelihood
-#' ratio test statistic. The possible options are that \eqn{\Psi_i} or
-#' \eqn{\Omega_i} are the identity matrix, a diagonal matrix, or any
-#' positive definite matrix. By default, it's assumed that these
+#' Let \eqn{vec(X) ~ N(0,\Sigma)}. Given two nested hypotheses, \deqn{H_1:
+#' \Sigma = \Psi_K\otimes\cdots\otimes\Psi_1} versus \deqn{H_0: \Sigma =
+#' \Omega_K\otimes\cdots\otimes\Omega_1,} this function will draw from the null
+#' distribution of the likelihood ratio test statistic. The possible options are
+#' that \eqn{\Psi_i} or \eqn{\Omega_i} are the identity matrix, a diagonal
+#' matrix, or any positive definite matrix. By default, it's assumed that these
 #' matrices are any positive definite matrix.
 #'
-#' Unfortunately, this fuction does not support testing for the
-#' hypothesis of modeling the covariance between two modes with a
-#' single covariance matrix. I might code this up in later versions.
+#' Unfortunately, this fuction does not support testing for the hypothesis of
+#' modeling the covariance between two modes with a single covariance matrix. I
+#' might code this up in later versions.
 #'
 #' @param p A vector of integers. The dimensions of the array.
-#' @param null_ident A vector of integers. The modes that under the
-#'     null have identity covariance.
-#' @param alt_ident A vector of integers. The modes that under the
-#'     alternative have the identity covariance.
-#' @param null_diag A vector of integers. The modes that under the
-#'     null have diagonal covariance.
-#' @param alt_diag A vector of integers. The modes that under the
-#'     alternative have diagonal covariance.
-#' @param reference_dist Two options are supported, 'normal' and
-#'     't'. If 't' is specified, you have to specify \code{t_df}.
-#' @param t_df A numeric. If \code{reference_dist} is 't', then this
-#'     is the degrees of freedom of the t_distribution that the array
-#'     is distributed under.
-#' @param itermax An integer. The number of draws from the null
-#'     distribution of the likelihood ratio test statistic that is to
-#'     be performed.
-#' @param holq_itermax An integer. The maximum number of block
-#'     coordinate ascent iterations to perform when calculating the
-#'     MLE at each step.
-#' @param holq_tol A numeric. The stopping criterion when calculating
-#'     the MLE.
+#' @param null_ident A vector of integers. The modes that under the null have
+#'   identity covariance.
+#' @param alt_ident A vector of integers. The modes that under the alternative
+#'   have the identity covariance.
+#' @param null_diag A vector of integers. The modes that under the null have
+#'   diagonal covariance.
+#' @param alt_diag A vector of integers. The modes that under the alternative
+#'   have diagonal covariance.
+#' @param reference_dist Two options are supported, 'normal' and 't'. If 't' is
+#'   specified, you have to specify \code{t_df}.
+#' @param t_df A numeric. If \code{reference_dist} is 't', then this is the
+#'   degrees of freedom of the t_distribution that the array is distributed
+#'   under.
+#' @param itermax An integer. The number of draws from the null distribution of
+#'   the likelihood ratio test statistic that is to be performed.
+#' @param holq_itermax An integer. The maximum number of block coordinate ascent
+#'   iterations to perform when calculating the MLE at each step.
+#' @param holq_tol A numeric. The stopping criterion when calculating the MLE.
 #'
-#' @return A vector of draws from the null distribution of the
-#'     likelihood ratio test statistic.
+#' @return A vector of draws from the null distribution of the likelihood ratio
+#'   test statistic.
 #'
-#' @seealso \code{\link{lrt_stat}}
+#' @seealso \code{\link{lrt_stat}} for calculating the likelihood ratio test
+#'   statistic.
 #'
 #' @export
 #'
@@ -212,7 +241,7 @@ lrt_null_dist_dim_same <- function(p, null_ident = NULL, alt_ident = NULL, null_
 #' vector of dimensions of the data array and \code{sig} is the output
 #' from \code{holq}.
 #'
-#' @param holq_obj The outpur returned from \code{holq}.
+#' @param holq_obj The output returned from \code{holq}.
 #'
 #' @return \code{cov_mle} A list of positive definite matrices. These
 #'     are the MLEs for the component covariance matrices.

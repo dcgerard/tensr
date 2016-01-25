@@ -9,12 +9,12 @@ ldan(E, Sig)
 \arguments{
 \item{E}{An array. This is the data.}
 
-\item{Sig}{A list of symmetric positive definite matrices. These are the
-component covariance matrices.}
+\item{Sig}{A list of symmetric positive definite matrices. These
+are the component covariance matrices.}
 }
 \description{
-\code{ldan} calculates the log-likelihood of the array normal model,
-minus a constant.
+\code{ldan} calculates the log-likelihood of the array normal
+model, minus a constant.
 }
 \author{
 David Gerard.

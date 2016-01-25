@@ -56,9 +56,9 @@ Kronecker structured covariande models.
 \details{
 Given an array \code{X}, the default version of this function will calculate
 (1) \code{L} a list of lower triangular matricies with positive diagonal
-elements and unit determinant, \code{Z} an aray of the same dimensions as
+elements and unit determinant, \code{Z} an array of the same dimensions as
 \code{X} that has special orthogonal properties, and (3) \code{sig} a numeric
-such that \code{X} is the same as \code{sig * atrans(X,L)} up to numeric
+such that \code{X} is the same as \code{sig * atrans(Z,L)} up to numeric
 precision.
 
 This output (1) can be considered a generalization of the LQ decomposition to
@@ -122,5 +122,21 @@ David Gerard.
 Gerard, D. C., & Hoff, P. D. (2014).
   \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ decomposition for
   separable covariance models}. \emph{arXiv preprint arXiv:1410.1094.}
+}
+\seealso{
+\code{\link{array_bic_aic}} for using the output of \code{holq} to
+  calculate AIC and BIC,
+
+  \code{\link{get_isvd}} for using the output of \code{holq} to calculate a
+  tensor generalization of the singular value decomposition.
+
+  \code{\link{lq}} for the matrix LQ decomposition.
+
+  \code{\link{lrt_stat}} for using the output of \code{holq} to calculate
+  likelihood ratio test statistics.
+
+  \code{\link{mle_from_holq}} for using the output of \code{holq} to
+  calculate the maximum likelihood estimates of the component covariance
+  matrices under the array normal model.
 }
 

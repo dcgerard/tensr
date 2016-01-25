@@ -11,20 +11,21 @@ topK(x, K = 1, ignoreties = TRUE)
 
 \item{K}{The number of indices to return.}
 
-\item{ignoreties}{If \code{FALSE}, will return a vector of the indices whose
-elements are greater than or equal to the Kth largest element, resulting in
-a vector possibly of length greater than \code{K} in the case of ties.}
+\item{ignoreties}{If \code{FALSE}, will return a vector of the
+indices whose elements are greater than or equal to the Kth
+largest element, resulting in a vector possibly of length
+greater than \code{K} in the case of ties.}
 }
 \description{
 Identify top K elements of a vector.
 }
 \details{
-This function returns the indices corresponding to the top elements of a
-vector.
+This function returns the indices corresponding to the top elements
+of a vector.
 }
 \examples{
-x<-c(3,6,2,4,1)
-topK(x,3)
+x <- c(3, 6, 2, 4, 1)
+tensr:::topK(x, 3)
 }
 \author{
 Peter Hoff.

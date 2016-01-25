@@ -4,33 +4,35 @@
 \alias{demean_tensor}
 \title{Demeans array data.}
 \usage{
-demean_tensor(X, mode_reps = 1)
+demean_tensor(X, mode_reps)
 }
 \arguments{
-\item{X}{An array, one of whose modes is assumed to be samples from the array
-normal model.}
+\item{X}{An array, one of whose modes is assumed to be samples from
+the array normal model.}
 
-\item{mode_reps}{The mode that contains the samples, or repetitions, from the
-array normal model.}
+\item{mode_reps}{The mode(s) that contain(s) the samples, or
+repetitions, from the array normal model.}
 }
 \value{
-\code{Y} An array that has the same dimensions as \code{X} except
-  that the mode \code{mode_reps} has dimension one smaller. This array is
-  mean 0 array normal with the same covariance structure as \code{X}.
+\code{Y} An array that has the same dimensions as \code{X}
+    except that the mode \code{mode_reps} has dimension one
+    smaller. This array is mean 0 array normal with the same
+    covariance structure as \code{X}.
 
-  \code{X_bar} The sample mean of \code{X}. Under the array normal model,
-  \code{X} and \code{Y} are statistically independent.
+  \code{X_bar} The sample mean of \code{X}. Under the array normal
+  model, \code{X} and \code{Y} are statistically independent.
 }
 \description{
 Rotates an array into two parts, one of which has mean zero.
 }
 \details{
-If one mode contains samples (or repetitions), then this function will rotate
-the array into two parts, a mean part and a covariance part. The 'covariance
-part' has mean zero and the rest of the methods in this package apply. The
-'mean part' is simply the sample mean. If the data are array normal, then the
-'covariance part' will also be array normal with the \emph{exact} same
-covariance structure as the original tensor, except that there are one fewer
+If one mode contains samples (or repetitions), then this function
+will rotate the array into two parts, a mean part and a covariance
+part. The 'covariance part' has mean zero and the rest of the
+methods in this package apply. The 'mean part' is simply the sample
+mean. If the data are array normal, then the 'covariance part' will
+also be array normal with the \emph{exact} same covariance
+structure as the original tensor, except that there are one fewer
 samples.
 }
 \author{

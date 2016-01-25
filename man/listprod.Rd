@@ -15,9 +15,9 @@ listprod(A, B)
 A list \code{C} such that \code{C[[i]] = A[[i]] \%*\% B[[i]]}.
 }
 \description{
-Given two lists of matrices with conformable dimensions, \code{listprod}
-returns a list whose elements are the matrix products of the elements of
-these two lists.
+Given two lists of matrices with conformable dimensions,
+\code{listprod} returns a list whose elements are the matrix
+products of the elements of these two lists.
 }
 \author{
 David Gerard.

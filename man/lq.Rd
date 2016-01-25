@@ -10,22 +10,23 @@ lq(X)
 \item{X}{A \eqn{n} by \eqn{p} matrix of rank \eqn{n}.}
 }
 \value{
-\code{L} An \eqn{n} by \eqn{n} lower triangular matrix with positive
-diagonal entries.
+\code{L} An \eqn{n} by \eqn{n} lower triangular matrix with
+    positive diagonal entries.
 
 \code{Q} An \eqn{n} by \eqn{p} matrix with orthonormal columns.
 
-The returned values satisfy \code{X = L \%*\% t(Q)}, up to numerical
-precision.
+The returned values satisfy \code{X = L \%*\% t(Q)}, up to
+numerical precision.
 }
 \description{
 Computes the LQ decomposition of a matrix.
 }
 \details{
-If \eqn{X} is an \eqn{n} by \eqn{p} matrix with \eqn{n \le p}, then \code{lq}
-computes the LQ decomposition of \eqn{X}. That is, \eqn{X = LQ'} where
-\eqn{Q} is \eqn{p} by \eqn{n} with orthonormal columns and \eqn{L} is \eqn{n}
-by \eqn{n} lower triangular with positive diaognal entries.
+If \eqn{X} is an \eqn{n} by \eqn{p} matrix with \eqn{n \le p}, then
+\code{lq} computes the LQ decomposition of \eqn{X}. That is, \eqn{X
+= LQ'} where \eqn{Q} is \eqn{p} by \eqn{n} with orthonormal columns
+and \eqn{L} is \eqn{n} by \eqn{n} lower triangular with positive
+diaognal entries.
 }
 \examples{
 X <- matrix(rnorm(12), nrow = 3)
@@ -41,6 +42,6 @@ trim(X - L\%*\%t(Q))
 David Gerard.
 }
 \seealso{
-\code{\link{qr2}}.
+\code{\link{qr2}} for the related QR decomposition.
 }
 

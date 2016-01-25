@@ -61,8 +61,6 @@
 #'
 #'   \code{\link{hosvd}} Calculate the (truncated) higher-order SVD (HOSVD).
 #'
-#'   \code{\link{kendalltau}} Kendall's tau measure of association.
-#'
 #'   \code{\link{Kom}} Commutation matrix.
 #'
 #'   \code{\link{ihop}} The incredible higher-order polar decomposition (IHOP).
@@ -103,12 +101,6 @@
 #'
 #'   \code{\link{rmirror_wishart}} Sample from the mirror-Wishart distribution.
 #'
-#'   \code{\link{rmvnorm}} Multivariate normal simulation.
-#'
-#'   \code{\link{rsan}} Standard normal array.
-#'
-#'   \code{\link{rwish}} Wishart simulation.
-#'
 #'   \code{\link{sample_sig}} Update for total variation parameter in
 #'   \code{equi_mcmc}.
 #'
@@ -118,15 +110,11 @@
 #'
 #'   \code{\link{start_resids}} Sample covariance matrices for each mode.
 #'
-#'   \code{\link{topK}} Top K elements of a vector.
-#'
 #'   \code{\link{tsum}} Tucker sum.
 #'
 #'   \code{\link{tr}} Trace of a matrix.
 #'
 #'   \code{\link{trim}} Truncates small numbers to 0.
-#'
-#'   \code{\link{zscores}} Normal scores.
 #'
 #' @references Gerard, D., & Hoff, P. (2015).
 #'     \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant

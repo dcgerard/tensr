@@ -10,8 +10,8 @@ mhalf(M)
 \item{M}{A symmetric positive definite matrix.}
 }
 \value{
-The unique symmetric positive definite matrix \eqn{X}
-such that \eqn{XX = M}.
+The unique symmetric positive definite matrix \eqn{X} such
+    that \eqn{XX = M}.
 }
 \description{
 Returns the unique symmetric positive definite square root matrix

@@ -10,15 +10,16 @@ fnorm(X)
 \item{X}{An array, a matrix, or a vector.}
 }
 \value{
-The square root of the sum of the squared elements of \code{X}.
+The square root of the sum of the squared elements of
+    \code{X}.
 }
 \description{
 Calculates the Frobenius norm of an array.
 }
 \details{
 The Frobenius norm of an array is the square root of the sum of its
-squared elements. This function works for vector and matrix arguments
-as well.
+squared elements. This function works for vector and matrix
+arguments as well.
 }
 \examples{
 X <- c(1:8)

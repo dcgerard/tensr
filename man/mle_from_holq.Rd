@@ -7,24 +7,26 @@
 mle_from_holq(holq_obj)
 }
 \arguments{
-\item{holq_obj}{The outpur returned from \code{holq}.}
+\item{holq_obj}{The output returned from \code{holq}.}
 }
 \value{
-\code{cov_mle} A list of positive definite matrices. These are the
-  MLEs for the component covariance matrices.
+\code{cov_mle} A list of positive definite matrices. These
+    are the MLEs for the component covariance matrices.
 
-  \code{sig_mle} A numeric. This is an estimate of the "standard deviation"
-  form of the total variation parameter.
+  \code{sig_mle} A numeric. This is an estimate of the "standard
+  deviation" form of the total variation parameter.
 }
 \description{
-From the output of \code{holq}, this function will calculate the MLEs for the
-component covariance matrices and for the total variation parameter.
+From the output of \code{holq}, this function will calculate the
+MLEs for the component covariance matrices and for the total
+variation parameter.
 }
 \details{
-The function simply takes the \code{A[[i]]} output of \code{holq} and returs
-\code{A[[i]] \%*\% t(A[[i]])}. The estimate of the total variation parameter
-is \code{sig / prod{p}}, whre \code{p} is the vector of dimensions of the
-data array and \code{sig} is the output from \code{holq}.
+The function simply takes the \code{A[[i]]} output of \code{holq}
+and returs \code{A[[i]] \%*\% t(A[[i]])}. The estimate of the total
+variation parameter is \code{sig / prod{p}}, whre \code{p} is the
+vector of dimensions of the data array and \code{sig} is the output
+from \code{holq}.
 }
 \author{
 David Gerard.

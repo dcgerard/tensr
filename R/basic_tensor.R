@@ -25,24 +25,26 @@ tr <- function(X) {
 #'
 #' \code{mat} returns a matrix version of a provided tensor.
 #'
-#' Applies the matrix unfolding operator (also called 'matricization'
-#' or 'matrix flattening' operator) on a provided matrix. There are
-#' multiple ways one could do this. This function performs the matrix
-#' unfolding described in
-#' \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{ Kolda and
-#' Bader (2009)}.
+#' Applies the matrix unfolding operator (also called 'matricization' or 'matrix
+#' flattening' operator) on a provided tensor. There are multiple ways one could
+#' do this. This function performs the matrix unfolding described in
+#' \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{ Kolda and Bader
+#' (2009)}.
 #'
 #' @param A An array to be unfolded.
-#' @param k The mode, or dimension, along which the unfolding is to be
-#'     applied.
+#' @param k The mode, or dimension, along which the unfolding is to be applied.
 #'
-#' @return  A matrix  whose rows  index the  \eqn{k}th mode  and whose
-#'     columns index every other mode.  The ordering of the columns is
-#'     in lexicographical order of the indices of the array \eqn{A}.
+#' @return  A matrix  whose rows  index the  \eqn{k}th mode  and whose columns
+#'   index every other mode.  The ordering of the columns is in lexicographical
+#'   order of the indices of the array \eqn{A}.
 #'
 #' @author Peter Hoff.
 #'
 #' @export
+#'
+#' @references Kolda, T. G., & Bader, B. W. (2009).
+#'   \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
+#'   decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
 #'
 #' @examples
 #' A <- array(1:8, dim = c(2,2,2))
@@ -83,6 +85,10 @@ mat <- function(A, k) {
 #'
 #' @author Peter Hoff.
 #'
+#' @references Kolda, T. G., & Bader, B. W. (2009).
+#'   \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
+#'   decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
+#'
 #' @export
 #'
 #' @examples
@@ -100,26 +106,29 @@ amprod <- function(A, M, k) {
 
 #' Tucker product.
 #'
-#' Performs the Tucker product between an array and a list of
-#' matrices.
+#' Performs the Tucker product between an array and a list of matrices.
 #'
-#' The Tucker product between a list of matrices \code{B} and an array
-#' \code{A} is formally equivalent to performing the \eqn{k}-mode
-#' poduct between \code{A} and each list element in \code{B}. For
-#' example, if the dimension of \code{A} is three, then
-#' \code{atrans(A,B) =
-#' amprod(amprod(amprod(A,B[[1]],1),B[[2]],2),B[[3]],3)}.  The
-#' ordering of this \eqn{k}-mode product does not matter. See
-#' \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{ Kolda and
-#' Bader (2009)} for details.
+#' The Tucker product between a list of matrices \code{B} and an array \code{A}
+#' is formally equivalent to performing the \eqn{k}-mode product between
+#' \code{A} and each list element in \code{B}. For example, if the dimension of
+#' \code{A} is three, then \code{atrans(A,B) =
+#' amprod(amprod(amprod(A,B[[1]],1),B[[2]],2),B[[3]],3)}.  The ordering of this
+#' \eqn{k}-mode product does not matter. See
+#' \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{ Kolda and Bader
+#' (2009)} for details.
 #'
 #' @param A An array of dimension \eqn{K}.
 #' @param B A list of matrices of length \eqn{B}. It must be that
-#'     \code{ncol(B[[k]]) == dim(A)[k]}.
+#'   \code{ncol(B[[k]]) == dim(A)[k]}.
 #'
-#' @seealso \code{\link{amprod}}.
+#' @seealso \code{\link{amprod}} for multiplying one matrix along one mode of an
+#'   array.
 #'
 #' @author Peter Hoff.
+#'
+#' @references Kolda, T. G., & Bader, B. W. (2009).
+#'   \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
+#'   decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
 #'
 #' @export
 #'
@@ -217,29 +226,28 @@ ldan <- function(E, Sig) {
 
 #' QR Decomposition.
 #'
-#' QR decomposition, constraining the R matrix to have non-negative
-#' diagonal entries.
+#' QR decomposition, constraining the R matrix to have non-negative diagonal
+#' entries.
 #'
-#' This function is almost a wrapper for \code{qr()}, \code{qr.R()},
-#' and \code{qr.Q()}, except it constrains the diagonal elements of
-#' \code{R} to be non-negative. If \code{X} is full rank with fewer
-#' columns than rows, then this is sufficient to gaurantee uniqueness
-#' of the QR decomposition (Proposition 5.2 of
-#' \href{https://books.google.com/books?id=WyvvAAAAMAAJ}{Eaton
-#' (1983)}).
+#' This function is almost a wrapper for \code{qr()}, \code{qr.R()}, and
+#' \code{qr.Q()}, except it constrains the diagonal elements of \code{R} to be
+#' non-negative. If \code{X} is full rank with fewer columns than rows, then
+#' this is sufficient to gaurantee uniqueness of the QR decomposition
+#' (Proposition 5.2 of
+#' \href{https://books.google.com/books?id=WyvvAAAAMAAJ}{Eaton (1983)}).
 #'
 #' @param X A matrix of dimension \eqn{n} by \eqn{p} where \eqn{n \ge p}
 #'
 #' @author David Gerard.
 #'
-#' @return
-#' \code{Q} An \eqn{n} by \eqn{p} matrix with orthonormal columns.
+#' @return \code{Q} An \eqn{n} by \eqn{p} matrix with orthonormal columns.
 #'
 #' \code{R} A \eqn{p} by \eqn{p} upper-triangular matrix with non-negative
 #' diagonal elements.
 #'
-#' @seealso \code{\link[base]{qr}}, \code{\link[base]{qr.Q}},
-#'     \code{\link[base]{qr.R}}, \code{\link{lq}}.
+#' @seealso \code{\link[base]{qr}}, \code{\link[base]{qr.Q}}, and
+#'   \code{\link[base]{qr.R}} for the base methods on the obtaining the QR
+#'   decomposition. \code{\link{lq}} for the related LQ decomposition.
 qr2 <- function(X) {
     # just re-jiggers qr decomposition to make diagonals all positive
     qr_X <- qr(X)
@@ -322,7 +330,7 @@ listprod <- function(A, B) {
 #' The returned values satisfy \code{X = L \%*\% t(Q)}, up to
 #' numerical precision.
 #'
-#' @seealso \code{\link{qr2}}.
+#' @seealso \code{\link{qr2}} for the related QR decomposition.
 #'
 #' @export
 #'
@@ -382,7 +390,7 @@ lq <- function(X) {
 #' X
 #' #mode 1 is now mode 2, modes 2, 3, and 4 are combined to be mode 1.
 #' collapse_mode(X, c(2, 3, 4))
-#' collapse_mode(X, c(2, 4))
+#' collapse_mode(X, c(2, 4)) ## another example.
 #' collapse_mode(X, 4) #returns X
 collapse_mode <- function(X, m) {
     p <- dim(X)

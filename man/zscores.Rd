@@ -9,20 +9,21 @@ zscores(y, ties.method = "average")
 \arguments{
 \item{y}{A vector.}
 
-\item{ties.method}{The option \code{ties.method} in the \code{rank} function.}
+\item{ties.method}{The option \code{ties.method} in the \code{rank}
+function.}
 }
 \value{
 A vector of the same length as \code{y}.
 }
 \description{
-This function applies a quantile-quantile transformation to the data,
-resulting in a distribution that is approximately normal but has the same
-ranks as the original data.
+This function applies a quantile-quantile transformation to the
+data, resulting in a distribution that is approximately normal but
+has the same ranks as the original data.
 }
 \examples{
-y<-rexp(100)
-z<-zscores(y)
-par(mfrow=c(1,3))
+y <- rexp(100)
+z <- tensr:::zscores(y)
+par(mfrow = c(1, 3))
 hist(y)
 hist(z)
 plot(y,z)

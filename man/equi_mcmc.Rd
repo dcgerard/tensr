@@ -12,36 +12,42 @@ equi_mcmc(X, itermax = 1000, start_identity = FALSE, print_iter = FALSE,
 
 \item{itermax}{The number of iterations in the Gibb's sampler.}
 
-\item{start_identity}{Should we start the component covariance matrices at
-the identity (TRUE) or the sample covariance matrices (FALSE)?}
+\item{start_identity}{Should we start the component covariance
+matrices at the identity (TRUE) or the sample covariance
+matrices (FALSE)?}
 
-\item{print_iter}{Should we print the iteration number at each iteration?}
+\item{print_iter}{Should we print the iteration number at each
+iteration?}
 
-\item{mode_rep}{The mode that contains samples. I.e., the mode whose
-component covariance matrix is the identity. If NULL then no modes are
-assumed to have identity covariance.}
+\item{mode_rep}{The mode that contains samples. I.e., the mode
+whose component covariance matrix is the identity. If NULL then
+no modes are assumed to have identity covariance.}
 }
 \value{
-\code{Phi_inv} List of posterior draws of the inverse of the cholesky
-  square roots of each component covariance matrix. \code{Phi_inv[[i]][,,j]}
-  provides the \eqn{j}th sample of the \eqn{i}th component.
+\code{Phi_inv} List of posterior draws of the inverse of
+    the cholesky square roots of each component covariance
+    matrix. \code{Phi_inv[[i]][,,j]} provides the \eqn{j}th sample
+    of the \eqn{i}th component.
 
-  \code{sigma} Vector of posterior samples of the overall scale paramater.
+  \code{sigma} Vector of posterior samples of the overall scale
+  paramater.
 }
 \description{
 \code{equi_mcmc} obtains posterior draws that are useful in optimal
 equivariant estimation under the array normal model.
 }
 \details{
-\code{equi_mcmc} obtains posterior samples of the component covariance
-matrices from the array normal model. This is with respect to using the right
-Haar measure over a product group of lower triangular matrices as the prior.
+\code{equi_mcmc} obtains posterior samples of the component
+covariance matrices from the array normal model. This is with
+respect to using the right Haar measure over a product group of
+lower triangular matrices as the prior.
 
-This returns only the upper triangular Cholesky square root of the inverses
-of the component covariance matrices. Equivalently, these are the inverses of
-the lower triangular Cholesky square roots of the component covariance
-matrices. This is because sampling the inverse is faster computationally and
-the Bayes rules (based on multiway Stein's loss) only depend on the inverse.
+This returns only the upper triangular Cholesky square root of the
+inverses of the component covariance matrices. Equivalently, these
+are the inverses of the lower triangular Cholesky square roots of
+the component covariance matrices. This is because sampling the
+inverse is faster computationally and the Bayes rules (based on
+multiway Stein's loss) only depend on the inverse.
 }
 \examples{
 #Generate data whose true covariance is just the identity.
@@ -63,10 +69,12 @@ Gerard, D., & Hoff, P. (2015).
   Multivariate Analysis}, 137, 32-49.
 }
 \seealso{
-\code{\link{sample_right_wishart}} and \code{\link{sample_sig}} for
-  the Gibbs updates. \code{\link{convert_cov}} and
-  \code{\link{get_equi_bayes}} for getting posterior summaries based on the
-  output of \code{equi_mcmc}. \code{\link{multiway_takemura}} for an
-  improvement on this procedure.
+\code{\link{sample_right_wishart}} and
+    \code{\link{sample_sig}} for the Gibbs
+    updates. \code{\link{convert_cov}} and
+    \code{\link{get_equi_bayes}} for getting posterior summaries
+    based on the output of
+    \code{equi_mcmc}. \code{\link{multiway_takemura}} for an
+    improvement on this procedure.
 }
 

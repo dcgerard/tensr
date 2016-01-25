@@ -23,8 +23,9 @@ Given scale matrix \code{Phi} and degrees of freedom \code{nu},
 \eqn{S} is mirror-Wishart(\eqn{\nu,\Phi}) if \deqn{S = UV'VU',} where
 \eqn{VV'} is the lower triangular Cholesky decomposition of a
 Wishart(\eqn{\nu,I})-distributed random matrix and \eqn{UU'} is the upper
-triangular Cholesky decomposition of \eqn{\Phi}. For details on its
-applications, see
+triangular Cholesky decomposition of \eqn{\Phi}. That is, \eqn{V} is lower
+triangular and \eqn{U} is upper triangular. For details on its applications,
+see
 \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{
 Gerard and Hoff (2015)}.
 }
@@ -34,7 +35,7 @@ David Gerard.
 \references{
 Gerard, D., & Hoff, P. (2015).
   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
-  minimax dominators of the MLE in the array normal model}. \emph{Journal of
+   minimax dominators of the MLE in the array normal model}. \emph{Journal of
   Multivariate Analysis}, 137, 32-49.
 }
 \seealso{

@@ -2,31 +2,30 @@
 #'
 #' Samples from the square root of an inverse-gamma.
 #'
-#' This function provides a Gibbs update for the total variation
-#' parameter from the MCMC implemented in \code{equi_mcmc}. This
-#' corresponds to the square root of an inverse-gamma distributed
-#' random variable whose parameters depend on the data and the
-#' component covariance matrices. Roughly, this is the update for the
-#' standard deviation, not the variance.
+#' This function provides a Gibbs update for the total variation parameter from
+#' the MCMC implemented in \code{equi_mcmc}. This corresponds to the square root
+#' of an inverse-gamma distributed random variable whose parameters depend on
+#' the data and the component covariance matrices. Roughly, this is the update
+#' for the standard deviation, not the variance.
 #'
 #' @param X An array. The tensor data.
 #' @param phi_inv A list of the current values of inverse of the
-#'     lower-triangular Cholesky square root of the the component
-#'     covariance matrices. This is equivalent to the transpose of the
-#'     upper-triangular Cholesky square root of the inverse component
-#'     covariance matrices.
+#'   lower-triangular Cholesky square root of the the component covariance
+#'   matrices. This is equivalent to the transpose of the upper-triangular
+#'   Cholesky square root of the inverse component covariance matrices.
 #'
 #'   \code{phi_inv[[i]]} is a lower triangluar matrix where
-#'   \code{solve(phi_inv[[i]]) \%*\% t(solve(phi_inv[[i]]))} is the
-#'   current estimate of the \eqn{i}th component covariance matrix.
-#' @return A numeric. The update for the total variation parameter in
-#'     the MCMC implemented in \code{equi_bayes}.
+#'   \code{solve(phi_inv[[i]]) \%*\% t(solve(phi_inv[[i]]))} is the current
+#'   estimate of the \eqn{i}th component covariance matrix.
+#' @return A numeric. The update for the total variation parameter in the MCMC
+#'   implemented in \code{equi_bayes}.
 #'
-#' @seealso \code{\link{equi_mcmc}}.
+#' @seealso \code{\link{equi_mcmc}} for a Gibbs sampler where this function is
+#'   used.
 #'
 #' @references Gerard, D., & Hoff, P. (2015).
 #'   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
-#'   minimax dominators of the MLE in the array normal model}. \emph{Journal of
+#'    minimax dominators of the MLE in the array normal model}. \emph{Journal of
 #'   Multivariate Analysis}, 137, 32-49.
 #'
 #' @author David Gerard.
@@ -43,25 +42,26 @@ sample_sig <- function(X, phi_inv) {
 #' Given scale matrix \code{Phi} and degrees of freedom \code{nu},
 #' \code{rmirror_wishart} will sample from the mirror-Wishart distribution.
 #'
-#' \eqn{S} is mirror-Wishart(\eqn{\nu,\Phi}) if \deqn{S = UV'VU',}
-#' where \eqn{VV'} is the lower triangular Cholesky decomposition of a
-#' Wishart(\eqn{\nu,I})-distributed random matrix and \eqn{UU'} is the
-#' upper triangular Cholesky decomposition of \eqn{\Phi}. For details
-#' on its applications, see
+#' \eqn{S} is mirror-Wishart(\eqn{\nu,\Phi}) if \deqn{S = UV'VU',} where
+#' \eqn{VV'} is the lower triangular Cholesky decomposition of a
+#' Wishart(\eqn{\nu,I})-distributed random matrix and \eqn{UU'} is the upper
+#' triangular Cholesky decomposition of \eqn{\Phi}. That is, \eqn{V} is lower
+#' triangular and \eqn{U} is upper triangular. For details on its applications,
+#' see
 #' \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{
 #' Gerard and Hoff (2015)}.
 #'
 #' @param nu An integer. The degrees of freedom in the mirror-Wishart.
 #' @param Phi A matrix. The scale matrix of the mirror-Wishart.
 #'
-#' @return A matrix drawn from the mirror-Wishart distribution with
-#'     \code{nu} degrees of freedom and scale matrix \code{Phi}.
+#' @return A matrix drawn from the mirror-Wishart distribution with \code{nu}
+#'   degrees of freedom and scale matrix \code{Phi}.
 #'
 #' @export
 #'
 #' @references Gerard, D., & Hoff, P. (2015).
 #'   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
-#'   minimax dominators of the MLE in the array normal model}. \emph{Journal of
+#'    minimax dominators of the MLE in the array normal model}. \emph{Journal of
 #'   Multivariate Analysis}, 137, 32-49.
 #'
 #' @author David Gerard.
@@ -88,7 +88,7 @@ rmirror_wishart <- function(nu, Phi) {
 #' Samples an upper triangular Cholesky square root of a
 #' mirror-Wishart distributed random variable.
 #'
-#' Let \eqn{X} be mirror-Wishart(\eqn{\nu},\eqn{V^-1}). Then This code
+#' Let \eqn{X} be mirror-Wishart(\eqn{\nu}, \eqn{V^-1}). Then This code
 #' returns an upper triangular \eqn{C} where \eqn{X = CC'}. This
 #' function is used primarily during the Gibbs updates of the inverse
 #' of the lower triangular Cholesky square root of the component
@@ -99,7 +99,7 @@ rmirror_wishart <- function(nu, Phi) {
 #'     mirror-Wishart.
 #'
 #' @return \code{C} An upper triangular matrix such that \code{C \%*\% t(C)} is
-#'   a sample from the mirror-Wishart(\code{nu},\code{V ^ -1}) distribution.
+#'   a sample from the mirror-Wishart(\code{nu}, \code{V ^ -1}) distribution.
 #'
 #' @seealso \code{\link{equi_mcmc}}, \code{\link{rmirror_wishart}}.
 #'

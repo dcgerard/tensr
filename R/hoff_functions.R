@@ -12,11 +12,9 @@
 #'
 #' @author Peter Hoff.
 #'
-#' @export
-#'
 #' @examples
-#' mu<-rexp(30)
-#' kendalltau( rpois(30,mu), rpois(30,mu) )
+#' mu <- rexp(30)
+#' tensr:::kendalltau(rpois(30, mu), rpois(30, mu))
 #'
 kendalltau <- function(x, y, nmc = 1e+05) {
     i <- sample(length(y), nmc, replace = TRUE)
@@ -37,7 +35,7 @@ kendalltau <- function(x, y, nmc = 1e+05) {
 #' Construct the communtation matrix.
 #'
 #' This function constructs the commutation matrix \code{K}, which maps
-#' \code{c(A)} to \code{c(t(A))} for an \eqn{mn} by \eqn{mn} matrix
+#' \code{c(A)} to \code{c(t(A))} for an \eqn{m} by \eqn{n} matrix
 #' \code{A}.
 #'
 #' @references Magnus, J. R., & Neudecker,
@@ -55,14 +53,14 @@ kendalltau <- function(x, y, nmc = 1e+05) {
 #'
 #' @return \code{K} The \code{m * n} by \code{m * n} commutation
 #'     matrix.
-#' 
+#'
 #' @author Peter Hoff.
 #' @keywords algebra
 #' @export
 #' @examples
-#' m<-5 ; n<-4
-#' A<-matrix(rnorm(m*n),m,n)
-#' Kom(5,4)%*% c(A) - c(t(A))
+#' m <- 5 ; n <- 4
+#' A <- matrix(rnorm(m * n), m, n)
+#' Kom(5, 4) %*% c(A) - c(t(A))
 Kom <- function(m, n) {
     K <- matrix(0, m * n, m * n)
     for (i in 1:m) {
@@ -93,12 +91,10 @@ Kom <- function(m, n) {
 #'
 #' @author Peter Hoff.
 #'
-#' @export
-#'
 #' @examples
-#' y<-rexp(100)
-#' z<-zscores(y)
-#' par(mfrow=c(1,3))
+#' y <- rexp(100)
+#' z <- tensr:::zscores(y)
+#' par(mfrow = c(1, 3))
 #' hist(y)
 #' hist(z)
 #' plot(y,z)
@@ -125,6 +121,8 @@ zscores <- function(y, ties.method = "average") {
 #'
 #' Computes the tucker sum an array and a list of matrices.
 #'
+#' @export
+#'
 #' @param X A real array.
 #' @param A A list of real matrices.
 #'
@@ -141,7 +139,6 @@ tsum <- function(X, A) {
     }
     return(XA)
 }
-###
 
 #' Wishart simulation.
 #'
@@ -154,12 +151,11 @@ tsum <- function(X, A) {
 #' @param nu a positive scalar.
 #' @author Peter Hoff.
 #' @keywords multivariate simulation
-#' @export
 #' @examples
 #' # simulate several matrices and compute the mean.
-#' SS<-matrix(0,5,5)
-#' for(s in 1:1000) { SS<-SS+rwish(diag(5),3) }
-#' SS/s
+#' SS <- matrix(0, 5, 5)
+#' for(s in 1:1000) { SS <- SS + tensr:::rwish(diag(5), 3) }
+#' SS / s
 rwish <- function(S0, nu = dim(as.matrix(S0))[1] + 1) {
     S0 <- as.matrix(S0)
     S0h <- eigen(S0, symmetric = TRUE)
@@ -185,10 +181,9 @@ rwish <- function(S0, nu = dim(as.matrix(S0))[1] + 1) {
 #' @param Sigma.chol Cholesky decomposition of \code{Sigma}.
 #' @author Peter Hoff.
 #' @keywords multivariate simulation
-#' @export
 #' @examples
 #' # Simulate several matrices and compute the mean.
-#' Y<-rmvnorm(100,c(1,2,3),matrix(c(3,0,1,0,1,-1,1,-1,2),3,3))
+#' Y <- tensr:::rmvnorm(100, c(1, 2, 3), matrix(c(3, 0, 1, 0, 1, -1, 1, -1, 2), 3, 3))
 #' colMeans(Y)
 #' cov(Y)
 rmvnorm <- function(n, mu, Sigma, Sigma.chol = chol(Sigma)) {
@@ -215,9 +210,9 @@ rmvnorm <- function(n, mu, Sigma, Sigma.chol = chol(Sigma)) {
 #' @export
 #' @examples
 #' # all indices of an array
-#' arrIndices(c(4,3,2))
+#' arrIndices(c(4, 3, 2))
 #' # indices of a subarray
-#' arrIndices(list(c(1,3),c(4,5),c(2,3,6)))
+#' arrIndices(list(c(1, 3), c(4, 5), c(2, 3, 6)))
 arrIndices <- function(saidx) {
     if (is.list(saidx)) {
         m <- sapply(saidx, length)
@@ -236,39 +231,50 @@ arrIndices <- function(saidx) {
 #'
 #' Conditional mean and variance of a subarray.
 #'
-#' This function calculates the conditional mean and variance in the
-#' array normal model.
+#' This function calculates the conditional mean and variance in the array
+#' normal model. Let \eqn{Y} be array normal and let \eqn{Y_a} be a subarray of
+#' \eqn{Y}. Then this function will calculate the conditional means and
+#' variances of \eqn{Y_a}, conditional on every other element in \eqn{Y}.
 #'
-#' @param Y a real valued array
-#' @param M mean of \code{Y}
-#' @param S list of mode-specific covariance matrices of \code{Y}
-#' @param saidx list of indices for which the conditional mean and variance
-#'   should be computed
+#' @param Y A real valued array.
+#' @param M Mean of \code{Y}.
+#' @param S List of mode-specific covariance matrices of \code{Y}.
+#' @param saidx List of indices for indexing sub-array for which the conditional
+#'   mean and variance should be computed. For example, \code{said_x = list(1:2,
+#'   1:2, 1:2)} will compute the conditional means and variances for the \eqn{2}
+#'   by \eqn{2} by \eqn{2} sub-array Y[1:2, 1:2, 1:2]. This is conditional on
+#'   every other element in \code{Y}.
 #' @author Peter Hoff.
-#' @keywords multivariate arrays
+#' @keywords multivariate arrays.
+#'
+#' @references Hoff, P. D. (2011).
+#'   \href{http://arxiv.org/abs/1008.2169}{Separable covariance arrays via the
+#'   Tucker product, with applications to multivariate relational data}.
+#'   \emph{Bayesian Analysis}, 6(2), 179-196.
 #' @export
 #' @examples
-#' m<-c(6,5,4)
-#' K<-length(m)
-#' M<-rsan(m)
-#' S<-list() ; for(k in 1:K) { S[[k]]<-rwish(diag(m[k]))/m[k] }
-#' Y<-M+atrans(rsan(m),lapply(S,mhalf))
+#' # Generate array normally distributed data array Y.
+#' m <- c(6, 5, 4)
+#' K <- length(m)
+#' M <- tensr:::rsan(m)
+#' S <- list(); for(k in 1:K) { S[[k]] <- tensr:::rwish(diag(m[k])) / m[k] }
+#' Y <- M + atrans(tensr:::rsan(m), lapply(S, mhalf))
 #'
-#' SY<-Y*0
-#' SS<-list() ; for(k in 1:K) { SS[[k]]<-matrix(0,m[k],m[k]) }
+#' SY <- Y * 0
+#' SS <- list() ; for(k in 1:K) { SS[[k]] <- matrix(0, m[k], m[k]) }
 #' for(s in 1:1e4)
 #' {
-#'   saidx<-list()
-#'   for(k in 1:K){ saidx[[k]]<-sort(sample(1:m[k],1+rbinom(1,m[k]-1,.5))) }
-#'   MS<-anorm_cd(Y,M,S,saidx)
-#'   Ya<- MS$Mab + atrans(rsan(sapply(saidx,length)),lapply(MS$Sab,mhalf))
-#'   Y[arrIndices(saidx)]<-Ya
-#'   SY<-SY+Y
-#'   for(k in 1:K){SS[[k]]<-SS[[k]]+mat(Y-M,k)%*%t(mat(Y-M,k)) }
+#'   saidx <- list()
+#'   for(k in 1:K) { saidx[[k]] <- sort(sample(1:m[k], 1 + rbinom(1, m[k] - 1, 0.5))) }
+#'   MS <- anorm_cd(Y, M, S, saidx)
+#'   Ya <- MS$Mab + atrans(tensr:::rsan(sapply(saidx, length)), lapply(MS$Sab, mhalf))
+#'   Y[arrIndices(saidx)] <- Ya
+#'   SY <- SY + Y
+#'   for(k in 1:K){SS[[k]] <- SS[[k]] + mat(Y - M, k) %*% t(mat(Y - M, k)) }
 #' }
-#' par(mfrow=c(2,2))
-#' plot(M,SY/s)  ; abline(0,1)
-#' for (k in 1:K) {plot(S[[k]]/tr(S[[k]]),SS[[k]]/tr(SS[[k]])) ; abline(0,1) }
+#' par(mfrow = c(2, 2))
+#' plot(M, SY / s)  ; abline(0, 1)
+#' for (k in 1:K) { plot(S[[k]] / tr(S[[k]]), SS[[k]] / tr(SS[[k]])) ; abline(0, 1) }
 anorm_cd <- function(Y, M, S, saidx) {
     Yab <- Y
     Sab <- S
@@ -311,14 +317,11 @@ anorm_cd <- function(Y, M, S, saidx) {
 #' @param dim a vector of positive integers.
 #' @author Peter Hoff.
 #' @keywords simulation multivariate
-#' @export
 #' @examples
-#' rsan(c(5,4,3))
+#' tensr:::rsan(c(5,4,3))
 rsan <- function(dim) {
     return(array(rnorm(prod(dim)), dim))
 }
-
-
 
 #' Top K elements of a vector.
 #'
@@ -334,10 +337,9 @@ rsan <- function(dim) {
 #'     largest element, resulting in a vector possibly of length
 #'     greater than \code{K} in the case of ties.
 #' @author Peter Hoff.
-#' @export
 #' @examples
-#' x<-c(3,6,2,4,1)
-#' topK(x,3)
+#' x <- c(3, 6, 2, 4, 1)
+#' tensr:::topK(x, 3)
 topK <- function(x, K = 1, ignoreties = TRUE) {
     iK <- which(x >= sort(x, decreasing = TRUE)[K])
     iK <- (iK[order(-x[iK])])

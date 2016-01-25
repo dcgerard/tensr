@@ -20,9 +20,9 @@ decomposition, as described in Everson and Morris (2000).
 }
 \examples{
 # simulate several matrices and compute the mean.
-SS<-matrix(0,5,5)
-for(s in 1:1000) { SS<-SS+rwish(diag(5),3) }
-SS/s
+SS <- matrix(0, 5, 5)
+for(s in 1:1000) { SS <- SS + tensr:::rwish(diag(5), 3) }
+SS / s
 }
 \author{
 Peter Hoff.

@@ -8,7 +8,7 @@ start_ident(p, modes = NULL)
 }
 \arguments{
 \item{p}{A vector of integers. This is the dimension of the array and the
-length of the list ot be created.}
+length of the list to be created.}
 
 \item{modes}{A vector of integers. These are the indices in the list to be
 given an identity matrix.}
@@ -20,11 +20,11 @@ given an identity matrix.}
 Will provide a list of identity matrices for the specified modes.
 }
 \details{
-Given a vector of dimensions \code{p} and a vector indicating which modes
-will get an identity matrix \code{modes}, this function will return a list
-\code{start_vals} where \code{start_vals[[i]]} is the identity matrix of
-dimesnions \code{p[i]} if \code{i} is in \code{modes} and will be \code{NULL}
-otherwise.
+Given a vector of dimensions \code{p} and a vector indicating which
+modes will get an identity matrix \code{modes}, this function will
+return a list \code{start_vals} where \code{start_vals[[i]]} is the
+identity matrix of dimensions \code{p[i]} if \code{i} is in
+\code{modes} and will be \code{NULL} otherwise.
 
 This is primarily used when getting starting values in \code{equi_mcmc}.
 }

@@ -7,21 +7,21 @@
 arrIndices(saidx)
 }
 \arguments{
-\item{saidx}{either a vector of the dimensions of a potential array, or a
-list of the indices in the subarray.}
+\item{saidx}{either a vector of the dimensions of a potential
+array, or a list of the indices in the subarray.}
 }
 \description{
 Generates indices corresponding to subarrays.
 }
 \details{
-This function generates a matrix corresponding to all combinations of a list
-of indices, to be used in subsetting arrays.
+This function generates a matrix corresponding to all combinations
+of a list of indices, to be used in subsetting arrays.
 }
 \examples{
 # all indices of an array
-arrIndices(c(4,3,2))
+arrIndices(c(4, 3, 2))
 # indices of a subarray
-arrIndices(list(c(1,3),c(4,5),c(2,3,6)))
+arrIndices(list(c(1, 3), c(4, 5), c(2, 3, 6)))
 }
 \author{
 Peter Hoff.

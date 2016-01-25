@@ -16,20 +16,23 @@ qr2(X)
 diagonal elements.
 }
 \description{
-QR decomposition, constraining the R matrix to have non-negative
-diagonal entries.
+QR decomposition, constraining the R matrix to have non-negative diagonal
+entries.
 }
 \details{
-This function is almost a wrapper for \code{qr()}, \code{qr.R()},
-and \code{qr.Q()}, except it constrains the diagonal elements of \code{R}
-to be non-negative. If \code{X} is full rank with fewer columns than rows,
-then this is sufficient to gaurantee uniqueness of the QR decomposition
-(Proposition 5.2 of \href{https://books.google.com/books?id=WyvvAAAAMAAJ}{Eaton (1983)}).
+This function is almost a wrapper for \code{qr()}, \code{qr.R()}, and
+\code{qr.Q()}, except it constrains the diagonal elements of \code{R} to be
+non-negative. If \code{X} is full rank with fewer columns than rows, then
+this is sufficient to gaurantee uniqueness of the QR decomposition
+(Proposition 5.2 of
+\href{https://books.google.com/books?id=WyvvAAAAMAAJ}{Eaton (1983)}).
 }
 \author{
 David Gerard.
 }
 \seealso{
-\code{\link[base]{qr}}, \code{\link[base]{qr.Q}}, \code{\link[base]{qr.R}}, \code{\link{lq}}.
+\code{\link[base]{qr}}, \code{\link[base]{qr.Q}}, and
+  \code{\link[base]{qr.R}} for the base methods on the obtaining the QR
+  decomposition. \code{\link{lq}} for the related LQ decomposition.
 }
 

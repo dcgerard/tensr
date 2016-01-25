@@ -9,22 +9,23 @@ sample_right_wishart(nu, V)
 \arguments{
 \item{nu}{A numeric. The degrees of freedom in the mirror-Wishart.}
 
-\item{V}{A matrix. The inverse of the scale matrix in the mirror-Wishart.}
+\item{V}{A matrix. The inverse of the scale matrix in the
+mirror-Wishart.}
 }
 \value{
 \code{C} An upper triangular matrix such that \code{C \%*\% t(C)} is
-  a sample from the mirror-Wishart(\code{nu},\code{V ^ -1}) distribution.
+  a sample from the mirror-Wishart(\code{nu}, \code{V ^ -1}) distribution.
 }
 \description{
-Samples an upper triangular Cholesky square root of a mirror-Wishart
-distributed random variable.
+Samples an upper triangular Cholesky square root of a
+mirror-Wishart distributed random variable.
 }
 \details{
-Let \eqn{X} be mirror-Wishart(\eqn{\nu},\eqn{V^-1}). Then This code returns
-an upper triangular \eqn{C} where \eqn{X = CC'}. This function is used
-primarily during the Gibbs updates of the inverse of the lower triangular
-Cholesky square root of the component covariance matrices in
-\code{equi_mcmc}.
+Let \eqn{X} be mirror-Wishart(\eqn{\nu}, \eqn{V^-1}). Then This code
+returns an upper triangular \eqn{C} where \eqn{X = CC'}. This
+function is used primarily during the Gibbs updates of the inverse
+of the lower triangular Cholesky square root of the component
+covariance matrices in \code{equi_mcmc}.
 }
 \author{
 David Gerard.

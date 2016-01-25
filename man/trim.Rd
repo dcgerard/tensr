@@ -12,12 +12,12 @@ trim(X, epsilon = 10^-6)
 \item{epsilon}{A numeric.}
 }
 \description{
-Given an array, matrix, or vector, \code{trim} will truncate
-all elements smaller than \code{epsilon} (in absolute value) to zero.
+Given an array, matrix, or vector, \code{trim} will truncate all
+elements smaller than \code{epsilon} (in absolute value) to zero.
 }
 \details{
-All elements in \code{X} that are smaller than \code{epsilon} (in absolute value)
-will be set to zero then returned.
+All elements in \code{X} that are smaller than \code{epsilon} (in
+absolute value) will be set to zero then returned.
 }
 \examples{
 X <- c(0, 1, 10^-7, -1, -10^-7)

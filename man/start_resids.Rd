@@ -9,13 +9,15 @@ start_resids(Y, mode_rep = NULL)
 \arguments{
 \item{Y}{An array of numeric data.}
 
-\item{mode_rep}{A vector of integers. The modes specified by \code{mode_rep}
-will be given an identity matrix instead of a sample-based matrix.}
+\item{mode_rep}{A vector of integers. The modes specified by
+\code{mode_rep} will be given an identity matrix instead of a
+sample-based matrix.}
 }
 \value{
-\code{Sig} A list where \code{Sig[[i]]} is the lower-triangular
-  Cholesky square root of the sample covariance matrix of the \eqn{i}th mode,
-  scaled down to have determinant 1.
+\code{Sig} A list where \code{Sig[[i]]} is the
+    lower-triangular Cholesky square root of the sample covariance
+    matrix of the \eqn{i}th mode, scaled down to have determinant
+    1.
 
   \code{Sig_inv} A list where \code{Sig_inv[[i]]} is the inverse of the
   lower-triangular Cholesky square root of the sample covariance matrix of
@@ -26,15 +28,17 @@ will be given an identity matrix instead of a sample-based matrix.}
   instead of sample-based matrices.
 }
 \description{
-Scaled Cholesky square roots of the sample covariance matrix and its inverse.
+Scaled Cholesky square roots of the sample covariance matrix and
+its inverse.
 }
 \details{
-This function will take the sample covariance matrix of the \eqn{i}th
-matricization of an input array \eqn{Y} and will return (1) its
-lower-triangular Cholesky square root scaled down to have determinant 1 and
-(2) the inverse of its lower-triangular Cholesky square root scaled down to
-have determinant 1. This function is primarily used to obtain starting values
-for the Gibbs sampler implemented in \code{equi_mcmc}.
+This function will take the sample covariance matrix of the
+\eqn{i}th matricization of an input array \eqn{Y} and will return
+(1) its lower-triangular Cholesky square root scaled down to have
+determinant 1 and (2) the inverse of its lower-triangular Cholesky
+square root scaled down to have determinant 1. This function is
+primarily used to obtain starting values for the Gibbs sampler
+implemented in \code{equi_mcmc}.
 }
 \author{
 David Gerard.

@@ -12,28 +12,29 @@ collapse_mode(X, m)
 \item{m}{A vector of integers giving the modes to collapse.}
 }
 \value{
-If \eqn{X} is of order \eqn{K} and \code{length(m) = q}, then returns
-  an array \eqn{Y} of order \eqn{K - q + 1}, where the modes indicated in
-  \code{m} are combined to be the first mode in \eqn{Y}.
+If \eqn{X} is of order \eqn{K} and \code{length(m) = q},
+    then returns an array \eqn{Y} of order \eqn{K - q + 1}, where
+    the modes indicated in \code{m} are combined to be the first
+    mode in \eqn{Y}.
 }
 \description{
 Given an array \code{X} and a vector of integers \code{m},
-\code{collapse_mode} returns an array of lower order where the first mode
-indexes the modes indicated in \code{m}.
+\code{collapse_mode} returns an array of lower order where the
+first mode indexes the modes indicated in \code{m}.
 }
 \details{
-Transforms an array into another array where the provided modes are collapsed
-into one mode. The indexing along this new mode is in lexicographical order
-of the indices of the collapsed modes. The collapsed mode is the first mode
-unless \code{length(m) == 1}, then \code{collapse_mode} simply returns
-\code{X}.
+Transforms an array into another array where the provided modes are
+collapsed into one mode. The indexing along this new mode is in
+lexicographical order of the indices of the collapsed modes. The
+collapsed mode is the first mode unless \code{length(m) == 1}, then
+\code{collapse_mode} simply returns \code{X}.
 }
 \examples{
 X <- array(rep(c(1, 2), 8), dim = c(2, 2, 2, 2))
 X
 #mode 1 is now mode 2, modes 2, 3, and 4 are combined to be mode 1.
 collapse_mode(X, c(2, 3, 4))
-collapse_mode(X, c(2, 4))
+collapse_mode(X, c(2, 4)) ## another example.
 collapse_mode(X, 4) #returns X
 }
 \author{

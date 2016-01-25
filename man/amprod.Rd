@@ -11,22 +11,25 @@ amprod(A, M, k)
 
 \item{M}{A real matrix.}
 
-\item{k}{An integer. The mode along which \code{M} is to be multiplied to
-\code{A}.}
+\item{k}{An integer. The mode along which \code{M} is to be
+multiplied to \code{A}.}
 }
 \value{
-An array whose \eqn{k}-mode unfolding is \code{M \%*\% mat(A,k)}.
+An array whose \eqn{k}-mode unfolding is \code{M \%*\%
+    mat(A,k)}.
 }
 \description{
-\code{amprod} returns the \eqn{k}-mode product of an array with a matrix.
+\code{amprod} returns the \eqn{k}-mode product of an array with a
+matrix.
 }
 \details{
-The \eqn{k}-mode product of a tensor \eqn{A} with a matrix \eqn{M} results
-in a tensor whose \eqn{k}-mode unfolding is \eqn{M} times the \eqn{k}-mode
-unfolding of \eqn{A}. That is \code{mat(amprod(A,M,k)) = M \%*\% mat(A,k)}.
-More details of the \eqn{k}-mode product can be found in
-\href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{
-Kolda and Bader (2009)}.
+The \eqn{k}-mode product of a tensor \eqn{A} with a matrix \eqn{M}
+results in a tensor whose \eqn{k}-mode unfolding is \eqn{M} times
+the \eqn{k}-mode unfolding of \eqn{A}. That is
+\code{mat(amprod(A,M,k)) = M \%*\% mat(A,k)}.  More details of the
+\eqn{k}-mode product can be found in
+\href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{ Kolda and
+Bader (2009)}.
 }
 \examples{
 A <- array(1:8, dim = c(2,2,2))
@@ -38,7 +41,13 @@ identical(M \%*\% mat(A,2), mat(Y,2))
 \author{
 Peter Hoff.
 }
+\references{
+Kolda, T. G., & Bader, B. W. (2009).
+  \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
+  decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
+}
 \seealso{
-\code{\link{atrans}} for applying multiple \eqn{k}-mode products.
+\code{\link{atrans}} for applying multiple \eqn{k}-mode
+    products.
 }
 

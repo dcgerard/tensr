@@ -10,7 +10,8 @@ polar(X)
 \item{X}{A matrix.}
 }
 \value{
-\code{P} A \eqn{n} by \eqn{n} symmetric positive definite matrix.
+\code{P} A \eqn{n} by \eqn{n} symmetric positive definite
+    matrix.
 
 \code{Z} A \eqn{n} by \eqn{p} matrix with orthonormal rows.
 
@@ -20,10 +21,11 @@ Note that \code{X == P \%*\% Z}, up to numerical precision.
 \code{polar} calculates the left polar decomposition of a matrix.
 }
 \details{
-\code{polar} Takes a matrix \eqn{X}, of dimensions \eqn{n} by \eqn{p}, and
-returns two matrices \eqn{P} and \eqn{Z} such that \eqn{X = PZ}. \eqn{P} is a
-symmetric positive definite matrix of dimension \eqn{n} by \eqn{n} and
-\eqn{Z} is an \eqn{n} by \eqn{p} matrix with orthonormal rows.
+\code{polar} Takes a matrix \eqn{X}, of dimensions \eqn{n} by
+\eqn{p}, and returns two matrices \eqn{P} and \eqn{Z} such that
+\eqn{X = PZ}. \eqn{P} is a symmetric positive definite matrix of
+dimension \eqn{n} by \eqn{n} and \eqn{Z} is an \eqn{n} by \eqn{p}
+matrix with orthonormal rows.
 }
 \examples{
 X <- matrix(1:6, nrow = 2)

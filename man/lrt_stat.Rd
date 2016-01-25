@@ -36,6 +36,10 @@ Gerard, D. C., & Hoff, P. D. (2014).
   separable covariance models}. \emph{arXiv preprint arXiv:1410.1094.}
 }
 \seealso{
-\code{\link{lrt_null_dist_dim_same}}
+\code{\link{holq}} for obtaining the MLE of the total variation
+  parameter.
+
+  \code{\link{lrt_null_dist_dim_same}} for getting the null distribution of
+  the likelihood ratio test statistic.
 }
 

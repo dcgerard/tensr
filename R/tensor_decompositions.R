@@ -95,9 +95,9 @@ hosvd <- function(Y, r = NULL) {
 #'
 #' Given an array \code{X}, the default version of this function will calculate
 #' (1) \code{L} a list of lower triangular matricies with positive diagonal
-#' elements and unit determinant, \code{Z} an aray of the same dimensions as
+#' elements and unit determinant, \code{Z} an array of the same dimensions as
 #' \code{X} that has special orthogonal properties, and (3) \code{sig} a numeric
-#' such that \code{X} is the same as \code{sig * atrans(X,L)} up to numeric
+#' such that \code{X} is the same as \code{sig * atrans(Z,L)} up to numeric
 #' precision.
 #'
 #' This output (1) can be considered a generalization of the LQ decomposition to
@@ -159,6 +159,20 @@ hosvd <- function(Y, r = NULL) {
 #'   \code{sig} A numeric. The total variation parameter. This is the "standard
 #'   deviation" form.
 #'
+#' @seealso \code{\link{array_bic_aic}} for using the output of \code{holq} to
+#'   calculate AIC and BIC,
+#'
+#'   \code{\link{get_isvd}} for using the output of \code{holq} to calculate a
+#'   tensor generalization of the singular value decomposition.
+#'
+#'   \code{\link{lq}} for the matrix LQ decomposition.
+#'
+#'   \code{\link{lrt_stat}} for using the output of \code{holq} to calculate
+#'   likelihood ratio test statistics.
+#'
+#'   \code{\link{mle_from_holq}} for using the output of \code{holq} to
+#'   calculate the maximum likelihood estimates of the component covariance
+#'   matrices under the array normal model.
 #'
 #' @export
 #'

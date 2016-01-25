@@ -12,20 +12,19 @@ mat(A, k)
 \item{k}{The mode, or dimension, along which the unfolding is to be applied.}
 }
 \value{
-A matrix whose rows index the \eqn{k}th mode and whose
-columns index every other mode. The ordering of the columns is
-in lexicographical order of the indices of the array \eqn{A}.
+A matrix  whose rows  index the  \eqn{k}th mode  and whose columns
+  index every other mode.  The ordering of the columns is in lexicographical
+  order of the indices of the array \eqn{A}.
 }
 \description{
 \code{mat} returns a matrix version of a provided tensor.
 }
 \details{
-Applies the matrix unfolding  operator (also called 'matricization'
-or 'matrix flattening' operator) on a provided matrix. There are
-multiple ways one could do this. This function performs the
-matrix unfolding described in
-\href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{
-Kolda and Bader (2009)}.
+Applies the matrix unfolding operator (also called 'matricization' or 'matrix
+flattening' operator) on a provided tensor. There are multiple ways one could
+do this. This function performs the matrix unfolding described in
+\href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{ Kolda and Bader
+(2009)}.
 }
 \examples{
 A <- array(1:8, dim = c(2,2,2))
@@ -35,5 +34,10 @@ mat(A, 3)
 }
 \author{
 Peter Hoff.
+}
+\references{
+Kolda, T. G., & Bader, B. W. (2009).
+  \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
+  decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
 }
 
