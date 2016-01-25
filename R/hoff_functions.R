@@ -1,13 +1,14 @@
 #' Kendall's tau measure of association.
 #'
-#' This function provides a Monte Carlo approximation to Kendall's tau measure
-#' of association.
+#' This function provides a Monte Carlo approximation to Kendall's tau
+#' measure of association.
 #'
 #' @param x a vector.
 #' @param y a vector.
 #' @param nmc an integer number of Monte Carlo simulations.
 #'
-#' @return A Monte Carlo approximation to Kendall's tau measure of association.
+#' @return A Monte Carlo approximation to Kendall's tau measure of
+#'     association.
 #'
 #' @author Peter Hoff.
 #'
@@ -35,10 +36,26 @@ kendalltau <- function(x, y, nmc = 1e+05) {
 #'
 #' Construct the communtation matrix.
 #'
-#' This function constructs the commutation matrix K_mn, which maps c(A) to
-#' c(t(A)) for an m*n matrix A.
+#' This function constructs the commutation matrix \code{K}, which maps
+#' \code{c(A)} to \code{c(t(A))} for an \eqn{mn} by \eqn{mn} matrix
+#' \code{A}.
+#'
+#' @references Magnus, J. R., & Neudecker,
+#'     H. (1979). \href{http://www.janmagnus.nl/papers/JRM005.pdf}{The
+#'     commutation matrix: some properties and
+#'     applications}. \emph{The Annals of Statistics}, 381-394.
+#'
+#' Tracy, D. S., & Dwyer,
+#' P. S. (1969). \href{http://www.che.iitm.ac.in/~naras/ch544/maxmin_matrixderivatives.pdf}{Multivariate
+#' maxima and minima with matrix derivatives}. \emph{Journal of the
+#' American Statistical Association}, 64(328), 1576-1594.
+#'
 #' @param m a natural number.
 #' @param n another natural number.
+#'
+#' @return \code{K} The \code{m * n} by \code{m * n} commutation
+#'     matrix.
+#' 
 #' @author Peter Hoff.
 #' @keywords algebra
 #' @export
@@ -64,12 +81,13 @@ Kom <- function(m, n) {
 
 #' Normal scores.
 #'
-#' This function applies a quantile-quantile transformation to the data,
-#' resulting in a distribution that is approximately normal but has the same
-#' ranks as the original data.
+#' This function applies a quantile-quantile transformation to the
+#' data, resulting in a distribution that is approximately normal but
+#' has the same ranks as the original data.
 #'
 #' @param y A vector.
-#' @param ties.method The option \code{ties.method} in the \code{rank} function.
+#' @param ties.method The option \code{ties.method} in the \code{rank}
+#'     function.
 #'
 #' @return A vector of the same length as \code{y}.
 #'
@@ -187,11 +205,11 @@ rmvnorm <- function(n, mu, Sigma, Sigma.chol = chol(Sigma)) {
 #'
 #' Generates indices corresponding to subarrays.
 #'
-#' This function generates a matrix corresponding to all combinations of a list
-#' of indices, to be used in subsetting arrays.
+#' This function generates a matrix corresponding to all combinations
+#' of a list of indices, to be used in subsetting arrays.
 #'
-#' @param saidx either a vector of the dimensions of a potential array, or a
-#'   list of the indices in the subarray.
+#' @param saidx either a vector of the dimensions of a potential
+#'     array, or a list of the indices in the subarray.
 #' @author Peter Hoff.
 #' @keywords arrays
 #' @export
@@ -218,8 +236,8 @@ arrIndices <- function(saidx) {
 #'
 #' Conditional mean and variance of a subarray.
 #'
-#' This function calculates the conditional mean and variance in the array
-#' normal model.
+#' This function calculates the conditional mean and variance in the
+#' array normal model.
 #'
 #' @param Y a real valued array
 #' @param M mean of \code{Y}
@@ -287,8 +305,8 @@ anorm_cd <- function(Y, M, S, saidx) {
 #'
 #' Generate an array of iid standard normal variables.
 #'
-#' This functions generates an array of dimension \code{dim} filled with iid
-#' standard normal variables.
+#' This functions generates an array of dimension \code{dim} filled
+#' with iid standard normal variables.
 #'
 #' @param dim a vector of positive integers.
 #' @author Peter Hoff.
@@ -306,14 +324,15 @@ rsan <- function(dim) {
 #'
 #' Identify top K elements of a vector.
 #'
-#' This function returns the indices corresponding to the top elements of a
-#' vector.
+#' This function returns the indices corresponding to the top elements
+#' of a vector.
 #'
 #' @param x The vector.
 #' @param K The number of indices to return.
-#' @param ignoreties If \code{FALSE}, will return a vector of the indices whose
-#'   elements are greater than or equal to the Kth largest element, resulting in
-#'   a vector possibly of length greater than \code{K} in the case of ties.
+#' @param ignoreties If \code{FALSE}, will return a vector of the
+#'     indices whose elements are greater than or equal to the Kth
+#'     largest element, resulting in a vector possibly of length
+#'     greater than \code{K} in the case of ties.
 #' @author Peter Hoff.
 #' @export
 #' @examples

@@ -2,23 +2,25 @@
 #'
 #' Samples from the square root of an inverse-gamma.
 #'
-#' This function provides a Gibbs update for the total variation parameter from
-#' the MCMC implemented in \code{equi_mcmc}. This corresponds to the square root
-#' of an inverse-gamma distributed random variable whose parameters depend on
-#' the data and the component covariance matrices. Roughly, this is the update
-#' for the standard deviation, not the variance.
+#' This function provides a Gibbs update for the total variation
+#' parameter from the MCMC implemented in \code{equi_mcmc}. This
+#' corresponds to the square root of an inverse-gamma distributed
+#' random variable whose parameters depend on the data and the
+#' component covariance matrices. Roughly, this is the update for the
+#' standard deviation, not the variance.
 #'
 #' @param X An array. The tensor data.
 #' @param phi_inv A list of the current values of inverse of the
-#'   lower-triangular Cholesky square root of the the component covariance
-#'   matrices. This is equivalent to the transpose of the upper-triangular
-#'   Cholesky square root of the inverse component covariance matrices.
+#'     lower-triangular Cholesky square root of the the component
+#'     covariance matrices. This is equivalent to the transpose of the
+#'     upper-triangular Cholesky square root of the inverse component
+#'     covariance matrices.
 #'
 #'   \code{phi_inv[[i]]} is a lower triangluar matrix where
-#'   \code{solve(phi_inv[[i]]) \%*\% t(solve(phi_inv[[i]]))} is the current
-#'   estimate of the \eqn{i}th component covariance matrix.
-#' @return A numeric. The update for the total variation parameter in the MCMC
-#'   implemented in \code{equi_bayes}.
+#'   \code{solve(phi_inv[[i]]) \%*\% t(solve(phi_inv[[i]]))} is the
+#'   current estimate of the \eqn{i}th component covariance matrix.
+#' @return A numeric. The update for the total variation parameter in
+#'     the MCMC implemented in \code{equi_bayes}.
 #'
 #' @seealso \code{\link{equi_mcmc}}.
 #'
@@ -41,19 +43,19 @@ sample_sig <- function(X, phi_inv) {
 #' Given scale matrix \code{Phi} and degrees of freedom \code{nu},
 #' \code{rmirror_wishart} will sample from the mirror-Wishart distribution.
 #'
-#' \eqn{S} is mirror-Wishart(\eqn{\nu,\Phi}) if \deqn{S = UV'VU',} where
-#' \eqn{VV'} is the lower triangular Cholesky decomposition of a
-#' Wishart(\eqn{\nu,I})-distributed random matrix and \eqn{UU'} is the upper
-#' triangular Cholesky decomposition of \eqn{\Phi}. For details on its
-#' applications, see
+#' \eqn{S} is mirror-Wishart(\eqn{\nu,\Phi}) if \deqn{S = UV'VU',}
+#' where \eqn{VV'} is the lower triangular Cholesky decomposition of a
+#' Wishart(\eqn{\nu,I})-distributed random matrix and \eqn{UU'} is the
+#' upper triangular Cholesky decomposition of \eqn{\Phi}. For details
+#' on its applications, see
 #' \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{
 #' Gerard and Hoff (2015)}.
 #'
 #' @param nu An integer. The degrees of freedom in the mirror-Wishart.
 #' @param Phi A matrix. The scale matrix of the mirror-Wishart.
 #'
-#' @return A matrix drawn from the mirror-Wishart distribution with \code{nu}
-#'   degrees of freedom and scale matrix \code{Phi}.
+#' @return A matrix drawn from the mirror-Wishart distribution with
+#'     \code{nu} degrees of freedom and scale matrix \code{Phi}.
 #'
 #' @export
 #'
@@ -83,17 +85,18 @@ rmirror_wishart <- function(nu, Phi) {
 
 #' Gibbs update of \code{Phi_inv}.
 #'
-#' Samples an upper triangular Cholesky square root of a mirror-Wishart
-#' distributed random variable.
+#' Samples an upper triangular Cholesky square root of a
+#' mirror-Wishart distributed random variable.
 #'
-#' Let \eqn{X} be mirror-Wishart(\eqn{\nu},\eqn{V^-1}). Then This code returns
-#' an upper triangular \eqn{C} where \eqn{X = CC'}. This function is used
-#' primarily during the Gibbs updates of the inverse of the lower triangular
-#' Cholesky square root of the component covariance matrices in
-#' \code{equi_mcmc}.
+#' Let \eqn{X} be mirror-Wishart(\eqn{\nu},\eqn{V^-1}). Then This code
+#' returns an upper triangular \eqn{C} where \eqn{X = CC'}. This
+#' function is used primarily during the Gibbs updates of the inverse
+#' of the lower triangular Cholesky square root of the component
+#' covariance matrices in \code{equi_mcmc}.
 #'
 #' @param nu A numeric. The degrees of freedom in the mirror-Wishart.
-#' @param V A matrix. The inverse of the scale matrix in the mirror-Wishart.
+#' @param V A matrix. The inverse of the scale matrix in the
+#'     mirror-Wishart.
 #'
 #' @return \code{C} An upper triangular matrix such that \code{C \%*\% t(C)} is
 #'   a sample from the mirror-Wishart(\code{nu},\code{V ^ -1}) distribution.
@@ -126,36 +129,44 @@ sample_right_wishart <- function(nu, V) {
 #' \code{equi_mcmc} obtains posterior draws that are useful in optimal
 #' equivariant estimation under the array normal model.
 #'
-#' \code{equi_mcmc} obtains posterior samples of the component covariance
-#' matrices from the array normal model. This is with respect to using the right
-#' Haar measure over a product group of lower triangular matrices as the prior.
+#' \code{equi_mcmc} obtains posterior samples of the component
+#' covariance matrices from the array normal model. This is with
+#' respect to using the right Haar measure over a product group of
+#' lower triangular matrices as the prior.
 #'
-#' This returns only the upper triangular Cholesky square root of the inverses
-#' of the component covariance matrices. Equivalently, these are the inverses of
-#' the lower triangular Cholesky square roots of the component covariance
-#' matrices. This is because sampling the inverse is faster computationally and
-#' the Bayes rules (based on multiway Stein's loss) only depend on the inverse.
+#' This returns only the upper triangular Cholesky square root of the
+#' inverses of the component covariance matrices. Equivalently, these
+#' are the inverses of the lower triangular Cholesky square roots of
+#' the component covariance matrices. This is because sampling the
+#' inverse is faster computationally and the Bayes rules (based on
+#' multiway Stein's loss) only depend on the inverse.
 #'
 #' @param X A tensor.
 #' @param itermax The number of iterations in the Gibb's sampler.
-#' @param start_identity Should we start the component covariance matrices at
-#'   the identity (TRUE) or the sample covariance matrices (FALSE)?
-#' @param print_iter Should we print the iteration number at each iteration?
-#' @param mode_rep The mode that contains samples. I.e., the mode whose
-#'   component covariance matrix is the identity. If NULL then no modes are
-#'   assumed to have identity covariance.
+#' @param start_identity Should we start the component covariance
+#'     matrices at the identity (TRUE) or the sample covariance
+#'     matrices (FALSE)?
+#' @param print_iter Should we print the iteration number at each
+#'     iteration?
+#' @param mode_rep The mode that contains samples. I.e., the mode
+#'     whose component covariance matrix is the identity. If NULL then
+#'     no modes are assumed to have identity covariance.
 #'
-#' @return \code{Phi_inv} List of posterior draws of the inverse of the cholesky
-#'   square roots of each component covariance matrix. \code{Phi_inv[[i]][,,j]}
-#'   provides the \eqn{j}th sample of the \eqn{i}th component.
+#' @return \code{Phi_inv} List of posterior draws of the inverse of
+#'     the cholesky square roots of each component covariance
+#'     matrix. \code{Phi_inv[[i]][,,j]} provides the \eqn{j}th sample
+#'     of the \eqn{i}th component.
 #'
-#'   \code{sigma} Vector of posterior samples of the overall scale paramater.
+#'   \code{sigma} Vector of posterior samples of the overall scale
+#'   paramater.
 #'
-#' @seealso \code{\link{sample_right_wishart}} and \code{\link{sample_sig}} for
-#'   the Gibbs updates. \code{\link{convert_cov}} and
-#'   \code{\link{get_equi_bayes}} for getting posterior summaries based on the
-#'   output of \code{equi_mcmc}. \code{\link{multiway_takemura}} for an
-#'   improvement on this procedure.
+#' @seealso \code{\link{sample_right_wishart}} and
+#'     \code{\link{sample_sig}} for the Gibbs
+#'     updates. \code{\link{convert_cov}} and
+#'     \code{\link{get_equi_bayes}} for getting posterior summaries
+#'     based on the output of
+#'     \code{equi_mcmc}. \code{\link{multiway_takemura}} for an
+#'     improvement on this procedure.
 #'
 #' @export
 #'

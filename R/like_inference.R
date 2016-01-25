@@ -30,24 +30,25 @@ lrt_stat <- function(sig_null, sig_alt, p) {
 
 #' Calculate the AIC and BIC.
 #'
-#' Calculate the AIC and BIC for Kronecker structured covariance models,
-#' assuming the array normal distribution.
+#' Calculate the AIC and BIC for Kronecker structured covariance
+#' models, assuming the array normal distribution.
 #'
-#' The AIC and BIC depend only on the data through the MLE of the total
-#' variation parameter. Given this, the dimension of the array, and a
-#' specification of which modes are the identity and which are unstructured,
-#' this function will calculate the AIC and BIC.
+#' The AIC and BIC depend only on the data through the MLE of the
+#' total variation parameter. Given this, the dimension of the array,
+#' and a specification of which modes are the identity and which are
+#' unstructured, this function will calculate the AIC and BIC.
 #'
-#' @param sig_squared A numeric. The MLE of sigma^2 in the array normal model
-#'   (the 'variance' form of the total variation parameter).
-#' @param p A vector of integers. The dimension of the data array (including
-#'   replication modes).
-#' @param mode_ident A vector of integers. The modes assumed to have identity
-#'   covariances.
-#' @param mode_diag A vector of integers. The modes assumed to have diagional
-#'   covariances.
-#' @param mode_unstructured A vector of integers. The modes of assumed to have
-#'   unstructured covariances.
+#' @param sig_squared A numeric. The MLE of sigma^2 in the array
+#'     normal model (the 'variance' form of the total variation
+#'     parameter).
+#' @param p A vector of integers. The dimension of the data array
+#'     (including replication modes).
+#' @param mode_ident A vector of integers. The modes assumed to have
+#'     identity covariances.
+#' @param mode_diag A vector of integers. The modes assumed to have
+#'     diagional covariances.
+#' @param mode_unstructured A vector of integers. The modes of assumed
+#'     to have unstructured covariances.
 #'
 #' @export
 #'
@@ -86,45 +87,49 @@ array_bic_aic <- function(sig_squared, p, mode_ident = NULL, mode_diag = NULL, m
 
 #' Draw from null distribution of likelihood ratio test statistic.
 #'
-#' When testing for the covariance structure of modes, this function may be used
-#' to draw a sample from the null distribution of the likelihood ratio test
-#' stistics, whose distribution doesn't depend on any unknown parameters under
-#' the null.
+#' When testing for the covariance structure of modes, this function
+#' may be used to draw a sample from the null distribution of the
+#' likelihood ratio test stistics, whose distribution doesn't depend
+#' on any unknown parameters under the null.
 #'
-#' Let \eqn{vec(X) ~ N(0,\Sigma)}. Given two nested hypotheses, \deqn{H_1:
-#' \Sigma = \Psi_K\otimes\cdots\otimes\Psi_1} versus \deqn{H_0: \Sigma =
-#' \Omega_K\otimes\cdots\otimes\Omega_1,} this function will draw from the null
-#' distribution of the likelihood ratio test statistic. The possible options are
-#' that \eqn{\Psi_i} or \eqn{\Omega_i} are the identity matrix, a diagonal
-#' matrix, or any positive definite matrix. By default, it's assumed that these
+#' Let \eqn{vec(X) ~ N(0,\Sigma)}. Given two nested hypotheses,
+#' \deqn{H_1: \Sigma = \Psi_K\otimes\cdots\otimes\Psi_1} versus
+#' \deqn{H_0: \Sigma = \Omega_K\otimes\cdots\otimes\Omega_1,} this
+#' function will draw from the null distribution of the likelihood
+#' ratio test statistic. The possible options are that \eqn{\Psi_i} or
+#' \eqn{\Omega_i} are the identity matrix, a diagonal matrix, or any
+#' positive definite matrix. By default, it's assumed that these
 #' matrices are any positive definite matrix.
 #'
-#' Unfortunately, this fuction does not support testing for the hypothesis of
-#' modeling the covariance between two modes with a single covariance matrix. I
-#' might code this up in later versions.
+#' Unfortunately, this fuction does not support testing for the
+#' hypothesis of modeling the covariance between two modes with a
+#' single covariance matrix. I might code this up in later versions.
 #'
 #' @param p A vector of integers. The dimensions of the array.
-#' @param null_ident A vector of integers. The modes that under the null have
-#'   identity covariance.
-#' @param alt_ident A vector of integers. The modes that under the alternative
-#'   have the identity covariance.
-#' @param null_diag A vector of integers. The modes that under the null have
-#'   diagonal covariance.
-#' @param alt_diag A vector of integers. The modes that under the alternative
-#'   have diagonal covariance.
-#' @param reference_dist Two options are supported, 'normal' and 't'. If 't' is
-#'   specified, you have to specify \code{t_df}.
-#' @param t_df A numeric. If \code{reference_dist} is 't', then this is the
-#'   degrees of freedom of the t_distribution that the array is distributed
-#'   under.
-#' @param itermax An integer. The number of draws from the null distribution of
-#'   the likelihood ratio test statistic that is to be performed.
-#' @param holq_itermax An integer. The maximum number of block coordinate ascent
-#'   iterations to perform when calculating the MLE at each step.
-#' @param holq_tol A numeric. The stopping criterion when calculating the MLE.
+#' @param null_ident A vector of integers. The modes that under the
+#'     null have identity covariance.
+#' @param alt_ident A vector of integers. The modes that under the
+#'     alternative have the identity covariance.
+#' @param null_diag A vector of integers. The modes that under the
+#'     null have diagonal covariance.
+#' @param alt_diag A vector of integers. The modes that under the
+#'     alternative have diagonal covariance.
+#' @param reference_dist Two options are supported, 'normal' and
+#'     't'. If 't' is specified, you have to specify \code{t_df}.
+#' @param t_df A numeric. If \code{reference_dist} is 't', then this
+#'     is the degrees of freedom of the t_distribution that the array
+#'     is distributed under.
+#' @param itermax An integer. The number of draws from the null
+#'     distribution of the likelihood ratio test statistic that is to
+#'     be performed.
+#' @param holq_itermax An integer. The maximum number of block
+#'     coordinate ascent iterations to perform when calculating the
+#'     MLE at each step.
+#' @param holq_tol A numeric. The stopping criterion when calculating
+#'     the MLE.
 #'
-#' @return A vector of draws from the null distribution of the likelihood ratio
-#'   test statistic.
+#' @return A vector of draws from the null distribution of the
+#'     likelihood ratio test statistic.
 #'
 #' @seealso \code{\link{lrt_stat}}
 #'
@@ -197,21 +202,23 @@ lrt_null_dist_dim_same <- function(p, null_ident = NULL, alt_ident = NULL, null_
 
 #' Get MLE from output of \code{holq}.
 #'
-#' From the output of \code{holq}, this function will calculate the MLEs for the
-#' component covariance matrices and for the total variation parameter.
+#' From the output of \code{holq}, this function will calculate the
+#' MLEs for the component covariance matrices and for the total
+#' variation parameter.
 #'
-#' The function simply takes the \code{A[[i]]} output of \code{holq} and returs
-#' \code{A[[i]] \%*\% t(A[[i]])}. The estimate of the total variation parameter
-#' is \code{sig / prod{p}}, whre \code{p} is the vector of dimensions of the
-#' data array and \code{sig} is the output from \code{holq}.
+#' The function simply takes the \code{A[[i]]} output of \code{holq}
+#' and returs \code{A[[i]] \%*\% t(A[[i]])}. The estimate of the total
+#' variation parameter is \code{sig / prod{p}}, whre \code{p} is the
+#' vector of dimensions of the data array and \code{sig} is the output
+#' from \code{holq}.
 #'
 #' @param holq_obj The outpur returned from \code{holq}.
 #'
-#' @return \code{cov_mle} A list of positive definite matrices. These are the
-#'   MLEs for the component covariance matrices.
+#' @return \code{cov_mle} A list of positive definite matrices. These
+#'     are the MLEs for the component covariance matrices.
 #'
-#'   \code{sig_mle} A numeric. This is an estimate of the "standard deviation"
-#'   form of the total variation parameter.
+#'   \code{sig_mle} A numeric. This is an estimate of the "standard
+#'   deviation" form of the total variation parameter.
 #'
 #' @export
 #'

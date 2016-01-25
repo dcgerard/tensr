@@ -25,19 +25,20 @@ tr <- function(X) {
 #'
 #' \code{mat} returns a matrix version of a provided tensor.
 #'
-#' Applies the matrix unfolding  operator (also called 'matricization'
+#' Applies the matrix unfolding operator (also called 'matricization'
 #' or 'matrix flattening' operator) on a provided matrix. There are
-#' multiple ways one could do this. This function performs the
-#' matrix unfolding described in
-#' \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{
-#' Kolda and Bader (2009)}.
+#' multiple ways one could do this. This function performs the matrix
+#' unfolding described in
+#' \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{ Kolda and
+#' Bader (2009)}.
 #'
 #' @param A An array to be unfolded.
-#' @param k The mode, or dimension, along which the unfolding is to be applied.
+#' @param k The mode, or dimension, along which the unfolding is to be
+#'     applied.
 #'
-#' @return A matrix whose rows index the \eqn{k}th mode and whose
-#' columns index every other mode. The ordering of the columns is
-#' in lexicographical order of the indices of the array \eqn{A}.
+#' @return  A matrix  whose rows  index the  \eqn{k}th mode  and whose
+#'     columns index every other mode.  The ordering of the columns is
+#'     in lexicographical order of the indices of the array \eqn{A}.
 #'
 #' @author Peter Hoff.
 #'
@@ -58,23 +59,27 @@ mat <- function(A, k) {
 
 #' \eqn{k}-mode product.
 #'
-#' \code{amprod} returns the \eqn{k}-mode product of an array with a matrix.
+#' \code{amprod} returns the \eqn{k}-mode product of an array with a
+#' matrix.
 #'
-#' The \eqn{k}-mode product of a tensor \eqn{A} with a matrix \eqn{M} results
-#' in a tensor whose \eqn{k}-mode unfolding is \eqn{M} times the \eqn{k}-mode
-#' unfolding of \eqn{A}. That is \code{mat(amprod(A,M,k)) = M \%*\% mat(A,k)}.
-#' More details of the \eqn{k}-mode product can be found in
-#' \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{
-#' Kolda and Bader (2009)}.
+#' The \eqn{k}-mode product of a tensor \eqn{A} with a matrix \eqn{M}
+#' results in a tensor whose \eqn{k}-mode unfolding is \eqn{M} times
+#' the \eqn{k}-mode unfolding of \eqn{A}. That is
+#' \code{mat(amprod(A,M,k)) = M \%*\% mat(A,k)}.  More details of the
+#' \eqn{k}-mode product can be found in
+#' \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{ Kolda and
+#' Bader (2009)}.
 #'
 #' @param A A real valued array.
 #' @param M A real matrix.
-#' @param k An integer. The mode along which \code{M} is to be multiplied to
-#'     \code{A}.
+#' @param k An integer. The mode along which \code{M} is to be
+#'     multiplied to \code{A}.
 #'
-#' @return An array whose \eqn{k}-mode unfolding is \code{M \%*\% mat(A,k)}.
+#' @return An array whose \eqn{k}-mode unfolding is \code{M \%*\%
+#'     mat(A,k)}.
 #'
-#' @seealso \code{\link{atrans}} for applying multiple \eqn{k}-mode products.
+#' @seealso \code{\link{atrans}} for applying multiple \eqn{k}-mode
+#'     products.
 #'
 #' @author Peter Hoff.
 #'
@@ -95,20 +100,22 @@ amprod <- function(A, M, k) {
 
 #' Tucker product.
 #'
-#' Performs the Tucker product between an array and a list of matrices.
+#' Performs the Tucker product between an array and a list of
+#' matrices.
 #'
 #' The Tucker product between a list of matrices \code{B} and an array
-#' \code{A} is formally equivalent to performing the \eqn{k}-mode poduct
-#' between \code{A} and each list element in \code{B}. For example,
-#' if the dimension of \code{A} is three, then
-#' \code{atrans(A,B) = amprod(amprod(amprod(A,B[[1]],1),B[[2]],2),B[[3]],3)}.
-#' The ordering of this \eqn{k}-mode product does not matter. See
-#' \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{
-#' Kolda and Bader (2009)} for details.
+#' \code{A} is formally equivalent to performing the \eqn{k}-mode
+#' poduct between \code{A} and each list element in \code{B}. For
+#' example, if the dimension of \code{A} is three, then
+#' \code{atrans(A,B) =
+#' amprod(amprod(amprod(A,B[[1]],1),B[[2]],2),B[[3]],3)}.  The
+#' ordering of this \eqn{k}-mode product does not matter. See
+#' \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{ Kolda and
+#' Bader (2009)} for details.
 #'
 #' @param A An array of dimension \eqn{K}.
 #' @param B A list of matrices of length \eqn{B}. It must be that
-#' \code{ncol(B[[k]]) == dim(A)[k]}.
+#'     \code{ncol(B[[k]]) == dim(A)[k]}.
 #'
 #' @seealso \code{\link{amprod}}.
 #'
@@ -139,8 +146,8 @@ atrans <- function(A, B) {
 #'
 #' @param M A symmetric positive definite matrix.
 #'
-#' @return The unique symmetric positive definite matrix \eqn{X}
-#' such that \eqn{XX = M}.
+#' @return The unique symmetric positive definite matrix \eqn{X} such
+#'     that \eqn{XX = M}.
 #'
 #' @author Peter Hoff.
 #'
@@ -163,12 +170,13 @@ mhalf <- function(M) {
 #' Calculates the Frobenius norm of an array.
 #'
 #' The Frobenius norm of an array is the square root of the sum of its
-#' squared elements. This function works for vector and matrix arguments
-#' as well.
+#' squared elements. This function works for vector and matrix
+#' arguments as well.
 #'
 #' @param X An array, a matrix, or a vector.
 #'
-#' @return The square root of the sum of the squared elements of \code{X}.
+#' @return The square root of the sum of the squared elements of
+#'     \code{X}.
 #'
 #' @export
 #'
@@ -187,16 +195,16 @@ fnorm <- function(X) {
 
 #' Log-likelihood of array normal model.
 #'
-#' \code{ldan} calculates the log-likelihood of the array normal model,
-#' minus a constant.
+#' \code{ldan} calculates the log-likelihood of the array normal
+#' model, minus a constant.
 #'
 #' @export
 #'
 #' @author David Gerard.
 #'
 #' @param E An array. This is the data.
-#' @param Sig A list of symmetric positive definite matrices. These are the
-#' component covariance matrices.
+#' @param Sig A list of symmetric positive definite matrices. These
+#'     are the component covariance matrices.
 ldan <- function(E, Sig) {
     m <- dim(E)
     ld <- 0
@@ -213,10 +221,12 @@ ldan <- function(E, Sig) {
 #' diagonal entries.
 #'
 #' This function is almost a wrapper for \code{qr()}, \code{qr.R()},
-#' and \code{qr.Q()}, except it constrains the diagonal elements of \code{R}
-#' to be non-negative. If \code{X} is full rank with fewer columns than rows,
-#' then this is sufficient to gaurantee uniqueness of the QR decomposition
-#' (Proposition 5.2 of \href{https://books.google.com/books?id=WyvvAAAAMAAJ}{Eaton (1983)}).
+#' and \code{qr.Q()}, except it constrains the diagonal elements of
+#' \code{R} to be non-negative. If \code{X} is full rank with fewer
+#' columns than rows, then this is sufficient to gaurantee uniqueness
+#' of the QR decomposition (Proposition 5.2 of
+#' \href{https://books.google.com/books?id=WyvvAAAAMAAJ}{Eaton
+#' (1983)}).
 #'
 #' @param X A matrix of dimension \eqn{n} by \eqn{p} where \eqn{n \ge p}
 #'
@@ -228,7 +238,8 @@ ldan <- function(E, Sig) {
 #' \code{R} A \eqn{p} by \eqn{p} upper-triangular matrix with non-negative
 #' diagonal elements.
 #'
-#' @seealso \code{\link[base]{qr}}, \code{\link[base]{qr.Q}}, \code{\link[base]{qr.R}}, \code{\link{lq}}.
+#' @seealso \code{\link[base]{qr}}, \code{\link[base]{qr.Q}},
+#'     \code{\link[base]{qr.R}}, \code{\link{lq}}.
 qr2 <- function(X) {
     # just re-jiggers qr decomposition to make diagonals all positive
     qr_X <- qr(X)
@@ -245,11 +256,11 @@ qr2 <- function(X) {
 
 #' Truncates small numbers to 0.
 #'
-#' Given an array, matrix, or vector, \code{trim} will truncate
-#' all elements smaller than \code{epsilon} (in absolute value) to zero.
+#' Given an array, matrix, or vector, \code{trim} will truncate all
+#' elements smaller than \code{epsilon} (in absolute value) to zero.
 #'
-#' All elements in \code{X} that are smaller than \code{epsilon} (in absolute value)
-#' will be set to zero then returned.
+#' All elements in \code{X} that are smaller than \code{epsilon} (in
+#' absolute value) will be set to zero then returned.
 #'
 #' @param X An array, a matrix, or a vector.
 #' @param epsilon A numeric.
@@ -270,9 +281,9 @@ trim <- function(X, epsilon = 10 ^ -6) {
 
 #' Element-wise matrix products between two lists.
 #'
-#' Given two lists of matrices with conformable dimensions, \code{listprod}
-#' returns a list whose elements are the matrix products of the elements of
-#' these two lists.
+#' Given two lists of matrices with conformable dimensions,
+#' \code{listprod} returns a list whose elements are the matrix
+#' products of the elements of these two lists.
 #'
 #' @param A A list of matrices.
 #' @param B A second list of matrices.
@@ -295,20 +306,21 @@ listprod <- function(A, B) {
 #'
 #' Computes the LQ decomposition of a matrix.
 #'
-#' If \eqn{X} is an \eqn{n} by \eqn{p} matrix with \eqn{n \le p}, then \code{lq}
-#' computes the LQ decomposition of \eqn{X}. That is, \eqn{X = LQ'} where
-#' \eqn{Q} is \eqn{p} by \eqn{n} with orthonormal columns and \eqn{L} is \eqn{n}
-#' by \eqn{n} lower triangular with positive diaognal entries.
+#' If \eqn{X} is an \eqn{n} by \eqn{p} matrix with \eqn{n \le p}, then
+#' \code{lq} computes the LQ decomposition of \eqn{X}. That is, \eqn{X
+#' = LQ'} where \eqn{Q} is \eqn{p} by \eqn{n} with orthonormal columns
+#' and \eqn{L} is \eqn{n} by \eqn{n} lower triangular with positive
+#' diaognal entries.
 #'
 #' @param X A \eqn{n} by \eqn{p} matrix of rank \eqn{n}.
 #'
-#' @return \code{L} An \eqn{n} by \eqn{n} lower triangular matrix with positive
-#' diagonal entries.
+#' @return \code{L} An \eqn{n} by \eqn{n} lower triangular matrix with
+#'     positive diagonal entries.
 #'
 #' \code{Q} An \eqn{n} by \eqn{p} matrix with orthonormal columns.
 #'
-#' The returned values satisfy \code{X = L \%*\% t(Q)}, up to numerical
-#' precision.
+#' The returned values satisfy \code{X = L \%*\% t(Q)}, up to
+#' numerical precision.
 #'
 #' @seealso \code{\link{qr2}}.
 #'
@@ -344,21 +356,22 @@ lq <- function(X) {
 #' Collapse multiple modes into one mode.
 #'
 #' Given an array \code{X} and a vector of integers \code{m},
-#' \code{collapse_mode} returns an array of lower order where the first mode
-#' indexes the modes indicated in \code{m}.
+#' \code{collapse_mode} returns an array of lower order where the
+#' first mode indexes the modes indicated in \code{m}.
 #'
-#' Transforms an array into another array where the provided modes are collapsed
-#' into one mode. The indexing along this new mode is in lexicographical order
-#' of the indices of the collapsed modes. The collapsed mode is the first mode
-#' unless \code{length(m) == 1}, then \code{collapse_mode} simply returns
-#' \code{X}.
+#' Transforms an array into another array where the provided modes are
+#' collapsed into one mode. The indexing along this new mode is in
+#' lexicographical order of the indices of the collapsed modes. The
+#' collapsed mode is the first mode unless \code{length(m) == 1}, then
+#' \code{collapse_mode} simply returns \code{X}.
 #'
 #' @param X An array whose modes we are collapsing.
 #' @param m A vector of integers giving the modes to collapse.
 #'
-#' @return If \eqn{X} is of order \eqn{K} and \code{length(m) = q}, then returns
-#'   an array \eqn{Y} of order \eqn{K - q + 1}, where the modes indicated in
-#'   \code{m} are combined to be the first mode in \eqn{Y}.
+#' @return If \eqn{X} is of order \eqn{K} and \code{length(m) = q},
+#'     then returns an array \eqn{Y} of order \eqn{K - q + 1}, where
+#'     the modes indicated in \code{m} are combined to be the first
+#'     mode in \eqn{Y}.
 #'
 #' @export
 #'
@@ -385,14 +398,16 @@ collapse_mode <- function(X, m) {
 #'
 #' \code{polar} calculates the left polar decomposition of a matrix.
 #'
-#' \code{polar} Takes a matrix \eqn{X}, of dimensions \eqn{n} by \eqn{p}, and
-#' returns two matrices \eqn{P} and \eqn{Z} such that \eqn{X = PZ}. \eqn{P} is a
-#' symmetric positive definite matrix of dimension \eqn{n} by \eqn{n} and
-#' \eqn{Z} is an \eqn{n} by \eqn{p} matrix with orthonormal rows.
+#' \code{polar} Takes a matrix \eqn{X}, of dimensions \eqn{n} by
+#' \eqn{p}, and returns two matrices \eqn{P} and \eqn{Z} such that
+#' \eqn{X = PZ}. \eqn{P} is a symmetric positive definite matrix of
+#' dimension \eqn{n} by \eqn{n} and \eqn{Z} is an \eqn{n} by \eqn{p}
+#' matrix with orthonormal rows.
 #'
 #' @param X A matrix.
 #'
-#' @return \code{P} A \eqn{n} by \eqn{n} symmetric positive definite matrix.
+#' @return \code{P} A \eqn{n} by \eqn{n} symmetric positive definite
+#'     matrix.
 #'
 #' \code{Z} A \eqn{n} by \eqn{p} matrix with orthonormal rows.
 #'
