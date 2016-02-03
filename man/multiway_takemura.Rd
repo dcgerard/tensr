@@ -12,7 +12,7 @@ multiway_takemura(X, ortho_max = 2, mcmc_itermax = 1000,
 
 \item{ortho_max}{An integer. The number of 'averagings' to perform.}
 
-\item{mcmc_itermax}{An ineger. The number of iterations each MCMC should
+\item{mcmc_itermax}{An integer. The number of iterations each MCMC should
 perform using \code{equi_mcmc}.}
 
 \item{start_identity}{Should each MCMC start their covariance matrices at the
@@ -48,7 +48,7 @@ will calculate the uniformly minimum risk equivariant estimator using
 \examples{
 # Simulate data.
 p <- c(5, 5, 5)
-X <- array(rnorm(prod(p)), dim = p)
+X <- array(stats::rnorm(prod(p)), dim = p)
 multi_out <- multiway_takemura(X, mode_rep = 3)
 multi_out$b
 trim(multi_out$B[[1]])
@@ -67,4 +67,5 @@ Gerard, D., & Hoff, P. (2015).
 \seealso{
 \code{\link{equi_mcmc}}, \code{\link{random_ortho}}.
 }
+\keyword{equivariance}
 

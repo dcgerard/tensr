@@ -13,6 +13,7 @@
 #'
 #' @author Peter Hoff.
 #'
+#'
 #' @examples
 #' X <- matrix(1:4, nrow = 2, ncol = 2)
 #' X
@@ -45,6 +46,7 @@ tr <- function(X) {
 #' @references Kolda, T. G., & Bader, B. W. (2009).
 #'   \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
 #'   decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
+#'
 #'
 #' @examples
 #' A <- array(1:8, dim = c(2,2,2))
@@ -85,6 +87,7 @@ mat <- function(A, k) {
 #'
 #' @author Peter Hoff.
 #'
+#'
 #' @references Kolda, T. G., & Bader, B. W. (2009).
 #'   \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
 #'   decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
@@ -118,7 +121,7 @@ amprod <- function(A, M, k) {
 #' (2009)} for details.
 #'
 #' @param A An array of dimension \eqn{K}.
-#' @param B A list of matrices of length \eqn{B}. It must be that
+#' @param B A list of matrices of length \eqn{K}. It must be that
 #'   \code{ncol(B[[k]]) == dim(A)[k]}.
 #'
 #' @seealso \code{\link{amprod}} for multiplying one matrix along one mode of an
@@ -163,7 +166,7 @@ atrans <- function(A, B) {
 #' @export
 #'
 #' @examples
-#' Y <- matrix(rnorm(4), nrow = 2)
+#' Y <- matrix(stats::rnorm(4), nrow = 2)
 #' M <- Y %*% t(Y)
 #' X <- mhalf(M)
 #' X
@@ -337,7 +340,7 @@ listprod <- function(A, B) {
 #' @author David Gerard.
 #'
 #' @examples
-#' X <- matrix(rnorm(12), nrow = 3)
+#' X <- matrix(stats::rnorm(12), nrow = 3)
 #' lq_X <- lq(X)
 #' L <- lq_X$L
 #' Q <- lq_X$Q

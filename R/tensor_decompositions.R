@@ -28,10 +28,12 @@
 #'   multilinear singular value decomposition}. \emph{SIAM journal on Matrix
 #'   Analysis and Applications}, 21(4), 1253-1278.
 #'
+#' @keywords decompositions
+#'
 #' @examples
 #' #Generate random data.
 #' p <- c(2, 3, 4)
-#' X <- array(rnorm(prod(p)), dim = p)
+#' X <- array(stats::rnorm(prod(p)), dim = p)
 #'
 #' #Calculate HOSVD.
 #' hosvd_x <- hosvd(X)
@@ -182,10 +184,12 @@ hosvd <- function(Y, r = NULL) {
 #'
 #' @author David Gerard.
 #'
+#' @keywords decompositions likelihood
+#'
 #' @examples
 #' #Genrate random data.
 #' p <- c(2, 3, 4)
-#' X <- array(rnorm(prod(p)), dim = p)
+#' X <- array(stats::rnorm(prod(p)), dim = p)
 #'
 #' #Calculate HOLQ with unit diagonal on 2nd mode,
 #' #  and diagonal along 3rd mode.
@@ -371,6 +375,8 @@ holq <- function(X, tol = 10 ^ -9, itermax = 1000, mode_rep = NULL, mode_diag = 
 #'
 #' @export
 #'
+#' @keywords decompositions
+#'
 #' @references Gerard, D. C., & Hoff, P. D. (2014).
 #'   \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ decomposition for
 #'   separable covariance models}. \emph{arXiv preprint arXiv:1410.1094.}
@@ -380,7 +386,7 @@ holq <- function(X, tol = 10 ^ -9, itermax = 1000, mode_rep = NULL, mode_diag = 
 #' @examples
 #' #Generate random data.
 #' p <- c(2, 3, 4)
-#' X <- array(rnorm(prod(p)), dim = p)
+#' X <- array(stats::rnorm(prod(p)), dim = p)
 #'
 #' #Calculate IHOP.
 #' ihop_x <- ihop(X)
@@ -483,6 +489,8 @@ ihop <- function(X, itermax = 100, tol = 10 ^ -9, print_diff = TRUE, mode_rep = 
 #'
 #' @author David Gerard.
 #'
+#' @keywords decompositions
+#'
 #' @references Gerard, D. C., & Hoff, P. D. (2014).
 #'   \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ decomposition for
 #'   separable covariance models}. \emph{arXiv preprint arXiv:1410.1094.}
@@ -490,7 +498,7 @@ ihop <- function(X, itermax = 100, tol = 10 ^ -9, print_diff = TRUE, mode_rep = 
 #' @examples
 #' #Generate random data.
 #' p <- c(4,4,4)
-#' X <- array(rnorm(prod(p)), dim = p)
+#' X <- array(stats::rnorm(prod(p)), dim = p)
 #'
 #' #Calculate HOLQ, then ISVD
 #' holq_x <- holq(X)
@@ -558,6 +566,8 @@ get_isvd <- function(x_holq) {
 #'
 #' @author David Gerard.
 #'
+#' @keywords decompositions
+#'
 #' @references De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000).
 #'   \href{http://epubs.siam.org/doi/abs/10.1137/S0895479898346995}{On the best
 #'   rank-1 and rank-(\eqn{r_1, r_2,..., r_n}) approximation of higher-order tensors}.
@@ -566,7 +576,7 @@ get_isvd <- function(x_holq) {
 #' @examples
 #' #Generate random data.
 #' p <- c(2, 3, 4)
-#' X <- array(rnorm(prod(p)), dim = p)
+#' X <- array(stats::rnorm(prod(p)), dim = p)
 #'
 #' #Calculate HOOI
 #' r <- c(2, 2, 2)

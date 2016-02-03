@@ -39,4 +39,6 @@ Gerard, D., & Hoff, P. (2015).
 \seealso{
 \code{\link{equi_mcmc}}, \code{\link{rmirror_wishart}}.
 }
+\keyword{equivariance}
+\keyword{simulation}
 

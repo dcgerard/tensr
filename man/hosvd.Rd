@@ -33,7 +33,7 @@ et. al. (2000)}.
 \examples{
 #Generate random data.
 p <- c(2, 3, 4)
-X <- array(rnorm(prod(p)), dim = p)
+X <- array(stats::rnorm(prod(p)), dim = p)
 
 #Calculate HOSVD.
 hosvd_x <- hosvd(X)
@@ -57,4 +57,5 @@ De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000).
   multilinear singular value decomposition}. \emph{SIAM journal on Matrix
   Analysis and Applications}, 21(4), 1253-1278.
 }
+\keyword{decompositions}
 

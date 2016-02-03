@@ -24,7 +24,7 @@ A numeric, the multiway Stein's loss between the 'truth' and the
   'estimates'.
 }
 \description{
-Given a list of estimates component covariance matrices, a list of true
+Given a list of estimated component covariance matrices, a list of true
 component covariance matrices, an estimate of the total variation, and the
 true total variation, \code{multi_stein_loss_cov} will calculate multiway
 Stein's loss between the estimates and the truth.
@@ -51,4 +51,6 @@ Gerard, D., & Hoff, P. (2015).
 \seealso{
 \code{\link{multi_stein_loss}}, \code{\link{get_equi_bayes}}.
 }
+\keyword{equivariance}
+\keyword{loss}
 

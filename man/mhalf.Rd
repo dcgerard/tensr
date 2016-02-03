@@ -18,7 +18,7 @@ Returns the unique symmetric positive definite square root matrix
 of a provided symmetric positive definite matrix.
 }
 \examples{
-Y <- matrix(rnorm(4), nrow = 2)
+Y <- matrix(stats::rnorm(4), nrow = 2)
 M <- Y \%*\% t(Y)
 X <- mhalf(M)
 X

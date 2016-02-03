@@ -9,7 +9,7 @@ atrans(A, B)
 \arguments{
 \item{A}{An array of dimension \eqn{K}.}
 
-\item{B}{A list of matrices of length \eqn{B}. It must be that
+\item{B}{A list of matrices of length \eqn{K}. It must be that
 \code{ncol(B[[k]]) == dim(A)[k]}.}
 }
 \description{

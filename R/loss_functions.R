@@ -39,6 +39,8 @@
 #'
 #' @author David Gerard.
 #'
+#' @keywords equivariance loss
+#'
 #' @seealso \code{\link{multi_stein_loss_cov}}, \code{\link{get_equi_bayes}}.
 multi_stein_loss <- function(B, Psi, b, psi) {
     p <- sapply(B, nrow)
@@ -53,7 +55,7 @@ multi_stein_loss <- function(B, Psi, b, psi) {
 
 #' Calculate multiway Stein's loss from component covariance matrices.
 #'
-#' Given a list of estimates component covariance matrices, a list of true
+#' Given a list of estimated component covariance matrices, a list of true
 #' component covariance matrices, an estimate of the total variation, and the
 #' true total variation, \code{multi_stein_loss_cov} will calculate multiway
 #' Stein's loss between the estimates and the truth.
@@ -87,6 +89,8 @@ multi_stein_loss <- function(B, Psi, b, psi) {
 #'   Multivariate Analysis}, 137, 32-49.
 #'
 #' @author David Gerard.
+#'
+#' @keywords equivariance loss
 #'
 #' @seealso \code{\link{multi_stein_loss}}, \code{\link{get_equi_bayes}}.
 multi_stein_loss_cov <- function(B, Sigma, b, sigma) {

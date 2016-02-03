@@ -54,4 +54,6 @@ Gerard, D., & Hoff, P. (2015).
 \seealso{
 \code{\link{multi_stein_loss_cov}}, \code{\link{get_equi_bayes}}.
 }
+\keyword{equivariance}
+\keyword{loss}
 

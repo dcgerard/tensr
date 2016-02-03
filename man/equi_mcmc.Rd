@@ -52,7 +52,7 @@ multiway Stein's loss) only depend on the inverse.
 \examples{
 #Generate data whose true covariance is just the identity.
 p <- c(2,2,2)
-X <- array(rnorm(prod(p)),dim = p)
+X <- array(stats::rnorm(prod(p)),dim = p)
 #Then run the Gibbs sampler.
 mcmc_out <- equi_mcmc(X)
 plot(mcmc_out$sigma, type = 'l', lwd = 2, ylab = expression(sigma),
@@ -77,4 +77,5 @@ Gerard, D., & Hoff, P. (2015).
     \code{equi_mcmc}. \code{\link{multiway_takemura}} for an
     improvement on this procedure.
 }
+\keyword{equivariance}
 

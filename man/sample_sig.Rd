@@ -45,4 +45,5 @@ Gerard, D., & Hoff, P. (2015).
 \code{\link{equi_mcmc}} for a Gibbs sampler where this function is
   used.
 }
+\keyword{equivariance}
 

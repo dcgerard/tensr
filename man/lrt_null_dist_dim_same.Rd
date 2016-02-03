@@ -49,7 +49,7 @@ stistics, whose distribution doesn't depend on any unknown parameters under
 the null.
 }
 \details{
-Let \eqn{vec(X) ~ N(0,\Sigma)}. Given two nested hypotheses, \deqn{H_1:
+Let \eqn{vec(X)} be \eqn{N(0,\Sigma)}. Given two nested hypotheses, \deqn{H_1:
 \Sigma = \Psi_K\otimes\cdots\otimes\Psi_1} versus \deqn{H_0: \Sigma =
 \Omega_K\otimes\cdots\otimes\Omega_1,} this function will draw from the null
 distribution of the likelihood ratio test statistic. The possible options are
@@ -67,7 +67,7 @@ p = c(4,4,4)
 null1 <- lrt_null_dist_dim_same(p,null_ident = 1:3)
 
 #Generate Null Data
-X <- array(rnorm(prod(p)), dim = p)
+X <- array(stats::rnorm(prod(p)), dim = p)
 sig_null <- holq(X, mode_rep = 1:3)$sig
 sig_alt <- holq(X)$sig
 lrt_x <- lrt_stat(sig_null, sig_alt, p = p)
@@ -88,7 +88,7 @@ null2 <- lrt_null_dist_dim_same(p,null_ident = 1:3,
                                 alt_ident = 1, alt_diag = 2)
 
 #Generate Null Data
-X <- array(rnorm(prod(p)), dim = p)
+X <- array(stats::rnorm(prod(p)), dim = p)
 sig_null <- holq(X, mode_rep = 1:3)$sig
 sig_alt <- holq(X, mode_rep = 1, mode_diag = 2)$sig
 lrt_x <- lrt_stat(sig_null, sig_alt, p = p)
@@ -112,4 +112,5 @@ Gerard, D. C., & Hoff, P. D. (2014).
 \code{\link{lrt_stat}} for calculating the likelihood ratio test
   statistic.
 }
+\keyword{likelihood}
 

@@ -16,7 +16,7 @@ array normal model.
  Let \eqn{X} be a multidimensional array
     (also called a tensor) of K dimensions. This package provides a
     series of functions to perform statistical inference when
-    \deqn{vec(X) ~ N(0,\Sigma),} where \eqn{\Sigma} is assumed to
+    \deqn{vec(X) \sim N(0,\Sigma),} where \eqn{\Sigma} is assumed to
     be Kronecker structured. That is, \eqn{\Sigma} is the Kronecker
     product of \eqn{K} covariance matrices, each of which has the
     interpretation of being the covariance of \eqn{X} along its

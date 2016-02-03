@@ -51,7 +51,7 @@ Gerard and Hoff (2015)}.
 \examples{
 #Generate data whose true covariance is just the identity.
 p <- c(4,4,4)
-X <- array(rnorm(prod(p)),dim = p)
+X <- array(stats::rnorm(prod(p)),dim = p)
 #Then run the Gibbs sampler.
 mcmc_out <- equi_mcmc(X)
 bayes_rules <- get_equi_bayes(mcmc_out$Phi_inv, mcmc_out$sigma)
@@ -69,4 +69,6 @@ Gerard, D., & Hoff, P. (2015).
 \seealso{
 \code{\link{equi_mcmc}}.
 }
+\keyword{equivariance}
+\keyword{posterior}
 

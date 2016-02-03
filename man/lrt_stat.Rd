@@ -42,4 +42,5 @@ Gerard, D. C., & Hoff, P. D. (2014).
   \code{\link{lrt_null_dist_dim_same}} for getting the null distribution of
   the likelihood ratio test statistic.
 }
+\keyword{likelihood}
 

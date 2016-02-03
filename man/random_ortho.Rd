@@ -10,7 +10,7 @@ random_ortho(p)
 \item{p}{A vector of dimensions for the matrices.}
 }
 \value{
-\code{ortho_list} A list of orthogonal matrices whos dimensions are
+\code{ortho_list} A list of orthogonal matrices whose dimensions are
   given in \code{p}.
 }
 \description{
@@ -30,4 +30,6 @@ David Gerard.
 \seealso{
 \code{\link{multiway_takemura}}.
 }
+\keyword{equivariance}
+\keyword{simulation}
 

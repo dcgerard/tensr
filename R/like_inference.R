@@ -17,6 +17,8 @@
 #'
 #' @author David Gerard.
 #'
+#' @keywords likelihood
+#'
 #' @export
 #'
 #' @references Gerard, D. C., & Hoff, P. D. (2014).
@@ -60,6 +62,8 @@ lrt_stat <- function(sig_null, sig_alt, p) {
 #'
 #' @author David Gerard.
 #'
+#' @keywords likelihood
+#'
 #' @return \code{AIC} A numeric. The AIC of the model.
 #'
 #'   \code{BIC} A numeric. The BIC of the model.
@@ -70,7 +74,7 @@ lrt_stat <- function(sig_null, sig_alt, p) {
 #' #  covariance structure.
 #' set.seed(857)
 #' p <- c(4, 4, 4)
-#' Z <- array(rnorm(prod(p)), dim = p)
+#' Z <- array(stats::rnorm(prod(p)), dim = p)
 #' Y <- atrans(Z, list(tensr:::rwish(diag(p[1])), diag(1:p[2]), diag(p[3])))
 #'
 #' # Use holq() to fit various models.
@@ -80,14 +84,17 @@ lrt_stat <- function(sig_null, sig_alt, p) {
 #'
 #' # Get AIC and BIC values.
 #' false_aic1 <- array_bic_aic(false_fit1$sig ^ 2, p, mode_ident = 1:length(p))
-#' false_aic2 <- array_bic_aic(false_fit2$sig ^ 2, p, mode_ident = 2:length(p), mode_unstructured = 1)
+#' false_aic2 <- array_bic_aic(false_fit2$sig ^ 2, p, mode_ident = 2:length(p),
+#'                             mode_unstructured = 1)
 #' true_aic <- array_bic_aic(true_fit$sig ^ 2, p, mode_ident = 2:length(p), mode_diag = 1)
 #'
 #' # Plot the results.
-#' plot(c(false_aic1$AIC, false_aic2$AIC, true_aic$AIC), type = "l", xaxt = "n", xlab = "Model", ylab = "AIC", main = "AIC")
+#' plot(c(false_aic1$AIC, false_aic2$AIC, true_aic$AIC), type = "l",
+#'      xaxt = "n", xlab = "Model", ylab = "AIC", main = "AIC")
 #' axis(side = 1, at = 1:3, labels = c("Wrong Model 1", "Wrong Model 2", "Right Model"))
 #'
-#' plot(c(false_aic1$BIC, false_aic2$BIC, true_aic$BIC), type = "l", xaxt = "n", xlab = "Model", ylab = "BIC", main = "BIC")
+#' plot(c(false_aic1$BIC, false_aic2$BIC, true_aic$BIC), type = "l", xaxt = "n",
+#'      xlab = "Model", ylab = "BIC", main = "BIC")
 #' axis(side = 1, at = 1:3, labels = c("Wrong Model 1", "Wrong Model 2", "Right Model"))
 array_bic_aic <- function(sig_squared, p, mode_ident = NULL, mode_diag = NULL, mode_unstructured = NULL) {
 
@@ -124,7 +131,7 @@ array_bic_aic <- function(sig_squared, p, mode_ident = NULL, mode_diag = NULL, m
 #' stistics, whose distribution doesn't depend on any unknown parameters under
 #' the null.
 #'
-#' Let \eqn{vec(X) ~ N(0,\Sigma)}. Given two nested hypotheses, \deqn{H_1:
+#' Let \eqn{vec(X)} be \eqn{N(0,\Sigma)}. Given two nested hypotheses, \deqn{H_1:
 #' \Sigma = \Psi_K\otimes\cdots\otimes\Psi_1} versus \deqn{H_0: \Sigma =
 #' \Omega_K\otimes\cdots\otimes\Omega_1,} this function will draw from the null
 #' distribution of the likelihood ratio test statistic. The possible options are
@@ -164,6 +171,8 @@ array_bic_aic <- function(sig_squared, p, mode_ident = NULL, mode_diag = NULL, m
 #'
 #' @export
 #'
+#' @keywords likelihood
+#'
 #' @references Gerard, D. C., & Hoff, P. D. (2014).
 #'   \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ decomposition for
 #'   separable covariance models}. \emph{arXiv preprint arXiv:1410.1094.}
@@ -176,7 +185,7 @@ array_bic_aic <- function(sig_squared, p, mode_ident = NULL, mode_diag = NULL, m
 #' null1 <- lrt_null_dist_dim_same(p,null_ident = 1:3)
 #'
 #' #Generate Null Data
-#' X <- array(rnorm(prod(p)), dim = p)
+#' X <- array(stats::rnorm(prod(p)), dim = p)
 #' sig_null <- holq(X, mode_rep = 1:3)$sig
 #' sig_alt <- holq(X)$sig
 #' lrt_x <- lrt_stat(sig_null, sig_alt, p = p)
@@ -197,7 +206,7 @@ array_bic_aic <- function(sig_squared, p, mode_ident = NULL, mode_diag = NULL, m
 #'                                 alt_ident = 1, alt_diag = 2)
 #'
 #' #Generate Null Data
-#' X <- array(rnorm(prod(p)), dim = p)
+#' X <- array(stats::rnorm(prod(p)), dim = p)
 #' sig_null <- holq(X, mode_rep = 1:3)$sig
 #' sig_alt <- holq(X, mode_rep = 1, mode_diag = 2)$sig
 #' lrt_x <- lrt_stat(sig_null, sig_alt, p = p)
@@ -214,9 +223,9 @@ lrt_null_dist_dim_same <- function(p, null_ident = NULL, alt_ident = NULL, null_
     lrt_null_vec <- rep(NA, length = itermax)
     for (index in 1:itermax) {
         if (reference_dist == "normal") {
-            X <- array(rnorm(prod(p)), dim = p)
+            X <- array(stats::rnorm(prod(p)), dim = p)
         } else if (reference_dist == "t") {
-            X <- array(rt(prod(p), df = t_df), dim = p)
+            X <- array(stats::rt(prod(p), df = t_df), dim = p)
         }
 
         sig_null <- holq(X, mode_rep = null_ident, mode_diag = null_diag, print_diff = FALSE,
@@ -237,7 +246,7 @@ lrt_null_dist_dim_same <- function(p, null_ident = NULL, alt_ident = NULL, null_
 #'
 #' The function simply takes the \code{A[[i]]} output of \code{holq}
 #' and returs \code{A[[i]] \%*\% t(A[[i]])}. The estimate of the total
-#' variation parameter is \code{sig / prod{p}}, whre \code{p} is the
+#' variation parameter is \code{sqrt(sig ^ 2 / prod{p})}, whre \code{p} is the
 #' vector of dimensions of the data array and \code{sig} is the output
 #' from \code{holq}.
 #'
@@ -250,6 +259,8 @@ lrt_null_dist_dim_same <- function(p, null_ident = NULL, alt_ident = NULL, null_
 #'   deviation" form of the total variation parameter.
 #'
 #' @export
+#'
+#' @keywords likelihood
 #'
 #' @author David Gerard.
 #'

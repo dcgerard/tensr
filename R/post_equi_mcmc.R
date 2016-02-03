@@ -31,6 +31,8 @@
 #'
 #' @export
 #'
+#' @keywords equivariance posterior
+#'
 #' @author David Gerard.
 #'
 #' @references  Gerard, D., & Hoff, P. (2015).
@@ -41,7 +43,7 @@
 #' @examples
 #' #Generate data whose true covariance is just the identity.
 #' p <- c(4,4,4)
-#' X <- array(rnorm(prod(p)),dim = p)
+#' X <- array(stats::rnorm(prod(p)),dim = p)
 #' #Then run the Gibbs sampler.
 #' mcmc_out <- equi_mcmc(X)
 #' cov_out <- convert_cov(mcmc_out)
@@ -125,6 +127,8 @@ convert_cov <- function(equi_mcmc_obj) {
 #'
 #' @export
 #'
+#' @keywords equivariance posterior
+#'
 #' @author David Gerard.
 #'
 #' @references Gerard, D., & Hoff, P. (2015).
@@ -135,7 +139,7 @@ convert_cov <- function(equi_mcmc_obj) {
 #' @examples
 #' #Generate data whose true covariance is just the identity.
 #' p <- c(4,4,4)
-#' X <- array(rnorm(prod(p)),dim = p)
+#' X <- array(stats::rnorm(prod(p)),dim = p)
 #' #Then run the Gibbs sampler.
 #' mcmc_out <- equi_mcmc(X)
 #' bayes_rules <- get_equi_bayes(mcmc_out$Phi_inv, mcmc_out$sigma)
@@ -195,10 +199,12 @@ get_equi_bayes <- function(psi_inv, sigma, burnin = NULL) {
 #'
 #' @param p A vector of dimensions for the matrices.
 #'
-#' @return \code{ortho_list} A list of orthogonal matrices whos dimensions are
+#' @return \code{ortho_list} A list of orthogonal matrices whose dimensions are
 #'   given in \code{p}.
 #'
 #' @export
+#'
+#' @keywords equivariance simulation
 #'
 #' @author David Gerard.
 #'
@@ -207,7 +213,7 @@ random_ortho <- function(p) {
     n <- length(p)
     ortho_list <- list()
     for (index in 1:n) {
-        x_temp <- matrix(rnorm(p[index] ^ 2), ncol = p[index], nrow = p[index])
+        x_temp <- matrix(stats::rnorm(p[index] ^ 2), ncol = p[index], nrow = p[index])
         ortho_list[[index]] <- solve(mhalf(x_temp %*% t(x_temp))) %*% x_temp
     }
     return(ortho_list)
@@ -229,7 +235,7 @@ random_ortho <- function(p) {
 #'
 #' @param X An array. This is the data array.
 #' @param ortho_max An integer. The number of 'averagings' to perform.
-#' @param mcmc_itermax An ineger. The number of iterations each MCMC should
+#' @param mcmc_itermax An integer. The number of iterations each MCMC should
 #'   perform using \code{equi_mcmc}.
 #' @param start_identity Should each MCMC start their covariance matrices at the
 #'   identity (TRUE) or at the sample covariance matrices (FALSE)?
@@ -248,6 +254,8 @@ random_ortho <- function(p) {
 #'
 #' @author David Gerard.
 #'
+#' @keywords equivariance
+#'
 #' @seealso \code{\link{equi_mcmc}}, \code{\link{random_ortho}}.
 #'
 #' @references Gerard, D., & Hoff, P. (2015).
@@ -258,7 +266,7 @@ random_ortho <- function(p) {
 #' @examples
 #' # Simulate data.
 #' p <- c(5, 5, 5)
-#' X <- array(rnorm(prod(p)), dim = p)
+#' X <- array(stats::rnorm(prod(p)), dim = p)
 #' multi_out <- multiway_takemura(X, mode_rep = 3)
 #' multi_out$b
 #' trim(multi_out$B[[1]])

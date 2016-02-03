@@ -24,7 +24,7 @@ variation parameter.
 \details{
 The function simply takes the \code{A[[i]]} output of \code{holq}
 and returs \code{A[[i]] \%*\% t(A[[i]])}. The estimate of the total
-variation parameter is \code{sig / prod{p}}, whre \code{p} is the
+variation parameter is \code{sqrt(sig ^ 2 / prod{p})}, whre \code{p} is the
 vector of dimensions of the data array and \code{sig} is the output
 from \code{holq}.
 }
@@ -39,4 +39,5 @@ Gerard, D. C., & Hoff, P. D. (2014).
 \seealso{
 \code{\link{holq}}.
 }
+\keyword{likelihood}
 

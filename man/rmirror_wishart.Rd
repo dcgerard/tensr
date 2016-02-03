@@ -41,4 +41,6 @@ Gerard, D., & Hoff, P. (2015).
 \seealso{
 \code{\link{sample_right_wishart}}
 }
+\keyword{equivariance}
+\keyword{simulation}
 

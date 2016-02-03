@@ -26,5 +26,4 @@ arrIndices(list(c(1, 3), c(4, 5), c(2, 3, 6)))
 \author{
 Peter Hoff.
 }
-\keyword{arrays}
 

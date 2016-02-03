@@ -93,7 +93,7 @@ For more details on the incredible HOLQ, see
 \examples{
 #Genrate random data.
 p <- c(2, 3, 4)
-X <- array(rnorm(prod(p)), dim = p)
+X <- array(stats::rnorm(prod(p)), dim = p)
 
 #Calculate HOLQ with unit diagonal on 2nd mode,
 #  and diagonal along 3rd mode.
@@ -139,4 +139,6 @@ Gerard, D. C., & Hoff, P. D. (2014).
   calculate the maximum likelihood estimates of the component covariance
   matrices under the array normal model.
 }
+\keyword{decompositions}
+\keyword{likelihood}
 

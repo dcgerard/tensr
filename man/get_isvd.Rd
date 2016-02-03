@@ -37,7 +37,7 @@ For more details on the ISVD, see
 \examples{
 #Generate random data.
 p <- c(4,4,4)
-X <- array(rnorm(prod(p)), dim = p)
+X <- array(stats::rnorm(prod(p)), dim = p)
 
 #Calculate HOLQ, then ISVD
 holq_x <- holq(X)
@@ -65,4 +65,5 @@ Gerard, D. C., & Hoff, P. D. (2014).
   \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ decomposition for
   separable covariance models}. \emph{arXiv preprint arXiv:1410.1094.}
 }
+\keyword{decompositions}
 

@@ -125,6 +125,7 @@ legend("topright", "True Parameter", lty = 2, col = 2, bty = "n")
 
 ## some more trace plots
 random_trace <- function(cov_post, true_cov, p) {
+    n <- length(p)
     mode_look <- sample(1:n, 1)
     x_look <- sample(1:p[mode_look], size = 1)
     y_look <- sample(1:p[mode_look], size = 1)

@@ -40,7 +40,7 @@ al (2000)}.
 \examples{
 #Generate random data.
 p <- c(2, 3, 4)
-X <- array(rnorm(prod(p)), dim = p)
+X <- array(stats::rnorm(prod(p)), dim = p)
 
 #Calculate HOOI
 r <- c(2, 2, 2)
@@ -61,4 +61,5 @@ De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000).
   rank-1 and rank-(\eqn{r_1, r_2,..., r_n}) approximation of higher-order tensors}.
   \emph{SIAM Journal on Matrix Analysis and Applications}, 21(4), 1324-1342.
 }
+\keyword{decompositions}
 

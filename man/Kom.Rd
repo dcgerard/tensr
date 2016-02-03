@@ -25,7 +25,7 @@ This function constructs the commutation matrix \code{K}, which maps
 }
 \examples{
 m <- 5 ; n <- 4
-A <- matrix(rnorm(m * n), m, n)
+A <- matrix(stats::rnorm(m * n), m, n)
 Kom(5, 4) \%*\% c(A) - c(t(A))
 }
 \author{
@@ -42,5 +42,4 @@ P. S. (1969). \href{http://www.che.iitm.ac.in/~naras/ch544/maxmin_matrixderivati
 maxima and minima with matrix derivatives}. \emph{Journal of the
 American Statistical Association}, 64(328), 1576-1594.
 }
-\keyword{algebra}
 

@@ -40,7 +40,7 @@ determinant one, hence there is a total variation parameter \eqn{\sigma^2}.
 \examples{
 #Generate data whose true covariance is just the identity.
 p <- c(4,4,4)
-X <- array(rnorm(prod(p)),dim = p)
+X <- array(stats::rnorm(prod(p)),dim = p)
 #Then run the Gibbs sampler.
 mcmc_out <- equi_mcmc(X)
 cov_out <- convert_cov(mcmc_out)
@@ -73,4 +73,6 @@ Gerard, D., & Hoff, P. (2015).
 \seealso{
 \code{\link{equi_mcmc}}.
 }
+\keyword{equivariance}
+\keyword{posterior}
 

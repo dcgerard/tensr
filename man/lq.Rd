@@ -29,7 +29,7 @@ and \eqn{L} is \eqn{n} by \eqn{n} lower triangular with positive
 diaognal entries.
 }
 \examples{
-X <- matrix(rnorm(12), nrow = 3)
+X <- matrix(stats::rnorm(12), nrow = 3)
 lq_X <- lq(X)
 L <- lq_X$L
 Q <- lq_X$Q

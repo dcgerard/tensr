@@ -55,11 +55,10 @@ kendalltau <- function(x, y, nmc = 1e+05) {
 #'     matrix.
 #'
 #' @author Peter Hoff.
-#' @keywords algebra
 #' @export
 #' @examples
 #' m <- 5 ; n <- 4
-#' A <- matrix(rnorm(m * n), m, n)
+#' A <- matrix(stats::rnorm(m * n), m, n)
 #' Kom(5, 4) %*% c(A) - c(t(A))
 Kom <- function(m, n) {
     K <- matrix(0, m * n, m * n)
@@ -99,7 +98,7 @@ Kom <- function(m, n) {
 #' hist(z)
 #' plot(y,z)
 zscores <- function(y, ties.method = "average") {
-    z <- qnorm(rank(y, na.last = "keep", ties.method = ties.method) / (sum(!is.na(y)) + 1))
+    z <- stats::qnorm(rank(y, na.last = "keep", ties.method = ties.method) / (sum(!is.na(y)) + 1))
     names(z) <- names(y)
     m <- dim(y)
     if (length(m) == 2) {
@@ -119,7 +118,7 @@ zscores <- function(y, ties.method = "average") {
 
 #' Tucker sum.
 #'
-#' Computes the tucker sum an array and a list of matrices.
+#' Computes the Tucker sum of an array and a list of matrices.
 #'
 #' @export
 #'
@@ -163,8 +162,8 @@ rwish <- function(S0, nu = dim(as.matrix(S0))[1] + 1) {
 
     p <- dim(S0)[1]
     T <- matrix(0, p, p)
-    T[lower.tri(T)] <- rnorm(p * (p - 1) / 2)
-    diag(T) <- sqrt(rgamma(p, (nu - (1:p) + 1) / 2, 1 / 2))
+    T[lower.tri(T)] <- stats::rnorm(p * (p - 1) / 2)
+    diag(T) <- sqrt(stats::rgamma(p, (nu - (1:p) + 1) / 2, 1 / 2))
     return(S0h %*% T %*% t(T) %*% S0h)
 }
 
@@ -187,7 +186,7 @@ rwish <- function(S0, nu = dim(as.matrix(S0))[1] + 1) {
 #' colMeans(Y)
 #' cov(Y)
 rmvnorm <- function(n, mu, Sigma, Sigma.chol = chol(Sigma)) {
-    E <- matrix(rnorm(n * length(mu)), n, length(mu))
+    E <- matrix(stats::rnorm(n * length(mu)), n, length(mu))
     X <- t(t(E %*% Sigma.chol) + c(mu))
     if (n == 1) {
         X <- c(X)
@@ -206,7 +205,6 @@ rmvnorm <- function(n, mu, Sigma, Sigma.chol = chol(Sigma)) {
 #' @param saidx either a vector of the dimensions of a potential
 #'     array, or a list of the indices in the subarray.
 #' @author Peter Hoff.
-#' @keywords arrays
 #' @export
 #' @examples
 #' # all indices of an array
@@ -245,7 +243,7 @@ arrIndices <- function(saidx) {
 #'   by \eqn{2} by \eqn{2} sub-array Y[1:2, 1:2, 1:2]. This is conditional on
 #'   every other element in \code{Y}.
 #' @author Peter Hoff.
-#' @keywords multivariate arrays.
+#' @keywords multivariate
 #'
 #' @references Hoff, P. D. (2011).
 #'   \href{http://arxiv.org/abs/1008.2169}{Separable covariance arrays via the
@@ -253,28 +251,17 @@ arrIndices <- function(saidx) {
 #'   \emph{Bayesian Analysis}, 6(2), 179-196.
 #' @export
 #' @examples
-#' # Generate array normally distributed data array Y.
-#' m <- c(6, 5, 4)
-#' K <- length(m)
-#' M <- tensr:::rsan(m)
-#' S <- list(); for(k in 1:K) { S[[k]] <- tensr:::rwish(diag(m[k])) / m[k] }
-#' Y <- M + atrans(tensr:::rsan(m), lapply(S, mhalf))
+#' p <- c(4, 4, 4)
+#' Y <- array(stats::rnorm(prod(p)), dim = p)
+#' saidx <- list(1:2, 1:2, 1:2)
+#' true_cov <- tensr::start_ident(p)
+#' true_mean <- array(0, dim = p)
+#' cond_params <- anorm_cd(Y = Y, M = true_mean, S = true_cov, saidx = saidx)
 #'
-#' SY <- Y * 0
-#' SS <- list() ; for(k in 1:K) { SS[[k]] <- matrix(0, m[k], m[k]) }
-#' for(s in 1:1e4)
-#' {
-#'   saidx <- list()
-#'   for(k in 1:K) { saidx[[k]] <- sort(sample(1:m[k], 1 + rbinom(1, m[k] - 1, 0.5))) }
-#'   MS <- anorm_cd(Y, M, S, saidx)
-#'   Ya <- MS$Mab + atrans(tensr:::rsan(sapply(saidx, length)), lapply(MS$Sab, mhalf))
-#'   Y[arrIndices(saidx)] <- Ya
-#'   SY <- SY + Y
-#'   for(k in 1:K){SS[[k]] <- SS[[k]] + mat(Y - M, k) %*% t(mat(Y - M, k)) }
-#' }
-#' par(mfrow = c(2, 2))
-#' plot(M, SY / s)  ; abline(0, 1)
-#' for (k in 1:K) { plot(S[[k]] / tr(S[[k]]), SS[[k]] / tr(SS[[k]])) ; abline(0, 1) }
+#' ## Since data are independent standard normals, conditional mean is 0 and
+#' ##    conditional covariance matrices are identities.
+#' cond_params$Mab
+#' cond_params$Sab
 anorm_cd <- function(Y, M, S, saidx) {
     Yab <- Y
     Sab <- S
@@ -320,7 +307,7 @@ anorm_cd <- function(Y, M, S, saidx) {
 #' @examples
 #' tensr:::rsan(c(5,4,3))
 rsan <- function(dim) {
-    return(array(rnorm(prod(dim)), dim))
+    return(array(stats::rnorm(prod(dim)), dim))
 }
 
 #' Top K elements of a vector.

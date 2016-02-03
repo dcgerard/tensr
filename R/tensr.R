@@ -9,7 +9,7 @@
 #' @section Introduction: Let \eqn{X} be a multidimensional array
 #'     (also called a tensor) of K dimensions. This package provides a
 #'     series of functions to perform statistical inference when
-#'     \deqn{vec(X) ~ N(0,\Sigma),} where \eqn{\Sigma} is assumed to
+#'     \deqn{vec(X) \sim N(0,\Sigma),} where \eqn{\Sigma} is assumed to
 #'     be Kronecker structured. That is, \eqn{\Sigma} is the Kronecker
 #'     product of \eqn{K} covariance matrices, each of which has the
 #'     interpretation of being the covariance of \eqn{X} along its
@@ -125,7 +125,7 @@
 #'     \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ
 #'     decomposition for separable covariance models}. \emph{arXiv
 #'     preprint arXiv:1410.1094.}
-#' 
+#'
 #' @docType package
 #' @name tensr
 NULL

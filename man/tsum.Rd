@@ -12,6 +12,6 @@ tsum(X, A)
 \item{A}{A list of real matrices.}
 }
 \description{
-Computes the tucker sum an array and a list of matrices.
+Computes the Tucker sum of an array and a list of matrices.
 }
 

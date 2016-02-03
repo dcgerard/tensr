@@ -23,6 +23,8 @@
 #' @seealso \code{\link{equi_mcmc}} for a Gibbs sampler where this function is
 #'   used.
 #'
+#' @keywords equivariance
+#'
 #' @references Gerard, D., & Hoff, P. (2015).
 #'   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
 #'    minimax dominators of the MLE in the array normal model}. \emph{Journal of
@@ -33,7 +35,7 @@ sample_sig <- function(X, phi_inv) {
     p <- dim(X)
     alpha <- prod(p) / 2
     beta <- fnorm(atrans(X, phi_inv)) ^ 2 / 2
-    new_sig <- 1 / sqrt(rgamma(1, alpha, beta))
+    new_sig <- 1 / sqrt(stats::rgamma(1, alpha, beta))
     return(new_sig)
 }
 
@@ -66,6 +68,8 @@ sample_sig <- function(X, phi_inv) {
 #'
 #' @author David Gerard.
 #'
+#' @keywords equivariance simulation
+#'
 #' @seealso \code{\link{sample_right_wishart}}
 rmirror_wishart <- function(nu, Phi) {
     n <- nrow(Phi)
@@ -73,8 +77,8 @@ rmirror_wishart <- function(nu, Phi) {
         warning("nu must be >= n")
     }
     V <- matrix(0, nrow = n, ncol = n)
-    V[lower.tri(V)] <- rnorm(n * (n - 1) / 2)
-    diag(V) <- sqrt(rchisq(n, df = (nu - 1:n + 1)))
+    V[lower.tri(V)] <- stats::rnorm(n * (n - 1) / 2)
+    diag(V) <- sqrt(stats::rchisq(n, df = (nu - 1:n + 1)))
 
     #inefficient hack for upper triangular cholesky.
     U <- backsolve(chol(solve(Phi)), diag(n))
@@ -105,6 +109,8 @@ rmirror_wishart <- function(nu, Phi) {
 #'
 #' @author David Gerard.
 #'
+#' @keywords equivariance simulation
+#'
 #' @references Gerard, D., & Hoff, P. (2015).
 #'   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
 #'   minimax dominators of the MLE in the array normal model}. \emph{Journal of
@@ -114,10 +120,10 @@ sample_right_wishart <- function(nu, V) {
     m <- nrow(V)
     df <- (nu + nu - m + 1) - (nu - m + 1):nu
     if (m > 1) {
-        Tmat <- diag(sqrt(rchisq(c(rep(1, m)), df)))
-        Tmat[lower.tri(Tmat)] <- rnorm(m * (m + 1) / 2 - m)
+        Tmat <- diag(sqrt(stats::rchisq(c(rep(1, m)), df)))
+        Tmat[lower.tri(Tmat)] <- stats::rnorm(m * (m + 1) / 2 - m)
     } else {
-        Tmat <- sqrt(rchisq(1, df))
+        Tmat <- sqrt(stats::rchisq(1, df))
     }
     U <- chol(V)
     C <- backsolve(U, diag(m)) %*% t(Tmat)
@@ -170,6 +176,8 @@ sample_right_wishart <- function(nu, V) {
 #'
 #' @export
 #'
+#' @keywords equivariance
+#'
 #' @author David Gerard.
 #'
 #' @references Gerard, D., & Hoff, P. (2015).
@@ -180,7 +188,7 @@ sample_right_wishart <- function(nu, V) {
 #' @examples
 #' #Generate data whose true covariance is just the identity.
 #' p <- c(2,2,2)
-#' X <- array(rnorm(prod(p)),dim = p)
+#' X <- array(stats::rnorm(prod(p)),dim = p)
 #' #Then run the Gibbs sampler.
 #' mcmc_out <- equi_mcmc(X)
 #' plot(mcmc_out$sigma, type = 'l', lwd = 2, ylab = expression(sigma),
