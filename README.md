@@ -14,7 +14,7 @@ This package contains a collection of functions for statistical analysis with te
 -   Calculate the UMREE under a multiway generalization of Stein's loss. This estimator dominates the maximum likelihood estimator uniformly over the over the entire parameter space of Kronecker structured covariance matrices.
 -   Calculate a (randomized) orthogonally invariant estimator of the Kronecker structured covariance matrix. This estimator dominates the UMREE under the product group of lower triangular matrices.
 
-This package is also published on [CRAN](%22https://cran.r-project.org/web/packages/tensr/index.html%22).
+This package is also published on [CRAN](https://cran.r-project.org/web/packages/tensr/index.html).
 
 Vignettes are available on [Equivariant Inference](https://cran.r-project.org/web/packages/tensr/vignettes/equivariant_estimation.html) and [Likelihood Inference](https://cran.r-project.org/web/packages/tensr/vignettes/maximum_likelihood.html).
 
