@@ -24,7 +24,7 @@ This package contains a collection of functions for statistical analysis with te
     + Run a likelihood ratio test in separable covariance models, and
     + Calculate AIC's and BIC's for separable covariance models.
 * Run a Gibbs sampler to draw from the posterior distribution of the Kronecker structured covariance matrix in the array normal model. This posterior is with respect to a (non-informative) prior induced by the right Haar measure over a product group of lower triangular matrices acting on the space of Kronecker structured covariance matrices. For any invariant loss function, any Bayes rule with respect to this prior will be the uniformly minimum risk equivariant estimator (UMREE) with respect to that loss. 
-* Calculate the UMREE under a multiway generalization of Stein's loss. This estimator dominates the maximum likelihood estimator uniformly over the over the entire parameter space of Kronecker structured covariance matrices.
+* Calculate the UMREE under a multiway generalization of Stein's loss. This estimator dominates the maximum likelihood estimator uniformly over the entire parameter space of Kronecker structured covariance matrices.
 * Calculate a (randomized) orthogonally invariant estimator of the Kronecker structured covariance matrix. This estimator dominates the UMREE under the product group of lower triangular matrices.
 
 This package is also published on [CRAN](https://cran.r-project.org/web/packages/tensr/index.html).
