@@ -1,4 +1,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+Tensr, Because `tensor` was Already Taken.
+==========================================
+
 [![Build Status](https://travis-ci.org/dcgerard/tensr.svg?branch=master)](https://travis-ci.org/dcgerard/tensr)
 
 Description

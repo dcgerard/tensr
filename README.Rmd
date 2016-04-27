@@ -14,6 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
+# Tensr, Because `tensor` was Already Taken.
 [![Build Status](https://travis-ci.org/dcgerard/tensr.svg?branch=master)](https://travis-ci.org/dcgerard/tensr)
 
 # Description
