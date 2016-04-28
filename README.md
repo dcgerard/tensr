@@ -1,6 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-Tensr, Because `tensor` was Already Taken.
-==========================================
+tensr, Because tensor was Already Taken.
+========================================
 
 [![Build Status](https://travis-ci.org/dcgerard/tensr.svg?branch=master)](https://travis-ci.org/dcgerard/tensr) [![CRAN Version](http://www.r-pkg.org/badges/version/tensr)](https://cran.r-project.org/package=tensr) [![Downloads from the RStudio CRAN mirror](http://cranlogs.r-pkg.org/badges/grand-total/tensr)](http://cranlogs.r-pkg.org/badges/grand-total/tensr)
 
