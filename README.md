@@ -42,6 +42,6 @@ devtools::install_github("dcgerard/tensr")
 References
 ==========
 
-**Gerard, D.**, & Hoff, P. (2015). Equivariant minimax dominators of the MLE in the array normal model. *Journal of Multivariate Analysis*, 137, 32-49. [\[Link to JMVA\]](http://www.sciencedirect.com/science/article/pii/S0047259X15000330) [\[Link to arXiv\]](http://arxiv.org/pdf/1408.0424.pdf)
+**Gerard, D.**, & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. *Linear Algebra and its Applications*, 505, 57-84. [\[Link to LAA\]](http://www.sciencedirect.com/science/article/pii/S002437951630132X?np=y) [\[Link to arXiv\]](http://arxiv.org/pdf/1410.1094v1.pdf)
 
-**Gerard, D. C.**, & Hoff, P. D. (2014). A higher-order LQ decomposition for separable covariance models. *arXiv preprint arXiv:1410.1094*. [\[Link to arXiv\]](http://arxiv.org/pdf/1410.1094v1.pdf)
+**Gerard, D.**, & Hoff, P. (2015). Equivariant minimax dominators of the MLE in the array normal model. *Journal of Multivariate Analysis*, 137, 32-49. [\[Link to JMVA\]](http://www.sciencedirect.com/science/article/pii/S0047259X15000330) [\[Link to arXiv\]](http://arxiv.org/pdf/1408.0424.pdf)
