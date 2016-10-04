@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 
 # tensr, Because tensor was Already Taken.
 [![Build Status](https://travis-ci.org/dcgerard/tensr.svg?branch=master)](https://travis-ci.org/dcgerard/tensr)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/dcgerard/tensr?branch=master&svg=true)](https://ci.appveyor.com/project/dcgerard/tensr)
 [![CRAN Version](http://www.r-pkg.org/badges/version/tensr)](https://cran.r-project.org/package=tensr)
 [![Downloads from the RStudio CRAN mirror](http://cranlogs.r-pkg.org/badges/grand-total/tensr)](http://cranlogs.r-pkg.org/badges/grand-total/tensr)
 
@@ -28,7 +29,7 @@ This package contains a collection of functions for statistical analysis with te
     + Derive the maximum likelihood estimates of the covariance matrices under the array normal model,
     + Run a likelihood ratio test in separable covariance models, and
     + Calculate AIC's and BIC's for separable covariance models.
-* Run a Gibbs sampler to draw from the posterior distribution of the Kronecker structured covariance matrix in the array normal model. This posterior is with respect to a (non-informative) prior induced by the right Haar measure over a product group of lower triangular matrices acting on the space of Kronecker structured covariance matrices. For any invariant loss function, any Bayes rule with respect to this prior will be the uniformly minimum risk equivariant estimator (UMREE) with respect to that loss. 
+* Run a Gibbs sampler to draw from the posterior distribution of the Kronecker structured covariance matrix in the array normal model. This posterior is with respect to a (non-informative) prior induced by the right Haar measure over a product group of lower triangular matrices acting on the space of Kronecker structured covariance matrices. For any invariant loss function, any Bayes rule with respect to this prior will be the uniformly minimum risk equivariant estimator (UMREE) with respect to that loss.
 * Calculate the UMREE under a multiway generalization of Stein's loss. This estimator dominates the maximum likelihood estimator uniformly over the entire parameter space of Kronecker structured covariance matrices.
 * Calculate a (randomized) orthogonally invariant estimator of the Kronecker structured covariance matrix. This estimator dominates the UMREE under the product group of lower triangular matrices.
 
@@ -51,6 +52,6 @@ devtools::install_github("dcgerard/tensr")
 ```
 
 # References
-**Gerard, D.**, & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. *Linear Algebra and its Applications*, 505, 57-84. [[Link to LAA]](http://www.sciencedirect.com/science/article/pii/S002437951630132X?np=y) [[Link to arXiv]](http://arxiv.org/pdf/1410.1094v1.pdf) 
+**Gerard, D.**, & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. *Linear Algebra and its Applications*, 505, 57-84. [[Link to LAA]](http://www.sciencedirect.com/science/article/pii/S002437951630132X?np=y) [[Link to arXiv]](http://arxiv.org/pdf/1410.1094v1.pdf)
 
 **Gerard, D.**, & Hoff, P. (2015). Equivariant minimax dominators of the MLE in the array normal model. _Journal of Multivariate Analysis_, 137, 32-49. [[Link to JMVA]](http://www.sciencedirect.com/science/article/pii/S0047259X15000330) [[Link to arXiv]](http://arxiv.org/pdf/1408.0424.pdf)
