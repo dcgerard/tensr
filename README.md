@@ -1,8 +1,9 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 tensr, Because tensor was Already Taken.
 ========================================
 
-[![Build Status](https://travis-ci.org/dcgerard/tensr.svg?branch=master)](https://travis-ci.org/dcgerard/tensr) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/dcgerard/tensr?branch=master&svg=true)](https://ci.appveyor.com/project/dcgerard/tensr) [![CRAN Version](http://www.r-pkg.org/badges/version/tensr)](https://cran.r-project.org/package=tensr) [![Downloads from the RStudio CRAN mirror](http://cranlogs.r-pkg.org/badges/grand-total/tensr)](http://cranlogs.r-pkg.org/badges/grand-total/tensr) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+[![Build Status](https://travis-ci.org/dcgerard/tensr.svg?branch=master)](https://travis-ci.org/dcgerard/tensr) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/dcgerard/tensr?branch=master&svg=true)](https://ci.appveyor.com/project/dcgerard/tensr) [![CRAN Version](http://www.r-pkg.org/badges/version/tensr)](https://cran.r-project.org/package=tensr) [![Downloads from the RStudio CRAN mirror](http://cranlogs.r-pkg.org/badges/grand-total/tensr)](http://cranlogs.r-pkg.org/badges/grand-total/tensr) <!-- [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) -->
 
 Description
 ===========
