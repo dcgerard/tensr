@@ -590,33 +590,54 @@ get_isvd <- function(x_holq) {
 #' X_approx <- atrans(G, U)
 #' fnorm(X - X_approx)
 hooi <- function(X, r, tol = 10 ^ -6, print_fnorm = FALSE, itermax = 500) {
-    p <- dim(X)
-    n <- length(p)
-    U_new <- hosvd(X, r = r)$U
-    epsilon <- tol + 1  ## how far U_old is from U_new
-    iter_index <- 1
-    while (epsilon > tol & iter_index < itermax) {
-        U_old <- U_new
-        ## do svd along each mode
-        for (mode_index in 1:n) {
-            U_mult <- U_new
-            U_mult[[mode_index]] <- diag(p[mode_index])
-            Y <- atrans(X, lapply(U_mult, t))
-            U_new[[mode_index]] <- svd(mat(Y, mode_index))$u[, 1:r[mode_index]]
-        }
-
-        ## calculate how far the matrices are from one another
-        dist_current <- rep(NA, length = n)
-        for (mode_index in 1:n) {
-            dist_current[mode_index] <- fnorm(U_new[[mode_index]] - U_old[[mode_index]])
-        }
-        epsilon <- max(dist_current)
-
-        if (print_fnorm == TRUE) {
-            cat(fnorm(atrans(X, lapply(U_new, t))), "\n")
-        }
-        iter_index <- iter_index + 1
+  p <- dim(X)
+  n <- length(p)
+  ## Check input -----------------------------------------------------
+  assertthat::are_equal(length(r), n)
+  assertthat::assert_that(all(p >= r))
+  assertthat::assert_that(all(r >= 0))
+  assertthat::assert_that(tol > 0)
+  assertthat::assert_that(itermax > 0)
+  assertthat::assert_that(is.logical(print_fnorm))
+  ## Corner case of Rank = 0 -----------------------------------------
+  if (any(r == 0)) {
+    G <- array(0, dim = p)
+    U_new <- list()
+    for (mode_index in 1:n) {
+      U_new[[mode_index]] <- matrix(0, nrow = p[mode_index], ncol = p[mode_index])
     }
-    G <- atrans(X, lapply(U_new, t))
     return(list(G = G, U = U_new))
+  }
+
+  U_new <- hosvd(X, r = r)$U
+  epsilon <- tol + 1  ## how far U_old is from U_new
+  iter_index <- 1
+  fnorm_val <- -Inf ## the fnorm
+  while (epsilon > tol & iter_index < itermax) {
+    U_old <- U_new
+    ## do svd along each mode
+    for (mode_index in 1:n) {
+      U_mult <- U_new
+      U_mult[[mode_index]] <- diag(p[mode_index])
+      Y <- atrans(X, lapply(U_mult, t))
+      U_new[[mode_index]] <- svd(mat(Y, mode_index), nu = r[mode_index], nv = 0)$u
+    }
+
+    ## calculate how far the matrices are from one another
+    dist_current <- rep(NA, length = n)
+    for (mode_index in 1:n) {
+      dist_current[mode_index] <- fnorm(U_new[[mode_index]] - U_old[[mode_index]])
+    }
+    epsilon <- max(dist_current)
+
+    if (print_fnorm == TRUE) {
+      fnorm_old <- fnorm_val
+      fnorm_val <- fnorm(atrans(X, lapply(U_new, t)))
+      assertthat::assert_that(fnorm_val >= fnorm_old)
+      cat(fnorm_val, "\n")
+    }
+    iter_index <- iter_index + 1
+  }
+  G <- atrans(X, lapply(U_new, t))
+  return(list(G = G, U = U_new))
 }

@@ -40,17 +40,17 @@ For details on the HOOI see
 al (2000)}.
 }
 \examples{
-#Generate random data.
+## Generate random data.
 p <- c(2, 3, 4)
 X <- array(stats::rnorm(prod(p)), dim = p)
 
-#Calculate HOOI
+## Calculate HOOI
 r <- c(2, 2, 2)
 hooi_x <- hooi(X, r = r)
 G <- hooi_x$G
 U <- hooi_x$U
 
-#Reconstruct the hooi approximation.
+## Reconstruct the hooi approximation.
 X_approx <- atrans(G, U)
 fnorm(X - X_approx)
 }

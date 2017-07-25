@@ -19,6 +19,8 @@ URL: http://github.com/dcgerard/tensr
 BugReports: http://github.com/dcgerard/tensr/issues
 Suggests: knitr,
     rmarkdown,
-    covr
+    covr,
+    testthat
 VignetteBuilder: knitr
-Imports: stats
+Imports: stats,
+    assertthat
