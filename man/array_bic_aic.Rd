@@ -67,11 +67,10 @@ plot(c(false_aic1$BIC, false_aic2$BIC, true_aic$BIC), type = "l", xaxt = "n",
      xlab = "Model", ylab = "BIC", main = "BIC")
 axis(side = 1, at = 1:3, labels = c("Wrong Model 1", "Wrong Model 2", "Right Model"))
 }
-\author{
-David Gerard.
-}
 \seealso{
 \code{\link{holq}} for obtaining \code{sig_squared}.
 }
+\author{
+David Gerard.
+}
 \keyword{likelihood}
-

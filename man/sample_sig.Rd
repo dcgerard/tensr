@@ -32,9 +32,6 @@ of an inverse-gamma distributed random variable whose parameters depend on
 the data and the component covariance matrices. Roughly, this is the update
 for the standard deviation, not the variance.
 }
-\author{
-David Gerard.
-}
 \references{
 Gerard, D., & Hoff, P. (2015).
   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
@@ -45,5 +42,7 @@ Gerard, D., & Hoff, P. (2015).
 \code{\link{equi_mcmc}} for a Gibbs sampler where this function is
   used.
 }
+\author{
+David Gerard.
+}
 \keyword{equivariance}
-

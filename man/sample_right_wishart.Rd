@@ -27,9 +27,6 @@ function is used primarily during the Gibbs updates of the inverse
 of the lower triangular Cholesky square root of the component
 covariance matrices in \code{equi_mcmc}.
 }
-\author{
-David Gerard.
-}
 \references{
 Gerard, D., & Hoff, P. (2015).
   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
@@ -39,6 +36,8 @@ Gerard, D., & Hoff, P. (2015).
 \seealso{
 \code{\link{equi_mcmc}}, \code{\link{rmirror_wishart}}.
 }
+\author{
+David Gerard.
+}
 \keyword{equivariance}
 \keyword{simulation}
-

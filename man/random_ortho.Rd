@@ -24,12 +24,11 @@ This function is primarily used by \code{\link{multiway_takemura}} in its
 averaging over uniformly minimum risk equivariant estimators under rotations
 of the data array.
 }
-\author{
-David Gerard.
-}
 \seealso{
 \code{\link{multiway_takemura}}.
 }
+\author{
+David Gerard.
+}
 \keyword{equivariance}
 \keyword{simulation}
-

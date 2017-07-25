@@ -38,10 +38,9 @@ Q
 trim(t(Q) \%*\% Q)
 trim(X - L\%*\%t(Q))
 }
-\author{
-David Gerard.
-}
 \seealso{
 \code{\link{qr2}} for the related QR decomposition.
 }
-
+\author{
+David Gerard.
+}

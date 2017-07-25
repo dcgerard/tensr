@@ -57,9 +57,6 @@ mcmc_out <- equi_mcmc(X)
 bayes_rules <- get_equi_bayes(mcmc_out$Phi_inv, mcmc_out$sigma)
 bayes_rules$Sig_hat[[1]]
 }
-\author{
-David Gerard.
-}
 \references{
 Gerard, D., & Hoff, P. (2015).
   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
@@ -69,6 +66,8 @@ Gerard, D., & Hoff, P. (2015).
 \seealso{
 \code{\link{equi_mcmc}}.
 }
+\author{
+David Gerard.
+}
 \keyword{equivariance}
 \keyword{posterior}
-

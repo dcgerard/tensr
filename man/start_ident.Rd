@@ -28,10 +28,9 @@ identity matrix of dimensions \code{p[i]} if \code{i} is in
 
 This is primarily used when getting starting values in \code{equi_mcmc}.
 }
-\author{
-David Gerard.
-}
 \seealso{
 \code{\link{equi_mcmc}}.
 }
-
+\author{
+David Gerard.
+}

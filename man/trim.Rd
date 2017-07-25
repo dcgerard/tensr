@@ -27,4 +27,3 @@ trim(X)
 \author{
 David Gerard.
 }
-

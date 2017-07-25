@@ -27,12 +27,11 @@ this is sufficient to gaurantee uniqueness of the QR decomposition
 (Proposition 5.2 of
 \href{https://books.google.com/books?id=WyvvAAAAMAAJ}{Eaton (1983)}).
 }
-\author{
-David Gerard.
-}
 \seealso{
 \code{\link[base]{qr}}, \code{\link[base]{qr.Q}}, and
   \code{\link[base]{qr.R}} for the base methods on the obtaining the QR
   decomposition. \code{\link{lq}} for the related LQ decomposition.
 }
-
+\author{
+David Gerard.
+}

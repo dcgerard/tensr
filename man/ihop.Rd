@@ -78,13 +78,12 @@ trim(ortho_2 \%*\% t(ortho_2))
 ortho_3 <- t(solve(L[[3]])) \%*\% mat(R, 3)
 trim(ortho_3 \%*\% t(ortho_3))
 }
-\author{
-David Gerard.
-}
 \references{
 Gerard, D. C., & Hoff, P. D. (2014).
   \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ decomposition for
   separable covariance models}. \emph{arXiv preprint arXiv:1410.1094.}
 }
+\author{
+David Gerard.
+}
 \keyword{decompositions}
-

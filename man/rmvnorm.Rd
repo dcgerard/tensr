@@ -32,4 +32,3 @@ Peter Hoff.
 }
 \keyword{multivariate}
 \keyword{simulation}
-

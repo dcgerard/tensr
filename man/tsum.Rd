@@ -14,4 +14,3 @@ tsum(X, A)
 \description{
 Computes the Tucker sum of an array and a list of matrices.
 }
-

@@ -30,4 +30,3 @@ tensr:::topK(x, 3)
 \author{
 Peter Hoff.
 }
-

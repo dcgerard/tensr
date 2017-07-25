@@ -40,4 +40,3 @@ collapse_mode(X, 4) #returns X
 \author{
 David Gerard.
 }
-

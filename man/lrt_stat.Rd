@@ -27,9 +27,6 @@ The LRT statistic is the exact same for all elliptically distributed
 Kronecker structured covariance models (not just the normal). The
 distribution of the likelihood ratio test statistic does change.
 }
-\author{
-David Gerard.
-}
 \references{
 Gerard, D. C., & Hoff, P. D. (2014).
   \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ decomposition for
@@ -42,5 +39,7 @@ Gerard, D. C., & Hoff, P. D. (2014).
   \code{\link{lrt_null_dist_dim_same}} for getting the null distribution of
   the likelihood ratio test statistic.
 }
+\author{
+David Gerard.
+}
 \keyword{likelihood}
-

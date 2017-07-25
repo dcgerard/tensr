@@ -35,13 +35,12 @@ also be array normal with the \emph{exact} same covariance
 structure as the original tensor, except that there are one fewer
 samples.
 }
-\author{
-David Gerard.
-}
 \references{
 Gerard, D., & Hoff, P. (2015).
   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
   minimax dominators of the MLE in the array normal model}. \emph{Journal of
   Multivariate Analysis}, 137, 32-49.
 }
-
+\author{
+David Gerard.
+}

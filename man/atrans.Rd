@@ -33,9 +33,6 @@ B[[2]] <- matrix(1:6, nrow = 3)
 B[[3]] <- matrix(1:2, nrow = 1)
 atrans(A,B)
 }
-\author{
-Peter Hoff.
-}
 \references{
 Kolda, T. G., & Bader, B. W. (2009).
   \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
@@ -45,4 +42,6 @@ Kolda, T. G., & Bader, B. W. (2009).
 \code{\link{amprod}} for multiplying one matrix along one mode of an
   array.
 }
-
+\author{
+Peter Hoff.
+}

@@ -558,6 +558,8 @@ get_isvd <- function(x_holq) {
 #' @param tol A numeric. Stopping criterion.
 #' @param print_fnorm Should updates of the optimization procedure be printed?
 #'   This number should get larger during the optimizaton procedure.
+#' @param itermax The maximum number of iterations to run the optimization procedure.
+#'
 #' @return \code{G} An all-orthogonal core array.
 #'
 #'   \code{U} A vector of matrices with orthonormal columns.
@@ -587,12 +589,13 @@ get_isvd <- function(x_holq) {
 #' #Reconstruct the hooi approximation.
 #' X_approx <- atrans(G, U)
 #' fnorm(X - X_approx)
-hooi <- function(X, r, tol = 10 ^ -6, print_fnorm = FALSE) {
+hooi <- function(X, r, tol = 10 ^ -6, print_fnorm = FALSE, itermax = 500) {
     p <- dim(X)
     n <- length(p)
     U_new <- hosvd(X, r = r)$U
     epsilon <- tol + 1  ## how far U_old is from U_new
-    while (epsilon > tol) {
+    iter_index <- 1
+    while (epsilon > tol & iter_index < itermax) {
         U_old <- U_new
         ## do svd along each mode
         for (mode_index in 1:n) {
@@ -612,6 +615,7 @@ hooi <- function(X, r, tol = 10 ^ -6, print_fnorm = FALSE) {
         if (print_fnorm == TRUE) {
             cat(fnorm(atrans(X, lapply(U_new, t))), "\n")
         }
+        iter_index <- iter_index + 1
     }
     G <- atrans(X, lapply(U_new, t))
     return(list(G = G, U = U_new))

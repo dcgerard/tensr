@@ -29,9 +29,6 @@ see
 \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{
 Gerard and Hoff (2015)}.
 }
-\author{
-David Gerard.
-}
 \references{
 Gerard, D., & Hoff, P. (2015).
   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
@@ -41,6 +38,8 @@ Gerard, D., & Hoff, P. (2015).
 \seealso{
 \code{\link{sample_right_wishart}}
 }
+\author{
+David Gerard.
+}
 \keyword{equivariance}
 \keyword{simulation}
-

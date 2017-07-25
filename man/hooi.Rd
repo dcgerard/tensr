@@ -4,7 +4,7 @@
 \alias{hooi}
 \title{Calculate the higher-order orthogonal iteration (HOOI).}
 \usage{
-hooi(X, r, tol = 10^-6, print_fnorm = FALSE)
+hooi(X, r, tol = 10^-6, print_fnorm = FALSE, itermax = 500)
 }
 \arguments{
 \item{X}{An array of numerics.}
@@ -16,6 +16,8 @@ approximation.}
 
 \item{print_fnorm}{Should updates of the optimization procedure be printed?
 This number should get larger during the optimizaton procedure.}
+
+\item{itermax}{The maximum number of iterations to run the optimization procedure.}
 }
 \value{
 \code{G} An all-orthogonal core array.
@@ -52,14 +54,13 @@ U <- hooi_x$U
 X_approx <- atrans(G, U)
 fnorm(X - X_approx)
 }
-\author{
-David Gerard.
-}
 \references{
 De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000).
   \href{http://epubs.siam.org/doi/abs/10.1137/S0895479898346995}{On the best
   rank-1 and rank-(\eqn{r_1, r_2,..., r_n}) approximation of higher-order tensors}.
   \emph{SIAM Journal on Matrix Analysis and Applications}, 21(4), 1324-1342.
 }
+\author{
+David Gerard.
+}
 \keyword{decompositions}
-

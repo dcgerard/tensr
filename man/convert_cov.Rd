@@ -61,9 +61,6 @@ plot(cov_out[[1]][[k]][i, j, ], type = 'l', xlab = 'Iteration',
 abline(h = 1 * (i == j), lty =  2, col = 2)
 legend('topleft', 'True Value', col = 2, lty = 2, bty = 'n')
 }
-\author{
-David Gerard.
-}
 \references{
 Gerard, D., & Hoff, P. (2015).
   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
@@ -73,6 +70,8 @@ Gerard, D., & Hoff, P. (2015).
 \seealso{
 \code{\link{equi_mcmc}}.
 }
+\author{
+David Gerard.
+}
 \keyword{equivariance}
 \keyword{posterior}
-

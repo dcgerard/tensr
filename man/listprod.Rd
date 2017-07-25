@@ -22,4 +22,3 @@ products of the elements of these two lists.
 \author{
 David Gerard.
 }
-

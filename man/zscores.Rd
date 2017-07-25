@@ -31,4 +31,3 @@ plot(y,z)
 \author{
 Peter Hoff.
 }
-

@@ -32,12 +32,11 @@ mat(A, 1)
 mat(A, 2)
 mat(A, 3)
 }
-\author{
-Peter Hoff.
-}
 \references{
 Kolda, T. G., & Bader, B. W. (2009).
   \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
   decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
 }
-
+\author{
+Peter Hoff.
+}

@@ -40,10 +40,9 @@ square root scaled down to have determinant 1. This function is
 primarily used to obtain starting values for the Gibbs sampler
 implemented in \code{equi_mcmc}.
 }
-\author{
-David Gerard.
-}
 \seealso{
 \code{\link{equi_mcmc}}.
 }
-
+\author{
+David Gerard.
+}

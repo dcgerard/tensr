@@ -125,6 +125,7 @@ array normal model.
 
   \code{\link{trim}} Truncates small numbers to 0.
 }
+
 \references{
 Gerard, D., & Hoff, P. (2015).
     \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
@@ -136,4 +137,3 @@ Gerard, D., & Hoff, P. (2015).
     decomposition for separable covariance models}. \emph{arXiv
     preprint arXiv:1410.1094.}
 }
-

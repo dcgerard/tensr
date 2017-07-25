@@ -41,14 +41,13 @@ cond_params <- anorm_cd(Y = Y, M = true_mean, S = true_cov, saidx = saidx)
 cond_params$Mab
 cond_params$Sab
 }
-\author{
-Peter Hoff.
-}
 \references{
 Hoff, P. D. (2011).
   \href{http://arxiv.org/abs/1008.2169}{Separable covariance arrays via the
   Tucker product, with applications to multivariate relational data}.
   \emph{Bayesian Analysis}, 6(2), 179-196.
 }
+\author{
+Peter Hoff.
+}
 \keyword{multivariate}
-

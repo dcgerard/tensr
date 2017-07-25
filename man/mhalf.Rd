@@ -27,4 +27,3 @@ identical(M, X \%*\% X)
 \author{
 Peter Hoff.
 }
-

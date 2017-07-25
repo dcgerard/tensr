@@ -19,4 +19,3 @@ model, minus a constant.
 \author{
 David Gerard.
 }
-

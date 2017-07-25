@@ -28,9 +28,6 @@ variation parameter is \code{sqrt(sig ^ 2 / prod{p})}, whre \code{p} is the
 vector of dimensions of the data array and \code{sig} is the output
 from \code{holq}.
 }
-\author{
-David Gerard.
-}
 \references{
 Gerard, D. C., & Hoff, P. D. (2014).
   \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ decomposition for
@@ -39,5 +36,7 @@ Gerard, D. C., & Hoff, P. D. (2014).
 \seealso{
 \code{\link{holq}}.
 }
+\author{
+David Gerard.
+}
 \keyword{likelihood}
-

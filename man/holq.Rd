@@ -115,9 +115,6 @@ trim(mat(Z, 2) \%*\% t(mat(Z, 2)), 10^-5)
 #Third mode has unit diagonal (up to scale).
 diag(mat(Z, 3) \%*\% t(mat(Z, 3)))
 }
-\author{
-David Gerard.
-}
 \references{
 Gerard, D. C., & Hoff, P. D. (2014).
   \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ decomposition for
@@ -139,6 +136,8 @@ Gerard, D. C., & Hoff, P. D. (2014).
   calculate the maximum likelihood estimates of the component covariance
   matrices under the array normal model.
 }
+\author{
+David Gerard.
+}
 \keyword{decompositions}
 \keyword{likelihood}
-

@@ -59,9 +59,6 @@ plot(mcmc_out$sigma, type = 'l', lwd = 2, ylab = expression(sigma),
      xlab = 'Iteration', main = 'Trace Plot')
 abline(h = 1,col = 2,lty = 2)
 }
-\author{
-David Gerard.
-}
 \references{
 Gerard, D., & Hoff, P. (2015).
   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
@@ -77,5 +74,7 @@ Gerard, D., & Hoff, P. (2015).
     \code{equi_mcmc}. \code{\link{multiway_takemura}} for an
     improvement on this procedure.
 }
+\author{
+David Gerard.
+}
 \keyword{equivariance}
-

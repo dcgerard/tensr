@@ -38,9 +38,6 @@ Y <- amprod(A, M, 2)
 Y
 identical(M \%*\% mat(A,2), mat(Y,2))
 }
-\author{
-Peter Hoff.
-}
 \references{
 Kolda, T. G., & Bader, B. W. (2009).
   \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
@@ -50,4 +47,6 @@ Kolda, T. G., & Bader, B. W. (2009).
 \code{\link{atrans}} for applying multiple \eqn{k}-mode
     products.
 }
-
+\author{
+Peter Hoff.
+}

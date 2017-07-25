@@ -32,4 +32,3 @@ fnorm(Z)
 \author{
 David Gerard.
 }
-

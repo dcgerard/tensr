@@ -29,4 +29,3 @@ tensr:::kendalltau(rpois(30, mu), rpois(30, mu))
 \author{
 Peter Hoff.
 }
-

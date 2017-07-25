@@ -40,4 +40,3 @@ trim(X - P \%*\% Z)
 \author{
 David Gerard.
 }
-

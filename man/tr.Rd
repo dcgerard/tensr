@@ -27,4 +27,3 @@ tr(X)
 \author{
 Peter Hoff.
 }
-

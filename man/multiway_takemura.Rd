@@ -55,9 +55,6 @@ trim(multi_out$B[[1]])
 trim(multi_out$B[[2]])
 trim(multi_out$B[[3]])
 }
-\author{
-David Gerard.
-}
 \references{
 Gerard, D., & Hoff, P. (2015).
   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
@@ -67,5 +64,7 @@ Gerard, D., & Hoff, P. (2015).
 \seealso{
 \code{\link{equi_mcmc}}, \code{\link{random_ortho}}.
 }
+\author{
+David Gerard.
+}
 \keyword{equivariance}
-

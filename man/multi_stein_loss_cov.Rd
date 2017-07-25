@@ -39,9 +39,6 @@ The function \code{multi_stien_loss} also calculates multiway Stein's loss,
 but uses the lower-triangular Cholesky square roots of the component
 covariance matrices as input.
 }
-\author{
-David Gerard.
-}
 \references{
 Gerard, D., & Hoff, P. (2015).
   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
@@ -51,6 +48,8 @@ Gerard, D., & Hoff, P. (2015).
 \seealso{
 \code{\link{multi_stein_loss}}, \code{\link{get_equi_bayes}}.
 }
+\author{
+David Gerard.
+}
 \keyword{equivariance}
 \keyword{loss}
-
