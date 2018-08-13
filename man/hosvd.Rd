@@ -50,7 +50,7 @@ trim(mat(S, 3) \%*\% t(mat(S, 3)))
 }
 \references{
 De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000).
-  \href{http://epubs.siam.org/doi/abs/10.1137/S0895479896305696}{A
+  \href{http://doi.org/10.1137/S0895479896305696}{A
   multilinear singular value decomposition}. \emph{SIAM journal on Matrix
   Analysis and Applications}, 21(4), 1253-1278.
 }

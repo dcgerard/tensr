@@ -24,7 +24,7 @@
 #' @author Peter Hoff.
 #'
 #' @references De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000).
-#'   \href{http://epubs.siam.org/doi/abs/10.1137/S0895479896305696}{A
+#'   \href{http://doi.org/10.1137/S0895479896305696}{A
 #'   multilinear singular value decomposition}. \emph{SIAM journal on Matrix
 #'   Analysis and Applications}, 21(4), 1253-1278.
 #'
@@ -178,9 +178,11 @@ hosvd <- function(Y, r = NULL) {
 #'
 #' @export
 #'
-#' @references Gerard, D. C., & Hoff, P. D. (2014).
-#'   \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ decomposition for
-#'   separable covariance models}. \emph{arXiv preprint arXiv:1410.1094.}
+#' @references Gerard, D., & Hoff, P. (2016). A higher-order LQ
+#'     decomposition for separable covariance models.
+#'     \emph{Linear Algebra and its Applications}, 505, 57-84.
+#'     \url{https://doi.org/10.1016/j.laa.2016.04.033}
+#'     \url{http://arxiv.org/pdf/1410.1094v1.pdf}
 #'
 #' @author David Gerard.
 #'
@@ -377,9 +379,11 @@ holq <- function(X, tol = 10 ^ -9, itermax = 1000, mode_rep = NULL, mode_diag = 
 #'
 #' @keywords decompositions
 #'
-#' @references Gerard, D. C., & Hoff, P. D. (2014).
-#'   \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ decomposition for
-#'   separable covariance models}. \emph{arXiv preprint arXiv:1410.1094.}
+#' @references Gerard, D., & Hoff, P. (2016). A higher-order LQ
+#'     decomposition for separable covariance models.
+#'     \emph{Linear Algebra and its Applications}, 505, 57-84.
+#'     \url{https://doi.org/10.1016/j.laa.2016.04.033}
+#'     \url{http://arxiv.org/pdf/1410.1094v1.pdf}
 #'
 #' @author David Gerard.
 #'
@@ -491,9 +495,11 @@ ihop <- function(X, itermax = 100, tol = 10 ^ -9, print_diff = TRUE, mode_rep = 
 #'
 #' @keywords decompositions
 #'
-#' @references Gerard, D. C., & Hoff, P. D. (2014).
-#'   \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ decomposition for
-#'   separable covariance models}. \emph{arXiv preprint arXiv:1410.1094.}
+#' @references Gerard, D., & Hoff, P. (2016). A higher-order LQ
+#'     decomposition for separable covariance models.
+#'     \emph{Linear Algebra and its Applications}, 505, 57-84.
+#'     \url{https://doi.org/10.1016/j.laa.2016.04.033}
+#'     \url{http://arxiv.org/pdf/1410.1094v1.pdf}
 #'
 #' @examples
 #' #Generate random data.
@@ -571,7 +577,7 @@ get_isvd <- function(x_holq) {
 #' @keywords decompositions
 #'
 #' @references De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000).
-#'   \href{http://epubs.siam.org/doi/abs/10.1137/S0895479898346995}{On the best
+#'   \href{http://doi.org/10.1137/S0895479898346995}{On the best
 #'   rank-1 and rank-(\eqn{r_1, r_2,..., r_n}) approximation of higher-order tensors}.
 #'   \emph{SIAM Journal on Matrix Analysis and Applications}, 21(4), 1324-1342.
 #'

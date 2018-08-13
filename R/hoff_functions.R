@@ -39,14 +39,14 @@ kendalltau <- function(x, y, nmc = 1e+05) {
 #' \code{A}.
 #'
 #' @references Magnus, J. R., & Neudecker,
-#'     H. (1979). \href{http://www.janmagnus.nl/papers/JRM005.pdf}{The
+#'     H. (1979). \href{http://doi.org/10.1214/aos/1176344621}{The
 #'     commutation matrix: some properties and
 #'     applications}. \emph{The Annals of Statistics}, 381-394.
 #'
-#' Tracy, D. S., & Dwyer,
-#' P. S. (1969). \href{http://www.che.iitm.ac.in/~naras/ch544/maxmin_matrixderivatives.pdf}{Multivariate
-#' maxima and minima with matrix derivatives}. \emph{Journal of the
-#' American Statistical Association}, 64(328), 1576-1594.
+#'     Tracy, D. S., & Dwyer,
+#'     P. S. (1969). \href{http://doi.org/10.1080/01621459.1969.10501078}{Multivariate
+#'     maxima and minima with matrix derivatives}. \emph{Journal of the
+#'     American Statistical Association}, 64(328), 1576-1594.
 #'
 #' @param m a natural number.
 #' @param n another natural number.
@@ -246,7 +246,7 @@ arrIndices <- function(saidx) {
 #' @keywords multivariate
 #'
 #' @references Hoff, P. D. (2011).
-#'   \href{http://arxiv.org/abs/1008.2169}{Separable covariance arrays via the
+#'   \href{http://doi.org/10.1214/11-BA606}{Separable covariance arrays via the
 #'   Tucker product, with applications to multivariate relational data}.
 #'   \emph{Bayesian Analysis}, 6(2), 179-196.
 #' @export

@@ -1,0 +1,31 @@
+c(bibentry(bibtype    = "Article",
+         title      = "A higher-order {LQ} decomposition for separable covariance models",
+          year      = "2016",
+          journal   = "Linear Algebra and its Applications",
+          volume    = "505",
+          pages     = "57-84",
+          doi       = "10.1016/j.laa.2016.04.033",
+          author    = c(person(given  = "David",
+                               family = "Gerard",
+                               email  = "gerard.1787@gmail.com"),
+                        person(given  = "Peter",
+                               family = "Hoff",
+                               email  = "peter.hoff@duke.edu")
+                       )
+),
+bibentry(bibtype    = "Article",
+         title      = "Equivariant minimax dominators of the {MLE} in the array normal model",
+          year      = "2015",
+          journal   = "Journal of Multivariate Analysis",
+          volume    = "137",
+          pages     = "32-49",
+          doi       = "10.1016/j.jmva.2015.01.020",
+          author    = c(person(given  = "David",
+                               family = "Gerard",
+                               email  = "gerard.1787@gmail.com"),
+                        person(given  = "Peter",
+                               family = "Hoff",
+                               email  = "peter.hoff@duke.edu")
+                       )
+)
+)

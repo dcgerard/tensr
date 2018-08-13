@@ -44,7 +44,7 @@ tr <- function(X) {
 #' @export
 #'
 #' @references Kolda, T. G., & Bader, B. W. (2009).
-#'   \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
+#'   \href{https://doi.org/10.1137/07070111X}{Tensor
 #'   decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
 #'
 #'
@@ -89,7 +89,7 @@ mat <- function(A, k) {
 #'
 #'
 #' @references Kolda, T. G., & Bader, B. W. (2009).
-#'   \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
+#'   \href{https://doi.org/10.1137/07070111X}{Tensor
 #'   decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
 #'
 #' @export
@@ -130,7 +130,7 @@ amprod <- function(A, M, k) {
 #' @author Peter Hoff.
 #'
 #' @references Kolda, T. G., & Bader, B. W. (2009).
-#'   \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
+#'   \href{https://doi.org/10.1137/07070111X}{Tensor
 #'   decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
 #'
 #' @export
@@ -221,7 +221,7 @@ ldan <- function(E, Sig) {
     m <- dim(E)
     ld <- 0
     for (k in 1:length(dim(E))) {
-        ld <- ld - 0.5 * prod(m[-k]) * log(det(Sig[[k]]))
+        ld <- ld - 0.5 * prod(m[-k]) * determinant(Sig[[k]], logarithm = TRUE)[[1]][[1]]
     }
     Z <- atrans(E, lapply(lapply(Sig, mhalf), solve))
     return(ld - 0.5 * sum(Z ^ 2))

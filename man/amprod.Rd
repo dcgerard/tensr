@@ -40,7 +40,7 @@ identical(M \%*\% mat(A,2), mat(Y,2))
 }
 \references{
 Kolda, T. G., & Bader, B. W. (2009).
-  \href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{Tensor
+  \href{https://doi.org/10.1137/07070111X}{Tensor
   decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
 }
 \seealso{

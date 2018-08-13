@@ -60,10 +60,11 @@ plot(mcmc_out$sigma, type = 'l', lwd = 2, ylab = expression(sigma),
 abline(h = 1,col = 2,lty = 2)
 }
 \references{
-Gerard, D., & Hoff, P. (2015).
-  \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
-  minimax dominators of the MLE in the array normal model}. \emph{Journal of
-  Multivariate Analysis}, 137, 32-49.
+Gerard, D., & Hoff, P. (2015). Equivariant minimax
+    dominators of the MLE in the array normal model.
+    \emph{Journal of Multivariate Analysis}, 137, 32-49.
+    \url{https://doi.org/10.1016/j.jmva.2015.01.020}
+    \url{http://arxiv.org/pdf/1408.0424.pdf}
 }
 \seealso{
 \code{\link{sample_right_wishart}} and

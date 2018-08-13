@@ -56,7 +56,7 @@ fnorm(X - X_approx)
 }
 \references{
 De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000).
-  \href{http://epubs.siam.org/doi/abs/10.1137/S0895479898346995}{On the best
+  \href{http://doi.org/10.1137/S0895479898346995}{On the best
   rank-1 and rank-(\eqn{r_1, r_2,..., r_n}) approximation of higher-order tensors}.
   \emph{SIAM Journal on Matrix Analysis and Applications}, 21(4), 1324-1342.
 }

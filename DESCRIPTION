@@ -1,21 +1,22 @@
 Package: tensr
 Type: Package
 Title: Covariance Inference and Decompositions for Tensor Datasets
-Version: 1.0.0
-Date: 2016-01-25
-Authors@R: c(person("David", "Gerard", email = "dcgerard@uchicago.edu", role = c("aut", "cre")),
-            person("Peter", "Hoff", email = "pdhoff@uw.edu", role = "aut"))
+Version: 1.0.1
+Date: 2018-08-13
+Authors@R: c(person("David", "Gerard", email = "gerard.1787@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9450-5023")),
+             person("Peter", "Hoff", email = "peter.hoff@duke.edu", role = "aut"))
 Description: A collection of functions for Kronecker structured covariance
     estimation and testing under the array normal model. For estimation,
     maximum likelihood and Bayesian equivariant estimation procedures are
     implemented. For testing, a likelihood ratio testing procedure is
     available. This package also contains additional functions for manipulating
     and decomposing tensor data sets. This work was partially supported by NSF
-    grant DMS-1505136.
+    grant DMS-1505136. Details of the methods are described in
+    Gerard and Hoff (2015) <doi:10.1016/j.jmva.2015.01.020> and
+    Gerard and Hoff (2016) <doi:10.1016/j.laa.2016.04.033>.
 License: GPL-3
 LazyData: TRUE
 RoxygenNote: 6.0.1
-URL: http://github.com/dcgerard/tensr
 BugReports: http://github.com/dcgerard/tensr/issues
 Suggests: knitr,
     rmarkdown,

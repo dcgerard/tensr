@@ -24,9 +24,9 @@
 #'   that satisfies the mean-zero assumption.
 #'
 #'   The details of the methods in this package can be found in
-#'   \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Gerard
-#'   and Hoff (2015)} and \href{http://arxiv.org/abs/1410.1094}{Gerard
-#'   and Hoff (2014)}.
+#'   \href{https://doi.org/10.1016/j.jmva.2015.01.020}{Gerard
+#'   and Hoff (2015)} and \href{https://doi.org/10.1016/j.laa.2016.04.033}{Gerard
+#'   and Hoff (2016)}.
 #'
 #' @section Tensr functions: \code{\link{amprod}} \eqn{k}-mode product.
 #'
@@ -116,15 +116,17 @@
 #'
 #'   \code{\link{trim}} Truncates small numbers to 0.
 #'
-#' @references Gerard, D., & Hoff, P. (2015).
-#'     \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{Equivariant
-#'     minimax dominators of the MLE in the array normal
-#'     model}. \emph{Journal of Multivariate Analysis}, 137, 32-49.
+#' @references Gerard, D., & Hoff, P. (2016). A higher-order LQ
+#'     decomposition for separable covariance models.
+#'     \emph{Linear Algebra and its Applications}, 505, 57-84.
+#'     \url{https://doi.org/10.1016/j.laa.2016.04.033}
+#'     \url{http://arxiv.org/pdf/1410.1094v1.pdf}
 #'
-#'     Gerard, D. C., & Hoff, P. D. (2014).
-#'     \href{http://arxiv.org/abs/1410.1094}{A higher-order LQ
-#'     decomposition for separable covariance models}. \emph{arXiv
-#'     preprint arXiv:1410.1094.}
+#'     Gerard, D., & Hoff, P. (2015). Equivariant minimax
+#'     dominators of the MLE in the array normal model.
+#'     \emph{Journal of Multivariate Analysis}, 137, 32-49.
+#'     \url{https://doi.org/10.1016/j.jmva.2015.01.020}
+#'     \url{http://arxiv.org/pdf/1408.0424.pdf}
 #'
 #' @docType package
 #' @name tensr
