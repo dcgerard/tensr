@@ -18,13 +18,25 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="The incredible higher-order polar decomposition (IHOP). — ihop" />
+
+<meta property="og:description" content="Mmm, pancakes." />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,12 +59,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">tensr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">tensr</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.0.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -78,13 +94,9 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="http://github.com/dcgerard/tensr">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -92,20 +104,24 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>The incredible higher-order polar decomposition (IHOP).</h1>
+    
+    <div class="hidden name"><code>ihop.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Mmm, pancakes.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>ihop</span>(<span class='no'>X</span>, <span class='kw'>itermax</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>tol</span> <span class='kw'>=</span> <span class='fl'>10</span>^-<span class='fl'>9</span>, <span class='kw'>print_diff</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>mode_rep</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>use_sig</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -156,17 +172,19 @@ minimization formulation of the polar decomposition.</p>
 triangular matrices with positive diagonal elements and unit Frobenius norm,
 <code>R</code> a core array with certain orthogonality properties, and <code>sig</code> a
 total variation parameter. We have that <code>X</code> is equal to <code>sig *
-atrans(R, L)</code> up to numerical precision.
-    <code>t(solve(L[[i]])) %*% mat(R, i)</code> will have orthonormal rows for all
+atrans(R, L)</code> up to numerical precision.</p>
+<p><code>t(solve(L[[i]])) %*% mat(R, i)</code> will have orthonormal rows for all
 <code>i</code>.</p>
 <p>For more details on the IHOP, see
-<a href='http://arxiv.org/abs/1410.1094'>Gerard and Hoff (2014)</a>.</p>
+<a href='https://doi.org/10.1016/j.laa.2016.04.033'>Gerard and Hoff (2016)</a>.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>Gerard, D. C., &amp; Hoff, P. D. (2014).
-  <a href='http://arxiv.org/abs/1410.1094'>A higher-order LQ decomposition for
-  separable covariance models</a>. <em>arXiv preprint arXiv:1410.1094.</em></p>
+    <p>Gerard, D., &amp; Hoff, P. (2016). A higher-order LQ
+    decomposition for separable covariance models.
+    <em>Linear Algebra and its Applications</em>, 505, 57-84.
+    <a href='https://doi.org/10.1016/j.laa.2016.04.033'>https://doi.org/10.1016/j.laa.2016.04.033</a>
+    <a href='http://arxiv.org/pdf/1410.1094v1.pdf'>http://arxiv.org/pdf/1410.1094v1.pdf</a></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -175,29 +193,29 @@ atrans(R, L)</code> up to numerical precision.
 <span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='fu'>array</span>(<span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fu'>prod</span>(<span class='no'>p</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='no'>p</span>)
 
 <span class='co'>#Calculate IHOP.</span>
-<span class='no'>ihop_x</span> <span class='kw'>&lt;-</span> <span class='fu'>ihop</span>(<span class='no'>X</span>)</div><div class='output co'>#&gt; Scale Diff =  0.2105 
-#&gt;      Scale =  21.08 
+<span class='no'>ihop_x</span> <span class='kw'>&lt;-</span> <span class='fu'>ihop</span>(<span class='no'>X</span>)</div><div class='output co'>#&gt; Scale Diff =  0.2104518 
+#&gt;      Scale =  21.076 
 #&gt; 
-#&gt; Scale Diff =  0.01308 
-#&gt;      Scale =  20.8 
+#&gt; Scale Diff =  0.01308105 
+#&gt;      Scale =  20.80386 
 #&gt; 
-#&gt; Scale Diff =  0.0005624 
-#&gt;      Scale =  20.79 
+#&gt; Scale Diff =  0.0005624172 
+#&gt;      Scale =  20.79217 
 #&gt; 
-#&gt; Scale Diff =  2.529e-05 
-#&gt;      Scale =  20.79 
+#&gt; Scale Diff =  2.528993e-05 
+#&gt;      Scale =  20.79164 
 #&gt; 
-#&gt; Scale Diff =  1.166e-06 
-#&gt;      Scale =  20.79 
+#&gt; Scale Diff =  1.165604e-06 
+#&gt;      Scale =  20.79162 
 #&gt; 
-#&gt; Scale Diff =  5.019e-08 
-#&gt;      Scale =  20.79 
+#&gt; Scale Diff =  5.019131e-08 
+#&gt;      Scale =  20.79161 
 #&gt; 
-#&gt; Scale Diff =  1.915e-09 
-#&gt;      Scale =  20.79 
+#&gt; Scale Diff =  1.915227e-09 
+#&gt;      Scale =  20.79161 
 #&gt; 
-#&gt; Scale Diff =  6.472e-11 
-#&gt;      Scale =  20.79 
+#&gt; Scale Diff =  6.47169e-11 
+#&gt;      Scale =  20.79161 
 #&gt; </div><div class='input'><span class='no'>R</span> <span class='kw'>&lt;-</span> <span class='no'>ihop_x</span>$<span class='no'>R</span>
 <span class='no'>L</span> <span class='kw'>&lt;-</span> <span class='no'>ihop_x</span>$<span class='no'>L</span>
 <span class='no'>sig</span> <span class='kw'>&lt;-</span> <span class='no'>ihop_x</span>$<span class='no'>sig</span>
@@ -229,14 +247,14 @@ atrans(R, L)</code> up to numerical precision.
 #&gt; </div><div class='input'>
 <span class='co'>#Orthogonality properties</span>
 <span class='no'>ortho_1</span> <span class='kw'>&lt;-</span> <span class='fu'>t</span>(<span class='fu'>solve</span>(<span class='no'>L</span><span class='kw'>[[</span><span class='fl'>1</span>]])) <span class='kw'>%*%</span> <span class='fu'><a href='mat.html'>mat</a></span>(<span class='no'>R</span>, <span class='fl'>1</span>)
-<span class='fu'><a href='trim.html'>trim</a></span>(<span class='no'>ortho_1</span> <span class='kw'>%*%</span> <span class='fu'>t</span>(<span class='no'>ortho_1</span>))</div><div class='output co'>#&gt;            [,1]       [,2]
-#&gt; [1,]  1.000e+00 -1.028e-06
-#&gt; [2,] -1.028e-06  1.000e+00</div><div class='input'>
+<span class='fu'><a href='trim.html'>trim</a></span>(<span class='no'>ortho_1</span> <span class='kw'>%*%</span> <span class='fu'>t</span>(<span class='no'>ortho_1</span>))</div><div class='output co'>#&gt;               [,1]          [,2]
+#&gt; [1,]  1.000002e+00 -1.027596e-06
+#&gt; [2,] -1.027596e-06  9.999988e-01</div><div class='input'>
 <span class='no'>ortho_2</span> <span class='kw'>&lt;-</span> <span class='fu'>t</span>(<span class='fu'>solve</span>(<span class='no'>L</span><span class='kw'>[[</span><span class='fl'>2</span>]])) <span class='kw'>%*%</span> <span class='fu'><a href='mat.html'>mat</a></span>(<span class='no'>R</span>, <span class='fl'>2</span>)
-<span class='fu'><a href='trim.html'>trim</a></span>(<span class='no'>ortho_2</span> <span class='kw'>%*%</span> <span class='fu'>t</span>(<span class='no'>ortho_2</span>))</div><div class='output co'>#&gt;            [,1]       [,2]       [,3]
-#&gt; [1,]  1.000e+00  0.000e+00 -3.113e-06
-#&gt; [2,]  0.000e+00  1.000e+00 -2.521e-06
-#&gt; [3,] -3.113e-06 -2.521e-06  1.000e+00</div><div class='input'>
+<span class='fu'><a href='trim.html'>trim</a></span>(<span class='no'>ortho_2</span> <span class='kw'>%*%</span> <span class='fu'>t</span>(<span class='no'>ortho_2</span>))</div><div class='output co'>#&gt;               [,1]          [,2]          [,3]
+#&gt; [1,]  1.000001e+00  0.000000e+00 -3.113055e-06
+#&gt; [2,]  0.000000e+00  1.000000e+00 -2.520848e-06
+#&gt; [3,] -3.113055e-06 -2.520848e-06  9.999987e-01</div><div class='input'>
 <span class='no'>ortho_3</span> <span class='kw'>&lt;-</span> <span class='fu'>t</span>(<span class='fu'>solve</span>(<span class='no'>L</span><span class='kw'>[[</span><span class='fl'>3</span>]])) <span class='kw'>%*%</span> <span class='fu'><a href='mat.html'>mat</a></span>(<span class='no'>R</span>, <span class='fl'>3</span>)
 <span class='fu'><a href='trim.html'>trim</a></span>(<span class='no'>ortho_3</span> <span class='kw'>%*%</span> <span class='fu'>t</span>(<span class='no'>ortho_3</span>))</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
 #&gt; [1,]    1    0    0    0
@@ -271,11 +289,14 @@ David Gerard.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

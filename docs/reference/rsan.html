@@ -18,13 +18,25 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Standard normal array. — rsan" />
+
+<meta property="og:description" content="Generate an array of iid standard normal variables." />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,12 +59,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">tensr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">tensr</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.0.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -78,13 +94,9 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="http://github.com/dcgerard/tensr">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -92,19 +104,23 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Standard normal array.</h1>
+    
+    <div class="hidden name"><code>rsan.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Generate an array of iid standard normal variables.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>rsan</span>(<span class='no'>dim</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -122,30 +138,30 @@ with iid standard normal variables.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw pkg'>tensr</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/tensr/topics/rsan'>rsan</a></span>(<span class='fu'>c</span>(<span class='fl'>5</span>,<span class='fl'>4</span>,<span class='fl'>3</span>))</div><div class='output co'>#&gt; , , 1
 #&gt; 
-#&gt;          [,1]    [,2]     [,3]    [,4]
-#&gt; [1,] -0.30021 -0.7231  0.14706  0.2956
-#&gt; [2,]  0.03331  0.3126 -0.09082  0.2592
-#&gt; [3,] -0.64538 -0.2052  0.66231 -0.4486
-#&gt; [4,] -0.92188 -0.6556 -0.70798  1.6648
-#&gt; [5,] -0.06556 -0.2121 -0.52875  0.8566
+#&gt;             [,1]       [,2]        [,3]       [,4]
+#&gt; [1,] -0.30021009 -0.7230857  0.14706299  0.2955763
+#&gt; [2,]  0.03330593  0.3126293 -0.09081651  0.2592185
+#&gt; [3,] -0.64538314 -0.2052323  0.66230913 -0.4485953
+#&gt; [4,] -0.92188425 -0.6556110 -0.70798424  1.6648445
+#&gt; [5,] -0.06556371 -0.2120855 -0.52874868  0.8566333
 #&gt; 
 #&gt; , , 2
 #&gt; 
-#&gt;          [,1]    [,2]    [,3]    [,4]
-#&gt; [1,]  1.50687  0.7340 0.17979  0.1091
-#&gt; [2,]  0.96207  1.1238 0.29462  1.0717
-#&gt; [3,] -0.06967  0.3986 0.66774  0.9150
-#&gt; [4,] -0.40482  0.6201 0.31200  1.2396
-#&gt; [5,]  0.71446 -0.2154 0.05461 -0.2157
+#&gt;             [,1]       [,2]       [,3]       [,4]
+#&gt; [1,]  1.50686865  0.7340298 0.17979373  0.1091176
+#&gt; [2,]  0.96206604  1.1238178 0.29462119  1.0717410
+#&gt; [3,] -0.06966564  0.3986043 0.66773608  0.9150448
+#&gt; [4,] -0.40481696  0.6201235 0.31200141  1.2395908
+#&gt; [5,]  0.71446360 -0.2154240 0.05461062 -0.2157204
 #&gt; 
 #&gt; , , 3
 #&gt; 
-#&gt;          [,1]    [,2]    [,3]      [,4]
-#&gt; [1,] -1.12837 -0.2835  1.4948 -0.943076
-#&gt; [2,]  0.34833  0.6865 -0.4135 -1.665302
-#&gt; [3,]  0.55597 -0.5226 -1.3897  0.953934
-#&gt; [4,] -0.04827  1.3059 -1.1139  0.001551
-#&gt; [5,] -0.68476  0.1627  2.5598 -0.760222
+#&gt;             [,1]       [,2]       [,3]         [,4]
+#&gt; [1,] -1.12836746 -0.2835098  1.4948402 -0.943076292
+#&gt; [2,]  0.34833120  0.6864613 -0.4134581 -1.665301541
+#&gt; [3,]  0.55596550 -0.5226209 -1.3897095  0.953934007
+#&gt; [4,] -0.04827152  1.3058950 -1.1138591  0.001551157
+#&gt; [5,] -0.68475552  0.1627162  2.5598445 -0.760221686
 #&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -171,11 +187,14 @@ Peter Hoff.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

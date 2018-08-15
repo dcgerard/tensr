@@ -8,14 +8,17 @@
 <title>Likelihood Inference in Kronecker Structured Covariance Models • tensr</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script><script src="../pkgdown.js"></script><!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Likelihood Inference in Kronecker Structured Covariance Models">
+<meta property="og:description" content="">
+<meta name="twitter:card" content="summary">
+<!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 <body>
-    <div class="container template-vignette">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -24,12 +27,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">tensr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">tensr</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.0.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -53,14 +60,7 @@
   </ul>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="http://github.com/dcgerard/tensr">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
-      </ul>
+<ul class="nav navbar-nav navbar-right"></ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -70,17 +70,20 @@
 
       
       </header><div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Likelihood Inference in Kronecker Structured Covariance Models</h1>
                         <h4 class="author">David Gerard</h4>
             
-            <h4 class="date">2017-07-12</h4>
-          </div>
+            <h4 class="date">2018-08-15</h4>
+      
+      
+      <div class="hidden name"><code>maximum_likelihood.Rmd</code></div>
+
+    </div>
 
     
     
-<div class="contents">
 <div id="abstract" class="section level1">
 <h1 class="hasAnchor">
 <a href="#abstract" class="anchor"></a>Abstract</h1>
@@ -90,91 +93,95 @@
 <h1 class="hasAnchor">
 <a href="#maximum-likelihood-estimation" class="anchor"></a>Maximum Likelihood Estimation</h1>
 <p>First, I simulate some data. <code>X</code> will be generated with identity covariance along all modes. <code>Y</code> will have identity covariance along the first three modes, and an AR-1(0.9) covariance along the fourth mode. <code>Z</code> will have diagonal covariance along the first two modes, and an AR-1(0.9) covariance along the third mode.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tensr)
-p &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>)
-X &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="kw">rnorm</span>(<span class="kw">prod</span>(p)),<span class="dt">dim =</span> p)
-
-cov_Y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/start_ident.html">start_ident</a></span>(p)
-cov_Y[[<span class="dv">4</span>]] &lt;-<span class="st"> </span><span class="fl">0.9</span>^<span class="kw">abs</span>(<span class="kw">outer</span>(<span class="dv">1</span>:p[<span class="dv">4</span>],<span class="dv">1</span>:p[<span class="dv">4</span>],<span class="st">"-"</span>))
-cov_Y[[<span class="dv">4</span>]] &lt;-<span class="st"> </span>cov_Y[[<span class="dv">4</span>]] /<span class="st"> </span><span class="kw">det</span>(cov_Y[[<span class="dv">4</span>]])^(<span class="dv">1</span>/p[<span class="dv">4</span>]) <span class="co">#scale to have unit determinant.</span>
-Y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/atrans.html">atrans</a></span>(<span class="kw">array</span>(<span class="kw">rnorm</span>(<span class="kw">prod</span>(p)),<span class="dt">dim =</span> p), <span class="kw">lapply</span>(cov_Y, mhalf))
-
-
-cov_Z &lt;-<span class="st"> </span><span class="kw"><a href="../reference/start_ident.html">start_ident</a></span>(p)
-<span class="kw">diag</span>(cov_Z[[<span class="dv">1</span>]]) &lt;-<span class="st"> </span><span class="dv">1</span>:p[<span class="dv">1</span>] /<span class="st"> </span><span class="kw">prod</span>(<span class="dv">1</span>:p[<span class="dv">1</span>])^(<span class="dv">1</span>/p[<span class="dv">1</span>])
-<span class="kw">diag</span>(cov_Z[[<span class="dv">2</span>]]) &lt;-<span class="st"> </span>p[<span class="dv">2</span>]:<span class="dv">1</span> /<span class="st"> </span><span class="kw">prod</span>(<span class="dv">1</span>:p[<span class="dv">2</span>])^(<span class="dv">1</span>/p[<span class="dv">2</span>])
-cov_Z[[<span class="dv">3</span>]] &lt;-<span class="st"> </span><span class="fl">0.9</span>^<span class="kw">abs</span>(<span class="kw">outer</span>(<span class="dv">1</span>:p[<span class="dv">3</span>],<span class="dv">1</span>:p[<span class="dv">3</span>],<span class="st">"-"</span>))
-cov_Z[[<span class="dv">3</span>]] &lt;-<span class="st"> </span>cov_Z[[<span class="dv">3</span>]] /<span class="st"> </span><span class="kw">det</span>(cov_Z[[<span class="dv">3</span>]])^(<span class="dv">1</span>/p[<span class="dv">3</span>])
-Z &lt;-<span class="st"> </span><span class="kw"><a href="../reference/atrans.html">atrans</a></span>(<span class="kw">array</span>(<span class="kw">rnorm</span>(<span class="kw">prod</span>(p)),<span class="dt">dim =</span> p), <span class="kw">lapply</span>(cov_Z, mhalf))</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(tensr)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">p &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">X &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="kw">rnorm</span>(<span class="kw">prod</span>(p)),<span class="dt">dim =</span> p)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">cov_Y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/start_ident.html">start_ident</a></span>(p)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">cov_Y[[<span class="dv">4</span>]] &lt;-<span class="st"> </span><span class="fl">0.9</span><span class="op">^</span><span class="kw">abs</span>(<span class="kw">outer</span>(<span class="dv">1</span><span class="op">:</span>p[<span class="dv">4</span>],<span class="dv">1</span><span class="op">:</span>p[<span class="dv">4</span>],<span class="st">"-"</span>))</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">cov_Y[[<span class="dv">4</span>]] &lt;-<span class="st"> </span>cov_Y[[<span class="dv">4</span>]] <span class="op">/</span><span class="st"> </span><span class="kw">det</span>(cov_Y[[<span class="dv">4</span>]])<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span>p[<span class="dv">4</span>]) <span class="co">#scale to have unit determinant.</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">Y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/atrans.html">atrans</a></span>(<span class="kw">array</span>(<span class="kw">rnorm</span>(<span class="kw">prod</span>(p)),<span class="dt">dim =</span> p), <span class="kw">lapply</span>(cov_Y, mhalf))</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">cov_Z &lt;-<span class="st"> </span><span class="kw"><a href="../reference/start_ident.html">start_ident</a></span>(p)</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="kw">diag</span>(cov_Z[[<span class="dv">1</span>]]) &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>p[<span class="dv">1</span>] <span class="op">/</span><span class="st"> </span><span class="kw">prod</span>(<span class="dv">1</span><span class="op">:</span>p[<span class="dv">1</span>])<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span>p[<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="kw">diag</span>(cov_Z[[<span class="dv">2</span>]]) &lt;-<span class="st"> </span>p[<span class="dv">2</span>]<span class="op">:</span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="kw">prod</span>(<span class="dv">1</span><span class="op">:</span>p[<span class="dv">2</span>])<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span>p[<span class="dv">2</span>])</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">cov_Z[[<span class="dv">3</span>]] &lt;-<span class="st"> </span><span class="fl">0.9</span><span class="op">^</span><span class="kw">abs</span>(<span class="kw">outer</span>(<span class="dv">1</span><span class="op">:</span>p[<span class="dv">3</span>],<span class="dv">1</span><span class="op">:</span>p[<span class="dv">3</span>],<span class="st">"-"</span>))</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">cov_Z[[<span class="dv">3</span>]] &lt;-<span class="st"> </span>cov_Z[[<span class="dv">3</span>]] <span class="op">/</span><span class="st"> </span><span class="kw">det</span>(cov_Z[[<span class="dv">3</span>]])<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span>p[<span class="dv">3</span>])</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">Z &lt;-<span class="st"> </span><span class="kw"><a href="../reference/atrans.html">atrans</a></span>(<span class="kw">array</span>(<span class="kw">rnorm</span>(<span class="kw">prod</span>(p)),<span class="dt">dim =</span> p), <span class="kw">lapply</span>(cov_Z, mhalf))</a></code></pre></div>
 <p>The <code>holq</code> is used to calculate the maximum likelihood estimates. Assuming we know the covariance structure of each mode, we set the the appropriate modes to have identity or diagonal covariance matrices by using the <code>mode_rep</code> or <code>mode_diag</code> options.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">holq_X &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(X,<span class="dt">mode_rep =</span> <span class="dv">1</span>:<span class="dv">4</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)
-holq_Y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(Y,<span class="dt">mode_rep =</span> <span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)
-holq_Z &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(Z,<span class="dt">mode_rep =</span> <span class="dv">4</span>, <span class="dt">mode_diag =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)
-
-mle_X &lt;-<span class="st"> </span><span class="kw"><a href="../reference/mle_from_holq.html">mle_from_holq</a></span>(holq_X)
-mle_Y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/mle_from_holq.html">mle_from_holq</a></span>(holq_Y)
-mle_Z &lt;-<span class="st"> </span><span class="kw"><a href="../reference/mle_from_holq.html">mle_from_holq</a></span>(holq_Z)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">holq_X &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(X,<span class="dt">mode_rep =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">holq_Y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(Y,<span class="dt">mode_rep =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">holq_Z &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(Z,<span class="dt">mode_rep =</span> <span class="dv">4</span>, <span class="dt">mode_diag =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">mle_X &lt;-<span class="st"> </span><span class="kw"><a href="../reference/mle_from_holq.html">mle_from_holq</a></span>(holq_X)</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">mle_Y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/mle_from_holq.html">mle_from_holq</a></span>(holq_Y)</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">mle_Z &lt;-<span class="st"> </span><span class="kw"><a href="../reference/mle_from_holq.html">mle_from_holq</a></span>(holq_Z)</a></code></pre></div>
 <p>Estimates of the scale are pretty close to the true value of 1.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">"Estimates of scale:</span><span class="ch">\n</span><span class="st">"</span>,
-    <span class="st">"From X:"</span>, mle_X$sig_mle,<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>,
-    <span class="st">"From Y:"</span>, mle_Y$sig_mle,<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>,
-    <span class="st">"From Z:"</span>, mle_Z$sig_mle,<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>
-)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">cat</span>(<span class="st">"Estimates of scale:</span><span class="ch">\n</span><span class="st">"</span>,</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">    <span class="st">"From X:"</span>, mle_X<span class="op">$</span>sig_mle,<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>,</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="st">"From Y:"</span>, mle_Y<span class="op">$</span>sig_mle,<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>,</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">    <span class="st">"From Z:"</span>, mle_Z<span class="op">$</span>sig_mle,<span class="st">"</span><span class="ch">\n</span><span class="st">"</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">)</a></code></pre></div>
 <pre><code>## Estimates of scale:
-##  From X: 1.005436 
-##  From Y: 0.9977113 
-##  From Z: 0.9916853</code></pre>
+##  From X: 1.001232 
+##  From Y: 0.9896581 
+##  From Z: 0.9989339</code></pre>
 <p>And the estimates of the covariances are pretty close to their truth. For example, when we look at the true and estimated variances of the first mode covariance in <code>Z</code>, we get</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">"     True:"</span>, <span class="kw">paste</span>(<span class="st">"("</span>, <span class="kw">paste</span>(<span class="kw">format</span>(<span class="kw">diag</span>(cov_Z[[<span class="dv">1</span>]]), <span class="dt">digits =</span> <span class="dv">2</span>),
-                                   <span class="dt">collapse =</span> <span class="st">", "</span>), <span class="st">")"</span>,<span class="dt">sep =</span> <span class="st">""</span>), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>,
-    <span class="st">"Estimate:"</span>, <span class="kw">paste</span>(<span class="st">"("</span>, <span class="kw">paste</span>(<span class="kw">format</span>(<span class="kw">diag</span>(mle_Z[[<span class="dv">1</span>]][[<span class="dv">1</span>]]), <span class="dt">digits =</span> <span class="dv">2</span>),
-                                  <span class="dt">collapse =</span> <span class="st">", "</span>), <span class="st">")"</span>, <span class="dt">sep =</span> <span class="st">""</span>), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">cat</span>(<span class="st">"     True:"</span>, <span class="kw">paste</span>(<span class="st">"("</span>, <span class="kw">paste</span>(<span class="kw">format</span>(<span class="kw">diag</span>(cov_Z[[<span class="dv">1</span>]]), <span class="dt">digits =</span> <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">                                   <span class="dt">collapse =</span> <span class="st">", "</span>), <span class="st">")"</span>,<span class="dt">sep =</span> <span class="st">""</span>), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>,</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="st">"Estimate:"</span>, <span class="kw">paste</span>(<span class="st">"("</span>, <span class="kw">paste</span>(<span class="kw">format</span>(<span class="kw">diag</span>(mle_Z[[<span class="dv">1</span>]][[<span class="dv">1</span>]]), <span class="dt">digits =</span> <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">                                  <span class="dt">collapse =</span> <span class="st">", "</span>), <span class="st">")"</span>, <span class="dt">sep =</span> <span class="st">""</span>), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a></code></pre></div>
 <pre><code>##      True: (0.22, 0.44, 0.66, 0.88, 1.10, 1.32, 1.55, 1.77, 1.99, 2.21) 
-##  Estimate: (0.21, 0.44, 0.69, 0.87, 1.05, 1.38, 1.57, 1.95, 1.87, 2.18)</code></pre>
+##  Estimate: (0.21, 0.43, 0.69, 0.88, 1.11, 1.36, 1.66, 1.67, 2.01, 2.16)</code></pre>
 </div>
 <div id="likelihood-ratio-testing" class="section level1">
 <h1 class="hasAnchor">
 <a href="#likelihood-ratio-testing" class="anchor"></a>Likelihood Ratio Testing</h1>
 <p>Let’s test for all modes having the identity covariance matrix versus the first three modes having the identity covariance matrix and the fourth is unconstrained. Of course, in this situation we need not resort to tensor methods. Using <code>X</code> as our data should only reject the null 5% of the time. But for <code>Y</code> where the alternative is true, we should have more power.</p>
 <p>First, we’ll calculate the null distribution of the likelihood ratio test statistic. Then we’ll calculate these test statistics using both <code>X</code> and <code>Y</code> as our data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">null_distribution &lt;-<span class="st"> </span><span class="kw"><a href="../reference/lrt_null_dist_dim_same.html">lrt_null_dist_dim_same</a></span>(<span class="dt">p =</span> p, <span class="dt">null_ident =</span> <span class="dv">1</span>:<span class="dv">4</span>,
-                                            <span class="dt">alt_ident =</span> <span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">itermax =</span> <span class="dv">500</span>)
-
-sig_k &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(X,<span class="dt">mode_rep =</span> <span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)$sig
-sig_h &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(X,<span class="dt">mode_rep =</span> <span class="dv">1</span>:<span class="dv">4</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)$sig
-lrt_stat_val_X &lt;-<span class="st"> </span><span class="kw"><a href="../reference/lrt_stat.html">lrt_stat</a></span>(<span class="dt">sig_null =</span> sig_h,<span class="dt">sig_alt =</span> sig_k,<span class="dt">p =</span> p)
-
-sig_k &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(Y,<span class="dt">mode_rep =</span> <span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)$sig
-sig_h &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(Y,<span class="dt">mode_rep =</span> <span class="dv">1</span>:<span class="dv">4</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)$sig
-lrt_stat_val_Y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/lrt_stat.html">lrt_stat</a></span>(<span class="dt">sig_null =</span> sig_h,<span class="dt">sig_alt =</span> sig_k,<span class="dt">p =</span> p)</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">null_distribution &lt;-<span class="st"> </span><span class="kw"><a href="../reference/lrt_null_dist_dim_same.html">lrt_null_dist_dim_same</a></span>(<span class="dt">p =</span> p, <span class="dt">null_ident =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">                                            <span class="dt">alt_ident =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">itermax =</span> <span class="dv">500</span>)</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">sig_k &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(X,<span class="dt">mode_rep =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)<span class="op">$</span>sig</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">sig_h &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(X,<span class="dt">mode_rep =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)<span class="op">$</span>sig</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">lrt_stat_val_X &lt;-<span class="st"> </span><span class="kw"><a href="../reference/lrt_stat.html">lrt_stat</a></span>(<span class="dt">sig_null =</span> sig_h,<span class="dt">sig_alt =</span> sig_k,<span class="dt">p =</span> p)</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">sig_k &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(Y,<span class="dt">mode_rep =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)<span class="op">$</span>sig</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">sig_h &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(Y,<span class="dt">mode_rep =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)<span class="op">$</span>sig</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">lrt_stat_val_Y &lt;-<span class="st"> </span><span class="kw"><a href="../reference/lrt_stat.html">lrt_stat</a></span>(<span class="dt">sig_null =</span> sig_h,<span class="dt">sig_alt =</span> sig_k,<span class="dt">p =</span> p)</a></code></pre></div>
 <p>We can calculate p-values.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p_value_x &lt;-<span class="st"> </span><span class="kw">mean</span>(null_distribution &gt;<span class="st"> </span>lrt_stat_val_X)
-p_value_y &lt;-<span class="st"> </span><span class="kw">mean</span>(null_distribution &gt;<span class="st"> </span>lrt_stat_val_Y)
-
-<span class="kw">cat</span>(<span class="st">" p-value using X:"</span>, p_value_x,<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>,
-    <span class="st">"p-value using Y:"</span>, p_value_y,<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</code></pre></div>
-<pre><code>##  p-value using X: 0.95 
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">p_value_x &lt;-<span class="st"> </span><span class="kw">mean</span>(null_distribution <span class="op">&gt;</span><span class="st"> </span>lrt_stat_val_X)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">p_value_y &lt;-<span class="st"> </span><span class="kw">mean</span>(null_distribution <span class="op">&gt;</span><span class="st"> </span>lrt_stat_val_Y)</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw">cat</span>(<span class="st">" p-value using X:"</span>, p_value_x,<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>,</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">    <span class="st">"p-value using Y:"</span>, p_value_y,<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a></code></pre></div>
+<pre><code>##  p-value using X: 0.564 
 ##  p-value using Y: 0</code></pre>
 <p>We can also plot the null distribution along with the observed statistics. If you can’t see the line for <code>Y</code>, that’s because the likelihood ratio test statistic is so large.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="fl">2.5</span>, <span class="fl">2.5</span>, <span class="dv">2</span>, <span class="dv">0</span>), <span class="dt">mgp =</span> <span class="kw">c</span>(<span class="fl">1.5</span>, .<span class="dv">5</span>, <span class="dv">0</span>))
-<span class="kw">hist</span>(null_distribution, <span class="dt">xlab =</span> <span class="st">"LRT Stat"</span>, <span class="dt">main =</span> <span class="st">"Null Distribution"</span>)
-<span class="kw">abline</span>(<span class="dt">v =</span> lrt_stat_val_X, <span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">lty =</span> <span class="dv">2</span>)
-<span class="kw">abline</span>(<span class="dt">v =</span> lrt_stat_val_Y, <span class="dt">col =</span> <span class="dv">4</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">lty =</span> <span class="dv">2</span>)
-<span class="kw">legend</span>(<span class="st">"topright"</span>, <span class="kw">c</span>(<span class="st">"From X"</span>,<span class="st">"From Y"</span>), <span class="dt">col =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>), <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">cex =</span> <span class="fl">0.6</span>)</code></pre></div>
-<p><img src="maximum_likelihood_files/figure-html/unnamed-chunk-7-1.png" width="672"></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="fl">2.5</span>, <span class="fl">2.5</span>, <span class="dv">2</span>, <span class="dv">0</span>), <span class="dt">mgp =</span> <span class="kw">c</span>(<span class="fl">1.5</span>, <span class="fl">.5</span>, <span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">hist</span>(null_distribution, <span class="dt">xlab =</span> <span class="st">"LRT Stat"</span>, <span class="dt">main =</span> <span class="st">"Null Distribution"</span>)</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="kw">abline</span>(<span class="dt">v =</span> lrt_stat_val_X, <span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="kw">abline</span>(<span class="dt">v =</span> lrt_stat_val_Y, <span class="dt">col =</span> <span class="dv">4</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="kw">legend</span>(<span class="st">"topright"</span>, <span class="kw">c</span>(<span class="st">"From X"</span>,<span class="st">"From Y"</span>), <span class="dt">col =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>), <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">cex =</span> <span class="fl">0.6</span>)</a></code></pre></div>
+<p><img src="maximum_likelihood_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
 <p>As a second example, we run a likelihood ratio test using <code>Z</code>, testing for diagional covariance along the first mode, identity covariance along the second and fourth modes, and unstructured along the third, against the correct model of diagonal along the first two modes, identity along the fourth mode, and unstructured along the third.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">null_distribution &lt;-<span class="st"> </span><span class="kw"><a href="../reference/lrt_null_dist_dim_same.html">lrt_null_dist_dim_same</a></span>(<span class="dt">p =</span> p,<span class="dt">null_ident =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>),
-                                            <span class="dt">alt_ident =</span> <span class="dv">4</span>, <span class="dt">null_diag =</span> <span class="dv">1</span>,
-                                            <span class="dt">alt_diag =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">itermax =</span> <span class="dv">500</span>)
-
-sig_k &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(Z, <span class="dt">mode_rep =</span> <span class="dv">4</span>, <span class="dt">mode_diag =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)$sig
-sig_h &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(Z, <span class="dt">mode_rep =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>), <span class="dt">mode_diag =</span> <span class="dv">1</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)$sig
-lrt_stat_val_Z &lt;-<span class="st"> </span><span class="kw"><a href="../reference/lrt_stat.html">lrt_stat</a></span>(<span class="dt">sig_null =</span> sig_h, <span class="dt">sig_alt =</span> sig_k, <span class="dt">p =</span> p)
-
-p_value_z &lt;-<span class="st"> </span><span class="kw">mean</span>(null_distribution &gt;<span class="st"> </span>lrt_stat_val_Z)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">"P-value:"</span>, p_value_z,<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">null_distribution &lt;-<span class="st"> </span><span class="kw"><a href="../reference/lrt_null_dist_dim_same.html">lrt_null_dist_dim_same</a></span>(<span class="dt">p =</span> p,<span class="dt">null_ident =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>),</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">                                            <span class="dt">alt_ident =</span> <span class="dv">4</span>, <span class="dt">null_diag =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">                                            <span class="dt">alt_diag =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">itermax =</span> <span class="dv">500</span>)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">sig_k &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(Z, <span class="dt">mode_rep =</span> <span class="dv">4</span>, <span class="dt">mode_diag =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)<span class="op">$</span>sig</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">sig_h &lt;-<span class="st"> </span><span class="kw"><a href="../reference/holq.html">holq</a></span>(Z, <span class="dt">mode_rep =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>), <span class="dt">mode_diag =</span> <span class="dv">1</span>, <span class="dt">print_diff =</span> <span class="ot">FALSE</span>)<span class="op">$</span>sig</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">lrt_stat_val_Z &lt;-<span class="st"> </span><span class="kw"><a href="../reference/lrt_stat.html">lrt_stat</a></span>(<span class="dt">sig_null =</span> sig_h, <span class="dt">sig_alt =</span> sig_k, <span class="dt">p =</span> p)</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">p_value_z &lt;-<span class="st"> </span><span class="kw">mean</span>(null_distribution <span class="op">&gt;</span><span class="st"> </span>lrt_stat_val_Z)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">cat</span>(<span class="st">"P-value:"</span>, p_value_z,<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a></code></pre></div>
 <pre><code>## P-value: 0</code></pre>
 </div>
+<div id="references" class="section level1">
+<h1 class="hasAnchor">
+<a href="#references" class="anchor"></a>References</h1>
+<p><strong>Gerard, D.</strong>, &amp; Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. <em>Linear Algebra and its Applications</em>, 505, 57-84. <a href="https://doi.org/10.1016/j.laa.2016.04.033">[Link to LAA]</a> <a href="http://arxiv.org/pdf/1410.1094v1.pdf">[Link to arXiv]</a></p>
 </div>
   </div>
 
@@ -186,6 +193,7 @@ p_value_z &lt;-<span class="st"> </span><span class="kw">mean</span>(null_distri
 <li><a href="#abstract">Abstract</a></li>
       <li><a href="#maximum-likelihood-estimation">Maximum Likelihood Estimation</a></li>
       <li><a href="#likelihood-ratio-testing">Likelihood Ratio Testing</a></li>
+      <li><a href="#references">References</a></li>
       </ul>
 </div>
       </div>
@@ -198,11 +206,13 @@ p_value_z &lt;-<span class="st"> </span><span class="kw">mean</span>(null_distri
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
 </div>
+
+  
 
   </body>
 </html>

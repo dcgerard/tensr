@@ -18,13 +18,22 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Function reference" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,12 +56,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">tensr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">tensr</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.0.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -78,13 +91,9 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="http://github.com/dcgerard/tensr">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -92,310 +101,306 @@
       
       </header>
 
-      <div class="row">
-  <div class="col-md-9">
+<div class="row">
+  <div class="contents col-md-9">
     <div class="page-header">
-      <h1>
-        Reference
-        <small>version&nbsp;1.0.0</small>
-      </h1>
+      <h1>Reference</h1>
     </div>
 
-    <div class="contents">
-      <table class="ref-index">
+    <table class="ref-index">
 
-      <colgroup>
-        <col class="alias" />
-        <col class="title" />
-      </colgroup>
+    <colgroup>
+      
+      <col class="alias" />
+      <col class="title" />
+    </colgroup>
 
-      <tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="amprod.html">amprod</a></code> </p>
-          </td>
-          <td><p>\(k\)-mode product.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="anorm_cd.html">anorm_cd</a></code> </p>
-          </td>
-          <td><p>Array normal conditional distributions.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="array_bic_aic.html">array_bic_aic</a></code> </p>
-          </td>
-          <td><p>Calculate the AIC and BIC.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="arrIndices.html">arrIndices</a></code> </p>
-          </td>
-          <td><p>Array indices.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="atrans.html">atrans</a></code> </p>
-          </td>
-          <td><p>Tucker product.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="collapse_mode.html">collapse_mode</a></code> </p>
-          </td>
-          <td><p>Collapse multiple modes into one mode.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="convert_cov.html">convert_cov</a></code> </p>
-          </td>
-          <td><p>Convert the output from <code>equi_mcmc</code> to component covariance matrices.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="demean_tensor.html">demean_tensor</a></code> </p>
-          </td>
-          <td><p>Demeans array data.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="equi_mcmc.html">equi_mcmc</a></code> </p>
-          </td>
-          <td><p>Gibbs sampler using an invariant prior.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="fnorm.html">fnorm</a></code> </p>
-          </td>
-          <td><p>Frobenius norm of an array.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="get_equi_bayes.html">get_equi_bayes</a></code> </p>
-          </td>
-          <td><p>Get the Bayes rule under multiway Stein's loss.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="get_isvd.html">get_isvd</a></code> </p>
-          </td>
-          <td><p>Calculate the incredible SVD (ISVD).</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="holq.html">holq</a></code> </p>
-          </td>
-          <td><p>Calculate the incredible higher-order LQ decomposition (HOLQ).</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="hooi.html">hooi</a></code> </p>
-          </td>
-          <td><p>Calculate the higher-order orthogonal iteration (HOOI).</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="hosvd.html">hosvd</a></code> </p>
-          </td>
-          <td><p>Calculate the (truncated) higher-order SVD (HOSVD).</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ihop.html">ihop</a></code> </p>
-          </td>
-          <td><p>The incredible higher-order polar decomposition (IHOP).</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="kendalltau.html">kendalltau</a></code> </p>
-          </td>
-          <td><p>Kendall's tau measure of association.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="Kom.html">Kom</a></code> </p>
-          </td>
-          <td><p>Commutation matrix.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ldan.html">ldan</a></code> </p>
-          </td>
-          <td><p>Log-likelihood of array normal model.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="listprod.html">listprod</a></code> </p>
-          </td>
-          <td><p>Element-wise matrix products between two lists.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="lq.html">lq</a></code> </p>
-          </td>
-          <td><p>LQ decomposition.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="lrt_null_dist_dim_same.html">lrt_null_dist_dim_same</a></code> </p>
-          </td>
-          <td><p>Draw from null distribution of likelihood ratio test statistic.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="lrt_stat.html">lrt_stat</a></code> </p>
-          </td>
-          <td><p>Calculate the likelihood ratio test statistic.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mat.html">mat</a></code> </p>
-          </td>
-          <td><p>Unfold a matrix.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mhalf.html">mhalf</a></code> </p>
-          </td>
-          <td><p>The symmetric square root of a positive definite matrix.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mle_from_holq.html">mle_from_holq</a></code> </p>
-          </td>
-          <td><p>Get MLE from output of <code>holq</code>.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="multi_stein_loss_cov.html">multi_stein_loss_cov</a></code> </p>
-          </td>
-          <td><p>Calculate multiway Stein's loss from component covariance matrices.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="multi_stein_loss.html">multi_stein_loss</a></code> </p>
-          </td>
-          <td><p>Calculate multiway Stein's loss from square root matrices.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="multiway_takemura.html">multiway_takemura</a></code> </p>
-          </td>
-          <td><p>Calculate a truncated multiway Takemura estimator.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="polar.html">polar</a></code> </p>
-          </td>
-          <td><p>The left polar decomposition.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="qr2.html">qr2</a></code> </p>
-          </td>
-          <td><p>QR Decomposition.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="random_ortho.html">random_ortho</a></code> </p>
-          </td>
-          <td><p>Generate a list of orthogonal matrices drawn from Haar distribution.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="rmirror_wishart.html">rmirror_wishart</a></code> </p>
-          </td>
-          <td><p>Sample from the mirror-Wishart distribution.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="rmvnorm.html">rmvnorm</a></code> </p>
-          </td>
-          <td><p>Multivariate normal simulation.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="rsan.html">rsan</a></code> </p>
-          </td>
-          <td><p>Standard normal array.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="rwish.html">rwish</a></code> </p>
-          </td>
-          <td><p>Wishart simulation.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="sample_right_wishart.html">sample_right_wishart</a></code> </p>
-          </td>
-          <td><p>Gibbs update of <code>Phi_inv</code>.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="sample_sig.html">sample_sig</a></code> </p>
-          </td>
-          <td><p>Update for total variation parameter in <code>equi_mcmc</code>.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="start_ident.html">start_ident</a></code> </p>
-          </td>
-          <td><p>Get list of identity matrices.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="start_resids.html">start_resids</a></code> </p>
-          </td>
-          <td><p>Sample covariance matrices for each mode.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p></p>
-          </td>
-          <td><p>tensr: A package for Kronecker structured covariance inference.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="topK.html">topK</a></code> </p>
-          </td>
-          <td><p>Top K elements of a vector.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="trim.html">trim</a></code> </p>
-          </td>
-          <td><p>Truncates small numbers to 0.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="tr.html">tr</a></code> </p>
-          </td>
-          <td><p>Trace of a matrix.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="tsum.html">tsum</a></code> </p>
-          </td>
-          <td><p>Tucker sum.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="zscores.html">zscores</a></code> </p>
-          </td>
-          <td><p>Normal scores.</p></td>
-        </tr>
-      </tbody>
-      </table>
-    </div>
+    <tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="amprod.html">amprod()</a></code> </p>
+        </td>
+        <td><p>\(k\)-mode product.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="anorm_cd.html">anorm_cd()</a></code> </p>
+        </td>
+        <td><p>Array normal conditional distributions.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="array_bic_aic.html">array_bic_aic()</a></code> </p>
+        </td>
+        <td><p>Calculate the AIC and BIC.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="arrIndices.html">arrIndices()</a></code> </p>
+        </td>
+        <td><p>Array indices.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="atrans.html">atrans()</a></code> </p>
+        </td>
+        <td><p>Tucker product.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="collapse_mode.html">collapse_mode()</a></code> </p>
+        </td>
+        <td><p>Collapse multiple modes into one mode.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="convert_cov.html">convert_cov()</a></code> </p>
+        </td>
+        <td><p>Convert the output from <code>equi_mcmc</code> to component covariance matrices.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="demean_tensor.html">demean_tensor()</a></code> </p>
+        </td>
+        <td><p>Demeans array data.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="equi_mcmc.html">equi_mcmc()</a></code> </p>
+        </td>
+        <td><p>Gibbs sampler using an invariant prior.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="fnorm.html">fnorm()</a></code> </p>
+        </td>
+        <td><p>Frobenius norm of an array.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_equi_bayes.html">get_equi_bayes()</a></code> </p>
+        </td>
+        <td><p>Get the Bayes rule under multiway Stein's loss.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_isvd.html">get_isvd()</a></code> </p>
+        </td>
+        <td><p>Calculate the incredible SVD (ISVD).</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="holq.html">holq()</a></code> </p>
+        </td>
+        <td><p>Calculate the incredible higher-order LQ decomposition (HOLQ).</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="hooi.html">hooi()</a></code> </p>
+        </td>
+        <td><p>Calculate the higher-order orthogonal iteration (HOOI).</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="hosvd.html">hosvd()</a></code> </p>
+        </td>
+        <td><p>Calculate the (truncated) higher-order SVD (HOSVD).</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ihop.html">ihop()</a></code> </p>
+        </td>
+        <td><p>The incredible higher-order polar decomposition (IHOP).</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="kendalltau.html">kendalltau()</a></code> </p>
+        </td>
+        <td><p>Kendall's tau measure of association.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="Kom.html">Kom()</a></code> </p>
+        </td>
+        <td><p>Commutation matrix.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ldan.html">ldan()</a></code> </p>
+        </td>
+        <td><p>Log-likelihood of array normal model.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="listprod.html">listprod()</a></code> </p>
+        </td>
+        <td><p>Element-wise matrix products between two lists.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lq.html">lq()</a></code> </p>
+        </td>
+        <td><p>LQ decomposition.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lrt_null_dist_dim_same.html">lrt_null_dist_dim_same()</a></code> </p>
+        </td>
+        <td><p>Draw from null distribution of likelihood ratio test statistic.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lrt_stat.html">lrt_stat()</a></code> </p>
+        </td>
+        <td><p>Calculate the likelihood ratio test statistic.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mat.html">mat()</a></code> </p>
+        </td>
+        <td><p>Unfold a matrix.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mhalf.html">mhalf()</a></code> </p>
+        </td>
+        <td><p>The symmetric square root of a positive definite matrix.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mle_from_holq.html">mle_from_holq()</a></code> </p>
+        </td>
+        <td><p>Get MLE from output of <code>holq</code>.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="multiway_takemura.html">multiway_takemura()</a></code> </p>
+        </td>
+        <td><p>Calculate a truncated multiway Takemura estimator.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="multi_stein_loss.html">multi_stein_loss()</a></code> </p>
+        </td>
+        <td><p>Calculate multiway Stein's loss from square root matrices.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="multi_stein_loss_cov.html">multi_stein_loss_cov()</a></code> </p>
+        </td>
+        <td><p>Calculate multiway Stein's loss from component covariance matrices.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="polar.html">polar()</a></code> </p>
+        </td>
+        <td><p>The left polar decomposition.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="qr2.html">qr2()</a></code> </p>
+        </td>
+        <td><p>QR Decomposition.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="random_ortho.html">random_ortho()</a></code> </p>
+        </td>
+        <td><p>Generate a list of orthogonal matrices drawn from Haar distribution.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="rmirror_wishart.html">rmirror_wishart()</a></code> </p>
+        </td>
+        <td><p>Sample from the mirror-Wishart distribution.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="rmvnorm.html">rmvnorm()</a></code> </p>
+        </td>
+        <td><p>Multivariate normal simulation.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="rsan.html">rsan()</a></code> </p>
+        </td>
+        <td><p>Standard normal array.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="rwish.html">rwish()</a></code> </p>
+        </td>
+        <td><p>Wishart simulation.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="sample_right_wishart.html">sample_right_wishart()</a></code> </p>
+        </td>
+        <td><p>Gibbs update of <code>Phi_inv</code>.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="sample_sig.html">sample_sig()</a></code> </p>
+        </td>
+        <td><p>Update for total variation parameter in <code>equi_mcmc</code>.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="start_ident.html">start_ident()</a></code> </p>
+        </td>
+        <td><p>Get list of identity matrices.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="start_resids.html">start_resids()</a></code> </p>
+        </td>
+        <td><p>Sample covariance matrices for each mode.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="tensr.html">tensr</a></code> </p>
+        </td>
+        <td><p>tensr: A package for Kronecker structured covariance inference.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="topK.html">topK()</a></code> </p>
+        </td>
+        <td><p>Top K elements of a vector.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="tr.html">tr()</a></code> </p>
+        </td>
+        <td><p>Trace of a matrix.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="trim.html">trim()</a></code> </p>
+        </td>
+        <td><p>Truncates small numbers to 0.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="tsum.html">tsum()</a></code> </p>
+        </td>
+        <td><p>Tucker sum.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="zscores.html">zscores()</a></code> </p>
+        </td>
+        <td><p>Normal scores.</p></td>
+      </tr>
+    </tbody>
+    </table>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -412,11 +417,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

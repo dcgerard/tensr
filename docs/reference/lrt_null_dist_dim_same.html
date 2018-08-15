@@ -18,13 +18,28 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Draw from null distribution of likelihood ratio test statistic. — lrt_null_dist_dim_same" />
+
+<meta property="og:description" content="When testing for the covariance structure of modes, this function may be used
+to draw a sample from the null distribution of the likelihood ratio test
+stistics, whose distribution doesn't depend on any unknown parameters under
+the null." />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,12 +62,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">tensr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">tensr</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.0.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -78,13 +97,9 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="http://github.com/dcgerard/tensr">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -92,24 +107,28 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Draw from null distribution of likelihood ratio test statistic.</h1>
+    
+    <div class="hidden name"><code>lrt_null_dist_dim_same.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>When testing for the covariance structure of modes, this function may be used
 to draw a sample from the null distribution of the likelihood ratio test
 stistics, whose distribution doesn't depend on any unknown parameters under
 the null.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>lrt_null_dist_dim_same</span>(<span class='no'>p</span>, <span class='kw'>null_ident</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>alt_ident</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>null_diag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>alt_diag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reference_dist</span> <span class='kw'>=</span> <span class='st'>"normal"</span>,
   <span class='kw'>t_df</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>itermax</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>holq_itermax</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>holq_tol</span> <span class='kw'>=</span> <span class='fl'>10</span>^-<span class='fl'>9</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -183,355 +202,357 @@ might code this up in later versions.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>Gerard, D. C., &amp; Hoff, P. D. (2014).
-  <a href='http://arxiv.org/abs/1410.1094'>A higher-order LQ decomposition for
-  separable covariance models</a>. <em>arXiv preprint arXiv:1410.1094.</em></p>
+    <p>Gerard, D., &amp; Hoff, P. (2016). A higher-order LQ
+    decomposition for separable covariance models.
+    <em>Linear Algebra and its Applications</em>, 505, 57-84.
+    <a href='https://doi.org/10.1016/j.laa.2016.04.033'>https://doi.org/10.1016/j.laa.2016.04.033</a>
+    <a href='http://arxiv.org/pdf/1410.1094v1.pdf'>http://arxiv.org/pdf/1410.1094v1.pdf</a></p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='lrt_stat.html'>lrt_stat</a></code> for calculating the likelihood ratio test
-  statistic.</p>
+    <div class='dont-index'><p><code><a href='lrt_stat.html'>lrt_stat</a></code> for calculating the likelihood ratio test
+  statistic.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>#Test for all identity versus all unconstrained.</span>
 <span class='no'>p</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>4</span>,<span class='fl'>4</span>,<span class='fl'>4</span>)
-<span class='no'>null1</span> <span class='kw'>&lt;-</span> <span class='fu'>lrt_null_dist_dim_same</span>(<span class='no'>p</span>,<span class='kw'>null_ident</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>3</span>)</div><div class='output co'>#&gt; 20.88 
-#&gt; 42.97 
-#&gt; 24.46 
-#&gt; 37.26 
-#&gt; 27.73 
-#&gt; 20.51 
-#&gt; 24.77 
-#&gt; 38.66 
-#&gt; 32.01 
-#&gt; 18.61 
-#&gt; 14.99 
-#&gt; 23.73 
-#&gt; 31.1 
-#&gt; 35.18 
-#&gt; 22.43 
-#&gt; 22.78 
-#&gt; 29.59 
-#&gt; 30.14 
-#&gt; 31.77 
-#&gt; 25.05 
-#&gt; 30.65 
-#&gt; 29.56 
-#&gt; 41.52 
-#&gt; 47.52 
-#&gt; 38.79 
-#&gt; 28.4 
-#&gt; 27.59 
-#&gt; 36.1 
-#&gt; 36.5 
-#&gt; 30.14 
-#&gt; 34.02 
-#&gt; 37.33 
-#&gt; 28.16 
-#&gt; 43.42 
-#&gt; 33.53 
-#&gt; 52.09 
-#&gt; 30.77 
-#&gt; 15.21 
-#&gt; 18.67 
-#&gt; 41.34 
-#&gt; 24.46 
-#&gt; 39.16 
-#&gt; 42.94 
-#&gt; 33.72 
-#&gt; 40.35 
-#&gt; 35.22 
-#&gt; 24.82 
-#&gt; 23.42 
-#&gt; 43.29 
-#&gt; 29.64 
-#&gt; 20.63 
-#&gt; 33.1 
-#&gt; 24.48 
-#&gt; 26.07 
-#&gt; 28.8 
-#&gt; 39.41 
-#&gt; 21.78 
-#&gt; 25.88 
-#&gt; 17.53 
-#&gt; 44.84 
-#&gt; 31.42 
-#&gt; 22.73 
-#&gt; 29.56 
-#&gt; 44.04 
-#&gt; 19.97 
-#&gt; 36.13 
-#&gt; 34.27 
-#&gt; 25.77 
-#&gt; 26.02 
-#&gt; 17.66 
-#&gt; 28.16 
-#&gt; 30.52 
-#&gt; 30.79 
-#&gt; 31.16 
-#&gt; 37.99 
-#&gt; 20.11 
-#&gt; 41.23 
-#&gt; 27.82 
-#&gt; 19.63 
-#&gt; 33.12 
-#&gt; 26.68 
-#&gt; 30.19 
-#&gt; 32.85 
-#&gt; 28.37 
-#&gt; 12.88 
-#&gt; 27.1 
-#&gt; 35.89 
-#&gt; 30.19 
-#&gt; 29.2 
-#&gt; 16.3 
-#&gt; 36.02 
-#&gt; 24.4 
-#&gt; 35.34 
-#&gt; 33.5 
-#&gt; 31.72 
-#&gt; 30.46 
-#&gt; 26.97 
-#&gt; 36.04 
-#&gt; 33.36 
-#&gt; 30.28 </div><div class='input'>
+<span class='no'>null1</span> <span class='kw'>&lt;-</span> <span class='fu'>lrt_null_dist_dim_same</span>(<span class='no'>p</span>,<span class='kw'>null_ident</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>3</span>)</div><div class='output co'>#&gt; 20.87708 
+#&gt; 42.97093 
+#&gt; 24.45691 
+#&gt; 37.25748 
+#&gt; 27.72659 
+#&gt; 20.51107 
+#&gt; 24.77304 
+#&gt; 38.65895 
+#&gt; 32.00571 
+#&gt; 18.61337 
+#&gt; 14.98637 
+#&gt; 23.72652 
+#&gt; 31.09857 
+#&gt; 35.17647 
+#&gt; 22.43369 
+#&gt; 22.77949 
+#&gt; 29.59269 
+#&gt; 30.14337 
+#&gt; 31.77138 
+#&gt; 25.0491 
+#&gt; 30.65232 
+#&gt; 29.5572 
+#&gt; 41.51718 
+#&gt; 47.5166 
+#&gt; 38.78984 
+#&gt; 28.39843 
+#&gt; 27.58529 
+#&gt; 36.10243 
+#&gt; 36.50445 
+#&gt; 30.14442 
+#&gt; 34.0168 
+#&gt; 37.32833 
+#&gt; 28.16156 
+#&gt; 43.42048 
+#&gt; 33.53211 
+#&gt; 52.09356 
+#&gt; 30.77308 
+#&gt; 15.2078 
+#&gt; 18.66857 
+#&gt; 41.33754 
+#&gt; 24.45553 
+#&gt; 39.15742 
+#&gt; 42.938 
+#&gt; 33.72351 
+#&gt; 40.34676 
+#&gt; 35.22164 
+#&gt; 24.81506 
+#&gt; 23.41654 
+#&gt; 43.2898 
+#&gt; 29.6436 
+#&gt; 20.63419 
+#&gt; 33.10362 
+#&gt; 24.48022 
+#&gt; 26.06865 
+#&gt; 28.79797 
+#&gt; 39.40933 
+#&gt; 21.78205 
+#&gt; 25.88274 
+#&gt; 17.53275 
+#&gt; 44.8425 
+#&gt; 31.41898 
+#&gt; 22.73442 
+#&gt; 29.55963 
+#&gt; 44.04337 
+#&gt; 19.96971 
+#&gt; 36.12932 
+#&gt; 34.27138 
+#&gt; 25.77123 
+#&gt; 26.02241 
+#&gt; 17.65936 
+#&gt; 28.1581 
+#&gt; 30.51548 
+#&gt; 30.79269 
+#&gt; 31.16047 
+#&gt; 37.98797 
+#&gt; 20.11224 
+#&gt; 41.23337 
+#&gt; 27.82265 
+#&gt; 19.62865 
+#&gt; 33.12003 
+#&gt; 26.68412 
+#&gt; 30.18996 
+#&gt; 32.84567 
+#&gt; 28.36807 
+#&gt; 12.87511 
+#&gt; 27.09577 
+#&gt; 35.89033 
+#&gt; 30.1946 
+#&gt; 29.2019 
+#&gt; 16.3019 
+#&gt; 36.02155 
+#&gt; 24.39918 
+#&gt; 35.33612 
+#&gt; 33.49874 
+#&gt; 31.71802 
+#&gt; 30.45668 
+#&gt; 26.97042 
+#&gt; 36.03679 
+#&gt; 33.36375 
+#&gt; 30.27555 </div><div class='input'>
 <span class='co'>#Generate Null Data</span>
 <span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='fu'>array</span>(<span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fu'>prod</span>(<span class='no'>p</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='no'>p</span>)
 <span class='no'>sig_null</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='holq.html'>holq</a></span>(<span class='no'>X</span>, <span class='kw'>mode_rep</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>3</span>)$<span class='no'>sig</span></div><div class='output co'>#&gt; Scale Diff =  0 
-#&gt;      Scale =  6.947 
-#&gt; </div><div class='input'><span class='no'>sig_alt</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='holq.html'>holq</a></span>(<span class='no'>X</span>)$<span class='no'>sig</span></div><div class='output co'>#&gt; Scale Diff =  0.2109 
-#&gt;      Scale =  5.737 
+#&gt;      Scale =  6.946776 
+#&gt; </div><div class='input'><span class='no'>sig_alt</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='holq.html'>holq</a></span>(<span class='no'>X</span>)$<span class='no'>sig</span></div><div class='output co'>#&gt; Scale Diff =  0.2109307 
+#&gt;      Scale =  5.736725 
 #&gt; 
-#&gt; Scale Diff =  0.03286 
-#&gt;      Scale =  5.554 
+#&gt; Scale Diff =  0.03285653 
+#&gt;      Scale =  5.554232 
 #&gt; 
-#&gt; Scale Diff =  0.01367 
-#&gt;      Scale =  5.479 
+#&gt; Scale Diff =  0.01366805 
+#&gt;      Scale =  5.47934 
 #&gt; 
-#&gt; Scale Diff =  0.008045 
-#&gt;      Scale =  5.436 
+#&gt; Scale Diff =  0.008045138 
+#&gt;      Scale =  5.43561 
 #&gt; 
-#&gt; Scale Diff =  0.004769 
-#&gt;      Scale =  5.41 
+#&gt; Scale Diff =  0.004768842 
+#&gt;      Scale =  5.409811 
 #&gt; 
-#&gt; Scale Diff =  0.002819 
-#&gt;      Scale =  5.395 
+#&gt; Scale Diff =  0.002819331 
+#&gt;      Scale =  5.394602 
 #&gt; 
-#&gt; Scale Diff =  0.001648 
-#&gt;      Scale =  5.386 
+#&gt; Scale Diff =  0.001647928 
+#&gt;      Scale =  5.385727 
 #&gt; 
-#&gt; Scale Diff =  0.000947 
-#&gt;      Scale =  5.381 
+#&gt; Scale Diff =  0.0009469709 
+#&gt;      Scale =  5.380631 
 #&gt; 
-#&gt; Scale Diff =  0.0005349 
-#&gt;      Scale =  5.378 
+#&gt; Scale Diff =  0.0005348811 
+#&gt;      Scale =  5.377755 
 #&gt; 
-#&gt; Scale Diff =  0.0002979 
-#&gt;      Scale =  5.376 
+#&gt; Scale Diff =  0.0002979086 
+#&gt;      Scale =  5.376153 
 #&gt; 
-#&gt; Scale Diff =  0.0001642 
-#&gt;      Scale =  5.375 
+#&gt; Scale Diff =  0.0001642065 
+#&gt;      Scale =  5.375271 
 #&gt; 
-#&gt; Scale Diff =  8.98e-05 
-#&gt;      Scale =  5.375 
+#&gt; Scale Diff =  8.980397e-05 
+#&gt;      Scale =  5.374788 
 #&gt; 
-#&gt; Scale Diff =  4.879e-05 
-#&gt;      Scale =  5.375 
+#&gt; Scale Diff =  4.878878e-05 
+#&gt;      Scale =  5.374526 
 #&gt; 
-#&gt; Scale Diff =  2.633e-05 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  2.63331e-05 
+#&gt;      Scale =  5.374384 
 #&gt; 
-#&gt; Scale Diff =  1.411e-05 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  1.411151e-05 
+#&gt;      Scale =  5.374308 
 #&gt; 
-#&gt; Scale Diff =  7.501e-06 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  7.500962e-06 
+#&gt;      Scale =  5.374268 
 #&gt; 
-#&gt; Scale Diff =  3.951e-06 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  3.950735e-06 
+#&gt;      Scale =  5.374247 
 #&gt; 
-#&gt; Scale Diff =  2.06e-06 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  2.059811e-06 
+#&gt;      Scale =  5.374236 
 #&gt; 
-#&gt; Scale Diff =  1.062e-06 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  1.062163e-06 
+#&gt;      Scale =  5.37423 
 #&gt; 
-#&gt; Scale Diff =  5.413e-07 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  5.413213e-07 
+#&gt;      Scale =  5.374227 
 #&gt; 
-#&gt; Scale Diff =  2.725e-07 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  2.724953e-07 
+#&gt;      Scale =  5.374226 
 #&gt; 
-#&gt; Scale Diff =  1.354e-07 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  1.354206e-07 
+#&gt;      Scale =  5.374225 
 #&gt; 
-#&gt; Scale Diff =  6.641e-08 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  6.641183e-08 
+#&gt;      Scale =  5.374225 
 #&gt; 
-#&gt; Scale Diff =  3.213e-08 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  3.212749e-08 
+#&gt;      Scale =  5.374224 
 #&gt; 
-#&gt; Scale Diff =  1.533e-08 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  1.532623e-08 
+#&gt;      Scale =  5.374224 
 #&gt; 
-#&gt; Scale Diff =  7.208e-09 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  7.207832e-09 
+#&gt;      Scale =  5.374224 
 #&gt; 
-#&gt; Scale Diff =  3.341e-09 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  3.341297e-09 
+#&gt;      Scale =  5.374224 
 #&gt; 
-#&gt; Scale Diff =  1.527e-09 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  1.526808e-09 
+#&gt;      Scale =  5.374224 
 #&gt; 
-#&gt; Scale Diff =  6.88e-10 
-#&gt;      Scale =  5.374 
+#&gt; Scale Diff =  6.880008e-10 
+#&gt;      Scale =  5.374224 
 #&gt; </div><div class='input'><span class='no'>lrt_x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='lrt_stat.html'>lrt_stat</a></span>(<span class='no'>sig_null</span>, <span class='no'>sig_alt</span>, <span class='kw'>p</span> <span class='kw'>=</span> <span class='no'>p</span>)
 <span class='no'>p_value</span> <span class='kw'>&lt;-</span> <span class='fu'>mean</span>(<span class='no'>null1</span> <span class='kw'>&gt;</span> <span class='no'>lrt_x</span>)
 
 <span class='fu'>hist</span>(<span class='no'>null1</span>,<span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Null Distribution of LRT'</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>'LRT Statistic'</span>)</div><div class='input'><span class='fu'>abline</span>(<span class='kw'>v</span> <span class='kw'>=</span> <span class='no'>lrt_x</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='input'><span class='fu'>legend</span>(<span class='st'>'topleft'</span>, <span class='st'>'Observed LRT Statistic'</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='input'><span class='fu'>mtext</span>(<span class='kw'>side</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='fu'>paste</span>(<span class='st'>'P-value = '</span>, <span class='fu'>round</span>(<span class='no'>p_value</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>''</span>),
-      <span class='kw'>line</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='img'><img src='lrt_null_dist_dim_same-1.png' alt='' width='700' height='432.632880098887' /></div><div class='input'>
+      <span class='kw'>line</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='img'><img src='lrt_null_dist_dim_same-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>#-------------------------------------------------------------------------</span>
 
 <span class='co'>#Test for all identity versus all mode 1 identity,</span>
 <span class='co'>#  mode 2 diagonal, mode 3 unconstrained.</span>
 <span class='no'>p</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>4</span>,<span class='fl'>4</span>,<span class='fl'>4</span>)
 <span class='no'>null2</span> <span class='kw'>&lt;-</span> <span class='fu'>lrt_null_dist_dim_same</span>(<span class='no'>p</span>,<span class='kw'>null_ident</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>3</span>,
-                                <span class='kw'>alt_ident</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>alt_diag</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; 5.558 
-#&gt; 9.684 
-#&gt; 9.273 
-#&gt; 8.943 
-#&gt; 15.98 
-#&gt; 18.58 
-#&gt; 20.65 
-#&gt; 13.85 
-#&gt; 5.421 
-#&gt; 10.33 
-#&gt; 17.7 
-#&gt; 6.585 
-#&gt; 4.906 
-#&gt; 15.51 
-#&gt; 11.29 
-#&gt; 16.67 
-#&gt; 12.79 
-#&gt; 7.668 
-#&gt; 10.23 
-#&gt; 18.46 
-#&gt; 11.38 
-#&gt; 11.77 
-#&gt; 14.8 
-#&gt; 7.089 
-#&gt; 5.961 
-#&gt; 16.34 
-#&gt; 19.98 
-#&gt; 14.61 
-#&gt; 6.659 
-#&gt; 22.78 
-#&gt; 23.52 
-#&gt; 6.489 
-#&gt; 19.03 
-#&gt; 17.01 
-#&gt; 24.38 
-#&gt; 15.79 
-#&gt; 14.01 
-#&gt; 7.139 
-#&gt; 19.84 
-#&gt; 10.72 
-#&gt; 15.29 
-#&gt; 10.12 
-#&gt; 10.82 
-#&gt; 11.8 
-#&gt; 6.934 
-#&gt; 4.946 
-#&gt; 6.687 
-#&gt; 6.741 
-#&gt; 13.08 
-#&gt; 11.86 
-#&gt; 7.389 
-#&gt; 15.24 
-#&gt; 16.72 
-#&gt; 12.64 
-#&gt; 16.05 
-#&gt; 23.65 
-#&gt; 17.76 
-#&gt; 16.07 
-#&gt; 9.586 
-#&gt; 15.05 
-#&gt; 15.83 
-#&gt; 17.2 
-#&gt; 9.12 
-#&gt; 7.217 
-#&gt; 16.15 
-#&gt; 14.43 
-#&gt; 19.04 
-#&gt; 9.948 
-#&gt; 7.69 
-#&gt; 17.28 
-#&gt; 7.739 
-#&gt; 6.771 
-#&gt; 5.992 
+                                <span class='kw'>alt_ident</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>alt_diag</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; 5.557515 
+#&gt; 9.684241 
+#&gt; 9.273346 
+#&gt; 8.942634 
+#&gt; 15.9843 
+#&gt; 18.57618 
+#&gt; 20.6492 
+#&gt; 13.85088 
+#&gt; 5.421416 
+#&gt; 10.33058 
+#&gt; 17.69944 
+#&gt; 6.584919 
+#&gt; 4.905708 
+#&gt; 15.50869 
+#&gt; 11.28552 
+#&gt; 16.67113 
+#&gt; 12.78978 
+#&gt; 7.667997 
+#&gt; 10.23437 
+#&gt; 18.45914 
+#&gt; 11.37955 
+#&gt; 11.77094 
+#&gt; 14.79588 
+#&gt; 7.088658 
+#&gt; 5.961241 
+#&gt; 16.3404 
+#&gt; 19.97789 
+#&gt; 14.60752 
+#&gt; 6.659357 
+#&gt; 22.78097 
+#&gt; 23.51722 
+#&gt; 6.489355 
+#&gt; 19.03213 
+#&gt; 17.01097 
+#&gt; 24.37963 
+#&gt; 15.78529 
+#&gt; 14.01208 
+#&gt; 7.139312 
+#&gt; 19.84324 
+#&gt; 10.72194 
+#&gt; 15.28552 
+#&gt; 10.117 
+#&gt; 10.82291 
+#&gt; 11.79914 
+#&gt; 6.933846 
+#&gt; 4.946451 
+#&gt; 6.687066 
+#&gt; 6.74131 
+#&gt; 13.07723 
+#&gt; 11.85563 
+#&gt; 7.388865 
+#&gt; 15.23875 
+#&gt; 16.72449 
+#&gt; 12.64156 
+#&gt; 16.04895 
+#&gt; 23.65443 
+#&gt; 17.76013 
+#&gt; 16.06955 
+#&gt; 9.586353 
+#&gt; 15.04516 
+#&gt; 15.83301 
+#&gt; 17.20314 
+#&gt; 9.120378 
+#&gt; 7.216668 
+#&gt; 16.14547 
+#&gt; 14.4321 
+#&gt; 19.04209 
+#&gt; 9.947866 
+#&gt; 7.689852 
+#&gt; 17.27503 
+#&gt; 7.738723 
+#&gt; 6.771223 
+#&gt; 5.991527 
 #&gt; 9.872 
-#&gt; 7.97 
-#&gt; 15.02 
-#&gt; 7.518 
-#&gt; 13.81 
-#&gt; 16.83 
-#&gt; 15.47 
-#&gt; 8.626 
-#&gt; 14.09 
-#&gt; 18.36 
-#&gt; 15.14 
-#&gt; 9.183 
-#&gt; 9.106 
-#&gt; 6.087 
-#&gt; 21.18 
-#&gt; 14.73 
-#&gt; 7.302 
-#&gt; 17.51 
-#&gt; 13.84 
-#&gt; 8.494 
-#&gt; 7.685 
-#&gt; 6.016 
-#&gt; 13.58 
-#&gt; 15.25 
-#&gt; 18.23 
-#&gt; 10.26 
-#&gt; 3.904 </div><div class='input'>
+#&gt; 7.970327 
+#&gt; 15.01547 
+#&gt; 7.518079 
+#&gt; 13.81083 
+#&gt; 16.83132 
+#&gt; 15.46983 
+#&gt; 8.626291 
+#&gt; 14.09194 
+#&gt; 18.35597 
+#&gt; 15.14077 
+#&gt; 9.183202 
+#&gt; 9.106238 
+#&gt; 6.086927 
+#&gt; 21.17576 
+#&gt; 14.73224 
+#&gt; 7.30201 
+#&gt; 17.51109 
+#&gt; 13.84312 
+#&gt; 8.494421 
+#&gt; 7.685381 
+#&gt; 6.015638 
+#&gt; 13.57913 
+#&gt; 15.24527 
+#&gt; 18.2281 
+#&gt; 10.25829 
+#&gt; 3.904493 </div><div class='input'>
 <span class='co'>#Generate Null Data</span>
 <span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='fu'>array</span>(<span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fu'>prod</span>(<span class='no'>p</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='no'>p</span>)
 <span class='no'>sig_null</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='holq.html'>holq</a></span>(<span class='no'>X</span>, <span class='kw'>mode_rep</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>3</span>)$<span class='no'>sig</span></div><div class='output co'>#&gt; Scale Diff =  0 
-#&gt;      Scale =  8.141 
-#&gt; </div><div class='input'><span class='no'>sig_alt</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='holq.html'>holq</a></span>(<span class='no'>X</span>, <span class='kw'>mode_rep</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>mode_diag</span> <span class='kw'>=</span> <span class='fl'>2</span>)$<span class='no'>sig</span></div><div class='output co'>#&gt; Scale Diff =  0.03518 
-#&gt;      Scale =  7.865 
+#&gt;      Scale =  8.141438 
+#&gt; </div><div class='input'><span class='no'>sig_alt</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='holq.html'>holq</a></span>(<span class='no'>X</span>, <span class='kw'>mode_rep</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>mode_diag</span> <span class='kw'>=</span> <span class='fl'>2</span>)$<span class='no'>sig</span></div><div class='output co'>#&gt; Scale Diff =  0.03517942 
+#&gt;      Scale =  7.86476 
 #&gt; 
-#&gt; Scale Diff =  0.0007181 
-#&gt;      Scale =  7.859 
+#&gt; Scale Diff =  0.0007181446 
+#&gt;      Scale =  7.859116 
 #&gt; 
-#&gt; Scale Diff =  7.452e-05 
-#&gt;      Scale =  7.859 
+#&gt; Scale Diff =  7.452453e-05 
+#&gt;      Scale =  7.85853 
 #&gt; 
-#&gt; Scale Diff =  9.139e-06 
-#&gt;      Scale =  7.858 
+#&gt; Scale Diff =  9.139197e-06 
+#&gt;      Scale =  7.858459 
 #&gt; 
-#&gt; Scale Diff =  1.15e-06 
-#&gt;      Scale =  7.858 
+#&gt; Scale Diff =  1.150338e-06 
+#&gt;      Scale =  7.85845 
 #&gt; 
-#&gt; Scale Diff =  1.455e-07 
-#&gt;      Scale =  7.858 
+#&gt; Scale Diff =  1.455226e-07 
+#&gt;      Scale =  7.858448 
 #&gt; 
-#&gt; Scale Diff =  1.843e-08 
-#&gt;      Scale =  7.858 
+#&gt; Scale Diff =  1.843222e-08 
+#&gt;      Scale =  7.858448 
 #&gt; 
-#&gt; Scale Diff =  2.335e-09 
-#&gt;      Scale =  7.858 
+#&gt; Scale Diff =  2.335496e-09 
+#&gt;      Scale =  7.858448 
 #&gt; 
-#&gt; Scale Diff =  2.96e-10 
-#&gt;      Scale =  7.858 
+#&gt; Scale Diff =  2.959557e-10 
+#&gt;      Scale =  7.858448 
 #&gt; </div><div class='input'><span class='no'>lrt_x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='lrt_stat.html'>lrt_stat</a></span>(<span class='no'>sig_null</span>, <span class='no'>sig_alt</span>, <span class='kw'>p</span> <span class='kw'>=</span> <span class='no'>p</span>)
 <span class='no'>p_value</span> <span class='kw'>&lt;-</span> <span class='fu'>mean</span>(<span class='no'>null2</span> <span class='kw'>&gt;</span> <span class='no'>lrt_x</span>)
 
 <span class='fu'>hist</span>(<span class='no'>null2</span>,<span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Null Distribution of LRT'</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>'LRT Statistic'</span>)</div><div class='input'><span class='fu'>abline</span>(<span class='kw'>v</span> <span class='kw'>=</span> <span class='no'>lrt_x</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='input'><span class='fu'>legend</span>(<span class='st'>'topleft'</span>, <span class='st'>'Observed LRT Statistic'</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='input'><span class='fu'>mtext</span>(<span class='kw'>side</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='fu'>paste</span>(<span class='st'>'P-value = '</span>, <span class='fu'>round</span>(<span class='no'>p_value</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>''</span>),
-      <span class='kw'>line</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='img'><img src='lrt_null_dist_dim_same-2.png' alt='' width='700' height='432.632880098887' /></div></pre>
+      <span class='kw'>line</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='img'><img src='lrt_null_dist_dim_same-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -562,11 +583,14 @@ David Gerard.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

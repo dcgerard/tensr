@@ -18,13 +18,27 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Calculate the higher-order orthogonal iteration (HOOI). — hooi" />
+
+<meta property="og:description" content="This function will calculate the best rank r (where r is a
+vector) approximation (in terms of sum of squared differences) to a given
+data array." />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,12 +61,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">tensr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">tensr</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.0.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -78,13 +96,9 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="http://github.com/dcgerard/tensr">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -92,21 +106,25 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Calculate the higher-order orthogonal iteration (HOOI).</h1>
+    
+    <div class="hidden name"><code>hooi.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>This function will calculate the best rank <code>r</code> (where <code>r</code> is a
 vector) approximation (in terms of sum of squared differences) to a given
 data array.</p>
     
+    </div>
 
-    <pre class="usage"><span class='fu'>hooi</span>(<span class='no'>X</span>, <span class='no'>r</span>, <span class='kw'>tol</span> <span class='kw'>=</span> <span class='fl'>10</span>^-<span class='fl'>6</span>, <span class='kw'>print_fnorm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>hooi</span>(<span class='no'>X</span>, <span class='no'>r</span>, <span class='kw'>tol</span> <span class='kw'>=</span> <span class='fl'>10</span>^-<span class='fl'>6</span>, <span class='kw'>print_fnorm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>itermax</span> <span class='kw'>=</span> <span class='fl'>500</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -127,6 +145,10 @@ approximation.</p></td>
       <td><p>Should updates of the optimization procedure be printed?
 This number should get larger during the optimizaton procedure.</p></td>
     </tr>
+    <tr>
+      <th>itermax</th>
+      <td><p>The maximum number of iterations to run the optimization procedure.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -141,31 +163,31 @@ of matrices with orthonormal columns <code>U</code> that minimizes <code><a href
 atrans(G, U))</a></code>. If <code>r</code> is equal to the dimension of <code>X</code>, then it
 returns the HOSVD (see <code><a href='hosvd.html'>hosvd</a></code>).</p>
 <p>For details on the HOOI see
-<a href='http://epubs.siam.org/doi/abs/10.1137/S0895479898346995'>Lathauwer et
+<a href='https://doi.org/10.1137/S0895479898346995'>Lathauwer et
 al (2000)</a>.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>De Lathauwer, L., De Moor, B., &amp; Vandewalle, J. (2000).
-  <a href='http://epubs.siam.org/doi/abs/10.1137/S0895479898346995'>On the best
+  <a href='http://doi.org/10.1137/S0895479898346995'>On the best
   rank-1 and rank-(\(r_1, r_2,..., r_n\)) approximation of higher-order tensors</a>.
   <em>SIAM Journal on Matrix Analysis and Applications</em>, 21(4), 1324-1342.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>#Generate random data.</span>
+    <pre class="examples"><div class='input'><span class='co'>## Generate random data.</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>)
 <span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='fu'>array</span>(<span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fu'>prod</span>(<span class='no'>p</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='no'>p</span>)
 
-<span class='co'>#Calculate HOOI</span>
+<span class='co'>## Calculate HOOI</span>
 <span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>)
 <span class='no'>hooi_x</span> <span class='kw'>&lt;-</span> <span class='fu'>hooi</span>(<span class='no'>X</span>, <span class='kw'>r</span> <span class='kw'>=</span> <span class='no'>r</span>)
 <span class='no'>G</span> <span class='kw'>&lt;-</span> <span class='no'>hooi_x</span>$<span class='no'>G</span>
 <span class='no'>U</span> <span class='kw'>&lt;-</span> <span class='no'>hooi_x</span>$<span class='no'>U</span>
 
-<span class='co'>#Reconstruct the hooi approximation.</span>
+<span class='co'>## Reconstruct the hooi approximation.</span>
 <span class='no'>X_approx</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='atrans.html'>atrans</a></span>(<span class='no'>G</span>, <span class='no'>U</span>)
-<span class='fu'><a href='fnorm.html'>fnorm</a></span>(<span class='no'>X</span> - <span class='no'>X_approx</span>)</div><div class='output co'>#&gt; [1] 1.442</div></pre>
+<span class='fu'><a href='fnorm.html'>fnorm</a></span>(<span class='no'>X</span> - <span class='no'>X_approx</span>)</div><div class='output co'>#&gt; [1] 1.44194</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -194,11 +216,14 @@ David Gerard.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

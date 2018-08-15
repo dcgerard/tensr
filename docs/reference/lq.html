@@ -18,13 +18,25 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="LQ decomposition. — lq" />
+
+<meta property="og:description" content="Computes the LQ decomposition of a matrix." />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,12 +59,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">tensr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">tensr</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.0.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -78,13 +94,9 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="http://github.com/dcgerard/tensr">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -92,19 +104,23 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>LQ decomposition.</h1>
+    
+    <div class="hidden name"><code>lq.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Computes the LQ decomposition of a matrix.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>lq</span>(<span class='no'>X</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -116,9 +132,8 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>L</code> An \(n\) by \(n\) lower triangular matrix with
-    positive diagonal entries.
-
-<code>Q</code> An \(n\) by \(p\) matrix with orthonormal columns.</p>
+    positive diagonal entries.</p>
+<p><code>Q</code> An \(n\) by \(p\) matrix with orthonormal columns.</p>
 <p>The returned values satisfy <code>X = L %*% t(Q)</code>, up to
 numerical precision.</p>
     
@@ -132,7 +147,7 @@ diaognal entries.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='qr2.html'>qr2</a></code> for the related QR decomposition.</p>
+    <div class='dont-index'><p><code><a href='qr2.html'>qr2</a></code> for the related QR decomposition.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -140,14 +155,14 @@ diaognal entries.</p>
 <span class='no'>lq_X</span> <span class='kw'>&lt;-</span> <span class='fu'>lq</span>(<span class='no'>X</span>)
 <span class='no'>L</span> <span class='kw'>&lt;-</span> <span class='no'>lq_X</span>$<span class='no'>L</span>
 <span class='no'>Q</span> <span class='kw'>&lt;-</span> <span class='no'>lq_X</span>$<span class='no'>Q</span>
-<span class='no'>L</span></div><div class='output co'>#&gt;         [,1]   [,2]  [,3]
-#&gt; [1,]  2.0380 0.0000 0.000
-#&gt; [2,] -0.1138 0.9087 0.000
-#&gt; [3,] -0.3416 1.1260 1.903</div><div class='input'><span class='no'>Q</span></div><div class='output co'>#&gt;         [,1]     [,2]      [,3]
-#&gt; [1,]  0.7184  0.43504  0.449710
-#&gt; [2,] -0.4599 -0.25723  0.810371
-#&gt; [3,]  0.5026 -0.86266 -0.006386
-#&gt; [4,] -0.1407 -0.01944 -0.375526</div><div class='input'><span class='fu'><a href='trim.html'>trim</a></span>(<span class='fu'>t</span>(<span class='no'>Q</span>) <span class='kw'>%*%</span> <span class='no'>Q</span>)</div><div class='output co'>#&gt;      [,1] [,2] [,3]
+<span class='no'>L</span></div><div class='output co'>#&gt;            [,1]      [,2]     [,3]
+#&gt; [1,]  2.0380413 0.0000000 0.000000
+#&gt; [2,] -0.1138222 0.9087167 0.000000
+#&gt; [3,] -0.3415696 1.1260258 1.903401</div><div class='input'><span class='no'>Q</span></div><div class='output co'>#&gt;            [,1]        [,2]         [,3]
+#&gt; [1,]  0.7183755  0.43504465  0.449710220
+#&gt; [2,] -0.4599202 -0.25723356  0.810370613
+#&gt; [3,]  0.5025932 -0.86266390 -0.006386003
+#&gt; [4,] -0.1407483 -0.01944348 -0.375525507</div><div class='input'><span class='fu'><a href='trim.html'>trim</a></span>(<span class='fu'>t</span>(<span class='no'>Q</span>) <span class='kw'>%*%</span> <span class='no'>Q</span>)</div><div class='output co'>#&gt;      [,1] [,2] [,3]
 #&gt; [1,]    1    0    0
 #&gt; [2,]    0    1    0
 #&gt; [3,]    0    0    1</div><div class='input'><span class='fu'><a href='trim.html'>trim</a></span>(<span class='no'>X</span> - <span class='no'>L</span><span class='kw'>%*%</span><span class='fu'>t</span>(<span class='no'>Q</span>))</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
@@ -182,11 +197,14 @@ David Gerard.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

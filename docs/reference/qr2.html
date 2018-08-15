@@ -18,13 +18,26 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="QR Decomposition. — qr2" />
+
+<meta property="og:description" content="QR decomposition, constraining the R matrix to have non-negative diagonal
+entries." />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,12 +60,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">tensr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">tensr</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.0.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -78,13 +95,9 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="http://github.com/dcgerard/tensr">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -92,20 +105,24 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>QR Decomposition.</h1>
+    
+    <div class="hidden name"><code>qr2.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>QR decomposition, constraining the R matrix to have non-negative diagonal
 entries.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>qr2</span>(<span class='no'>X</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -116,9 +133,8 @@ entries.</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>Q</code> An \(n\) by \(p\) matrix with orthonormal columns.
-
-<code>R</code> A \(p\) by \(p\) upper-triangular matrix with non-negative
+    <p><code>Q</code> An \(n\) by \(p\) matrix with orthonormal columns.</p>
+<p><code>R</code> A \(p\) by \(p\) upper-triangular matrix with non-negative
 diagonal elements.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -132,9 +148,9 @@ this is sufficient to gaurantee uniqueness of the QR decomposition
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='http://www.rdocumentation.org/packages/base/topics/qr'>qr</a></code>, <code><a href='http://www.rdocumentation.org/packages/base/topics/qraux'>qr.Q</a></code>, and
+    <div class='dont-index'><p><code><a href='http://www.rdocumentation.org/packages/base/topics/qr'>qr</a></code>, <code><a href='http://www.rdocumentation.org/packages/base/topics/qraux'>qr.Q</a></code>, and
   <code><a href='http://www.rdocumentation.org/packages/base/topics/qraux'>qr.R</a></code> for the base methods on the obtaining the QR
-  decomposition. <code><a href='lq.html'>lq</a></code> for the related LQ decomposition.</p>
+  decomposition. <code><a href='lq.html'>lq</a></code> for the related LQ decomposition.</p></div>
     
 
   </div>
@@ -163,11 +179,14 @@ David Gerard.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

@@ -18,13 +18,27 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Calculate the incredible higher-order LQ decomposition (HOLQ). — holq" />
+
+<meta property="og:description" content="This function calculates a generalization of the LQ decomposition to tensors.
+This decomposition has a close connection to likelihood inference in
+Kronecker structured covariande models." />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,12 +61,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">tensr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">tensr</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.0.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -78,13 +96,9 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="http://github.com/dcgerard/tensr">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -92,23 +106,27 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Calculate the incredible higher-order LQ decomposition (HOLQ).</h1>
+    
+    <div class="hidden name"><code>holq.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>This function calculates a generalization of the LQ decomposition to tensors.
 This decomposition has a close connection to likelihood inference in
 Kronecker structured covariande models.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>holq</span>(<span class='no'>X</span>, <span class='kw'>tol</span> <span class='kw'>=</span> <span class='fl'>10</span>^-<span class='fl'>9</span>, <span class='kw'>itermax</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>mode_rep</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>mode_diag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>mode_ldu</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>print_diff</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>start_vals</span> <span class='kw'>=</span> <span class='st'>"identity"</span>,
   <span class='kw'>use_sig</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -185,8 +203,8 @@ normal model.</p>
 diagonal, lower triangular with unit diagonal, or the identity matrix. Each
 of these correspond to submodels in Kronecker structured covariance models.
 The core array corresponding to each of these options has different
-properities (see <a href='http://arxiv.org/abs/1410.1094'>Gerard and Hoff
-(2014)</a>). These more constrained tensor decompositions are called HOLQ
+properities (see <a href='https://doi.org/10.1016/j.laa.2016.04.033'>Gerard and Hoff
+(2016)</a>). These more constrained tensor decompositions are called HOLQ
 juniors.</p>
 <p>The MLE of the \(i\)th component covariance matrix under <em>any</em>
 elliptically contoured Kronecker structured covariance model is given by
@@ -199,17 +217,19 @@ implemented in <code><a href='lrt_stat.html'>lrt_stat</a></code>.</p>
 <p>The algorithm used to fit the HOLQ iteratively repeats the LQ decomposition
 along each mode.</p>
 <p>For more details on the incredible HOLQ, see
-<a href='http://arxiv.org/abs/1410.1094'>Gerard and Hoff (2014)</a>.</p>
+<a href='https://doi.org/10.1016/j.laa.2016.04.033'>Gerard and Hoff (2016)</a>.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>Gerard, D. C., &amp; Hoff, P. D. (2014).
-  <a href='http://arxiv.org/abs/1410.1094'>A higher-order LQ decomposition for
-  separable covariance models</a>. <em>arXiv preprint arXiv:1410.1094.</em></p>
+    <p>Gerard, D., &amp; Hoff, P. (2016). A higher-order LQ
+    decomposition for separable covariance models.
+    <em>Linear Algebra and its Applications</em>, 505, 57-84.
+    <a href='https://doi.org/10.1016/j.laa.2016.04.033'>https://doi.org/10.1016/j.laa.2016.04.033</a>
+    <a href='http://arxiv.org/pdf/1410.1094v1.pdf'>http://arxiv.org/pdf/1410.1094v1.pdf</a></p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='array_bic_aic.html'>array_bic_aic</a></code> for using the output of <code>holq</code> to
+    <div class='dont-index'><p><code><a href='array_bic_aic.html'>array_bic_aic</a></code> for using the output of <code>holq</code> to
   calculate AIC and BIC,</p>
 <p><code><a href='get_isvd.html'>get_isvd</a></code> for using the output of <code>holq</code> to calculate a
   tensor generalization of the singular value decomposition.</p>
@@ -218,7 +238,7 @@ along each mode.</p>
   likelihood ratio test statistics.</p>
 <p><code><a href='mle_from_holq.html'>mle_from_holq</a></code> for using the output of <code>holq</code> to
   calculate the maximum likelihood estimates of the component covariance
-  matrices under the array normal model.</p>
+  matrices under the array normal model.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -228,50 +248,50 @@ along each mode.</p>
 
 <span class='co'>#Calculate HOLQ with unit diagonal on 2nd mode,</span>
 <span class='co'>#  and diagonal along 3rd mode.</span>
-<span class='no'>holq_x</span> <span class='kw'>&lt;-</span> <span class='fu'>holq</span>(<span class='no'>X</span>, <span class='kw'>mode_ldu</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>mode_diag</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='output co'>#&gt; Scale Diff =  0.04202 
-#&gt;      Scale =  5.149 
+<span class='no'>holq_x</span> <span class='kw'>&lt;-</span> <span class='fu'>holq</span>(<span class='no'>X</span>, <span class='kw'>mode_ldu</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>mode_diag</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='output co'>#&gt; Scale Diff =  0.04201928 
+#&gt;      Scale =  5.148895 
 #&gt; 
-#&gt; Scale Diff =  0.006783 
-#&gt;      Scale =  5.114 
+#&gt; Scale Diff =  0.006783263 
+#&gt;      Scale =  5.114204 
 #&gt; 
-#&gt; Scale Diff =  0.0009639 
-#&gt;      Scale =  5.109 
+#&gt; Scale Diff =  0.0009639496 
+#&gt;      Scale =  5.109278 
 #&gt; 
-#&gt; Scale Diff =  0.0002716 
-#&gt;      Scale =  5.108 
+#&gt; Scale Diff =  0.0002716456 
+#&gt;      Scale =  5.107891 
 #&gt; 
-#&gt; Scale Diff =  8.427e-05 
-#&gt;      Scale =  5.107 
+#&gt; Scale Diff =  8.426934e-05 
+#&gt;      Scale =  5.107461 
 #&gt; 
-#&gt; Scale Diff =  2.54e-05 
-#&gt;      Scale =  5.107 
+#&gt; Scale Diff =  2.539996e-05 
+#&gt;      Scale =  5.107331 
 #&gt; 
-#&gt; Scale Diff =  7.434e-06 
-#&gt;      Scale =  5.107 
+#&gt; Scale Diff =  7.434329e-06 
+#&gt;      Scale =  5.107293 
 #&gt; 
-#&gt; Scale Diff =  2.143e-06 
-#&gt;      Scale =  5.107 
+#&gt; Scale Diff =  2.143469e-06 
+#&gt;      Scale =  5.107282 
 #&gt; 
-#&gt; Scale Diff =  6.154e-07 
-#&gt;      Scale =  5.107 
+#&gt; Scale Diff =  6.1537e-07 
+#&gt;      Scale =  5.107279 
 #&gt; 
-#&gt; Scale Diff =  1.77e-07 
-#&gt;      Scale =  5.107 
+#&gt; Scale Diff =  1.769727e-07 
+#&gt;      Scale =  5.107278 
 #&gt; 
-#&gt; Scale Diff =  5.112e-08 
-#&gt;      Scale =  5.107 
+#&gt; Scale Diff =  5.111974e-08 
+#&gt;      Scale =  5.107278 
 #&gt; 
-#&gt; Scale Diff =  1.484e-08 
-#&gt;      Scale =  5.107 
+#&gt; Scale Diff =  1.484265e-08 
+#&gt;      Scale =  5.107277 
 #&gt; 
-#&gt; Scale Diff =  4.331e-09 
-#&gt;      Scale =  5.107 
+#&gt; Scale Diff =  4.331002e-09 
+#&gt;      Scale =  5.107277 
 #&gt; 
-#&gt; Scale Diff =  1.269e-09 
-#&gt;      Scale =  5.107 
+#&gt; Scale Diff =  1.269296e-09 
+#&gt;      Scale =  5.107277 
 #&gt; 
-#&gt; Scale Diff =  3.734e-10 
-#&gt;      Scale =  5.107 
+#&gt; Scale Diff =  3.73366e-10 
+#&gt;      Scale =  5.107277 
 #&gt; </div><div class='input'><span class='no'>Z</span> <span class='kw'>&lt;-</span> <span class='no'>holq_x</span>$<span class='no'>Z</span>
 <span class='no'>A</span> <span class='kw'>&lt;-</span> <span class='no'>holq_x</span>$<span class='no'>A</span>
 <span class='no'>sig</span> <span class='kw'>&lt;-</span> <span class='no'>holq_x</span>$<span class='no'>sig</span>
@@ -303,14 +323,14 @@ along each mode.</p>
 #&gt; </div><div class='input'>
 <span class='co'>#Properties of core</span>
 <span class='co'>#First mode has orthonormal rows.</span>
-<span class='fu'><a href='trim.html'>trim</a></span>(<span class='fu'><a href='mat.html'>mat</a></span>(<span class='no'>Z</span>, <span class='fl'>1</span>) <span class='kw'>%*%</span> <span class='fu'>t</span>(<span class='fu'><a href='mat.html'>mat</a></span>(<span class='no'>Z</span>, <span class='fl'>1</span>)), <span class='fl'>10</span>^-<span class='fl'>5</span>)</div><div class='output co'>#&gt;      [,1] [,2]
-#&gt; [1,]  0.5  0.0
-#&gt; [2,]  0.0  0.5</div><div class='input'>
+<span class='fu'><a href='trim.html'>trim</a></span>(<span class='fu'><a href='mat.html'>mat</a></span>(<span class='no'>Z</span>, <span class='fl'>1</span>) <span class='kw'>%*%</span> <span class='fu'>t</span>(<span class='fu'><a href='mat.html'>mat</a></span>(<span class='no'>Z</span>, <span class='fl'>1</span>)), <span class='fl'>10</span>^-<span class='fl'>5</span>)</div><div class='output co'>#&gt;           [,1]      [,2]
+#&gt; [1,] 0.4999998 0.0000000
+#&gt; [2,] 0.0000000 0.5000002</div><div class='input'>
 <span class='co'>#Second mode has orthogonal rows.</span>
-<span class='fu'><a href='trim.html'>trim</a></span>(<span class='fu'><a href='mat.html'>mat</a></span>(<span class='no'>Z</span>, <span class='fl'>2</span>) <span class='kw'>%*%</span> <span class='fu'>t</span>(<span class='fu'><a href='mat.html'>mat</a></span>(<span class='no'>Z</span>, <span class='fl'>2</span>)), <span class='fl'>10</span>^-<span class='fl'>5</span>)</div><div class='output co'>#&gt;        [,1]   [,2]   [,3]
-#&gt; [1,] 0.3541 0.0000 0.0000
-#&gt; [2,] 0.0000 0.2376 0.0000
-#&gt; [3,] 0.0000 0.0000 0.4083</div><div class='input'>
+<span class='fu'><a href='trim.html'>trim</a></span>(<span class='fu'><a href='mat.html'>mat</a></span>(<span class='no'>Z</span>, <span class='fl'>2</span>) <span class='kw'>%*%</span> <span class='fu'>t</span>(<span class='fu'><a href='mat.html'>mat</a></span>(<span class='no'>Z</span>, <span class='fl'>2</span>)), <span class='fl'>10</span>^-<span class='fl'>5</span>)</div><div class='output co'>#&gt;           [,1]      [,2]      [,3]
+#&gt; [1,] 0.3540736 0.0000000 0.0000000
+#&gt; [2,] 0.0000000 0.2376079 0.0000000
+#&gt; [3,] 0.0000000 0.0000000 0.4083185</div><div class='input'>
 <span class='co'>#Third mode has unit diagonal (up to scale).</span>
 <span class='fu'>diag</span>(<span class='fu'><a href='mat.html'>mat</a></span>(<span class='no'>Z</span>, <span class='fl'>3</span>) <span class='kw'>%*%</span> <span class='fu'>t</span>(<span class='fu'><a href='mat.html'>mat</a></span>(<span class='no'>Z</span>, <span class='fl'>3</span>)))</div><div class='output co'>#&gt; [1] 0.25 0.25 0.25 0.25</div></pre>
   </div>
@@ -343,11 +363,14 @@ David Gerard.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+
