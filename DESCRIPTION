@@ -23,5 +23,4 @@ Suggests: knitr,
     covr,
     testthat
 VignetteBuilder: knitr
-Imports: stats,
-    assertthat
+Imports: assertthat

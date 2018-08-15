@@ -53,9 +53,9 @@ This package is also published on
 [CRAN](https://cran.r-project.org/package=tensr).
 
 Vignettes are available on [Equivariant
-Inference](https://cran.r-project.org/web/packages/tensr/vignettes/equivariant_estimation.html)
+Inference](https://cran.r-project.org/package=tensr/vignettes/equivariant_estimation.html)
 and [Likelihood
-Inference](https://cran.r-project.org/web/packages/tensr/vignettes/maximum_likelihood.html).
+Inference](https://cran.r-project.org/package=tensr/vignettes/maximum_likelihood.html).
 
 # Installation
 
