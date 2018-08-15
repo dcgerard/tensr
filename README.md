@@ -9,8 +9,8 @@ Status](https://travis-ci.org/dcgerard/tensr.svg?branch=master)](https://travis-
 Status](https://ci.appveyor.com/api/projects/status/github/dcgerard/tensr?branch=master&svg=true)](https://ci.appveyor.com/project/dcgerard/tensr)
 [![CRAN
 Version](http://www.r-pkg.org/badges/version/tensr)](https://cran.r-project.org/package=tensr)
-<http://cranlogs.r-pkg.org/badges/grand-total/tensr>
-<!-- [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) -->
+<http://cranlogs.r-pkg.org/badges/grand-total/tensr> [![License: GPL
+v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 # Description
 
