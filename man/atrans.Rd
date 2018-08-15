@@ -22,7 +22,7 @@ is formally equivalent to performing the \eqn{k}-mode product between
 \code{A} is three, then \code{atrans(A,B) =
 amprod(amprod(amprod(A,B[[1]],1),B[[2]],2),B[[3]],3)}.  The ordering of this
 \eqn{k}-mode product does not matter. See
-\href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{ Kolda and Bader
+\href{https://doi.org/10.1137/07070111X}{ Kolda and Bader
 (2009)} for details.
 }
 \examples{

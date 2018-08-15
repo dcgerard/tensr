@@ -32,7 +32,7 @@ equal to \code{l * atrans(atrans(V, D), U)}, up to numerical precision.
 \code{V} is also scaled all-orthonormal.
 
 For more details on the ISVD, see
-\href{http://arxiv.org/abs/1410.1094}{Gerard and Hoff (2014)}.
+\href{https://doi.org/10.1016/j.laa.2016.04.033}{Gerard and Hoff (2016)}.
 }
 \examples{
 #Generate random data.

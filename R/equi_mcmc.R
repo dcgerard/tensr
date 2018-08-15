@@ -51,8 +51,7 @@ sample_sig <- function(X, phi_inv) {
 #' triangular Cholesky decomposition of \eqn{\Phi}. That is, \eqn{V} is lower
 #' triangular and \eqn{U} is upper triangular. For details on its applications,
 #' see
-#' \href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{
-#' Gerard and Hoff (2015)}.
+#' \href{https://doi.org/10.1016/j.jmva.2015.01.020}{Gerard and Hoff (2015)}.
 #'
 #' @param nu An integer. The degrees of freedom in the mirror-Wishart.
 #' @param Phi A matrix. The scale matrix of the mirror-Wishart.

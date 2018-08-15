@@ -8,7 +8,7 @@
 #' \code{atrans(S, U)}, up to numerical accuracy.
 #'
 #' More details on the HOSVD can be found in
-#' \href{http://epubs.siam.org/doi/abs/10.1137/S0895479896305696}{ De Lathauwer
+#' \href{https://doi.org/10.1137/S0895479896305696}{ De Lathauwer
 #' et. al. (2000)}.
 #'
 #' @param Y An array of numerics.
@@ -111,8 +111,8 @@ hosvd <- function(Y, r = NULL) {
 #' diagonal, lower triangular with unit diagonal, or the identity matrix. Each
 #' of these correspond to submodels in Kronecker structured covariance models.
 #' The core array corresponding to each of these options has different
-#' properities (see \href{http://arxiv.org/abs/1410.1094}{Gerard and Hoff
-#' (2014)}). These more constrained tensor decompositions are called HOLQ
+#' properities (see \href{https://doi.org/10.1016/j.laa.2016.04.033}{Gerard and Hoff
+#' (2016)}). These more constrained tensor decompositions are called HOLQ
 #' juniors.
 #'
 #' The MLE of the \eqn{i}th component covariance matrix under \emph{any}
@@ -129,7 +129,7 @@ hosvd <- function(Y, r = NULL) {
 #' along each mode.
 #'
 #' For more details on the incredible HOLQ, see
-#' \href{http://arxiv.org/abs/1410.1094}{Gerard and Hoff (2014)}.
+#' \href{https://doi.org/10.1016/j.laa.2016.04.033}{Gerard and Hoff (2016)}.
 #'
 #' @param X An array of numerics.
 #' @param tol A numeric. The maximum difference in frobenius norm between two
@@ -354,7 +354,7 @@ holq <- function(X, tol = 10 ^ -9, itermax = 1000, mode_rep = NULL, mode_diag = 
 #' \code{i}.
 #'
 #' For more details on the IHOP, see
-#' \href{http://arxiv.org/abs/1410.1094}{Gerard and Hoff (2014)}.
+#' \href{https://doi.org/10.1016/j.laa.2016.04.033}{Gerard and Hoff (2016)}.
 #'
 #' @param X An array of numerics.
 #' @param itermax An integer. The maximum number of iterations to perform during
@@ -479,7 +479,7 @@ ihop <- function(X, itermax = 100, tol = 10 ^ -9, print_diff = TRUE, mode_rep = 
 #' \code{V} is also scaled all-orthonormal.
 #'
 #' For more details on the ISVD, see
-#' \href{http://arxiv.org/abs/1410.1094}{Gerard and Hoff (2014)}.
+#' \href{https://doi.org/10.1016/j.laa.2016.04.033}{Gerard and Hoff (2016)}.
 #'
 #' @param x_holq The output from \code{\link{holq}}.
 #'
@@ -555,7 +555,7 @@ get_isvd <- function(x_holq) {
 #' returns the HOSVD (see \code{\link{hosvd}}).
 #'
 #' For details on the HOOI see
-#' \href{http://epubs.siam.org/doi/abs/10.1137/S0895479898346995}{Lathauwer et
+#' \href{https://doi.org/10.1137/S0895479898346995}{Lathauwer et
 #' al (2000)}.
 #'
 #' @param X An array of numerics.

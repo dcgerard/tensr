@@ -52,7 +52,7 @@ atrans(R, L)} up to numerical precision.
 \code{i}.
 
 For more details on the IHOP, see
-\href{http://arxiv.org/abs/1410.1094}{Gerard and Hoff (2014)}.
+\href{https://doi.org/10.1016/j.laa.2016.04.033}{Gerard and Hoff (2016)}.
 }
 \examples{
 #Generate random data.

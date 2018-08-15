@@ -27,7 +27,7 @@ If \code{r} is equal to the rank of \code{Y}, then \code{Y} is equal to
 \code{atrans(S, U)}, up to numerical accuracy.
 
 More details on the HOSVD can be found in
-\href{http://epubs.siam.org/doi/abs/10.1137/S0895479896305696}{ De Lathauwer
+\href{https://doi.org/10.1137/S0895479896305696}{ De Lathauwer
 et. al. (2000)}.
 }
 \examples{

@@ -23,7 +23,7 @@ A matrix  whose rows  index the  \eqn{k}th mode  and whose columns
 Applies the matrix unfolding operator (also called 'matricization' or 'matrix
 flattening' operator) on a provided tensor. There are multiple ways one could
 do this. This function performs the matrix unfolding described in
-\href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{ Kolda and Bader
+\href{https://doi.org/10.1137/07070111X}{Kolda and Bader
 (2009)}.
 }
 \examples{

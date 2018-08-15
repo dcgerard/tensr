@@ -36,7 +36,7 @@ atrans(G, U))}. If \code{r} is equal to the dimension of \code{X}, then it
 returns the HOSVD (see \code{\link{hosvd}}).
 
 For details on the HOOI see
-\href{http://epubs.siam.org/doi/abs/10.1137/S0895479898346995}{Lathauwer et
+\href{https://doi.org/10.1137/S0895479898346995}{Lathauwer et
 al (2000)}.
 }
 \examples{

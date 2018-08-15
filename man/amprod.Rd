@@ -28,7 +28,7 @@ results in a tensor whose \eqn{k}-mode unfolding is \eqn{M} times
 the \eqn{k}-mode unfolding of \eqn{A}. That is
 \code{mat(amprod(A,M,k)) = M \%*\% mat(A,k)}.  More details of the
 \eqn{k}-mode product can be found in
-\href{http://epubs.siam.org/doi/abs/10.1137/07070111X}{ Kolda and
+\href{https://doi.org/10.1137/07070111X}{ Kolda and
 Bader (2009)}.
 }
 \examples{

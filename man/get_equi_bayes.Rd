@@ -45,7 +45,7 @@ the uniformly minimum risk equivariant estimator.
 
 More details on multiway Stein's loss and the Bayes rules under it can be
 found in
-\href{http://www.sciencedirect.com/science/article/pii/S0047259X15000330}{
+\href{https://doi.org/10.1016/j.jmva.2015.01.020}{
 Gerard and Hoff (2015)}.
 }
 \examples{
