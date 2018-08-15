@@ -49,7 +49,7 @@ following features:
     UMREE under the product group of lower triangular matrices.
 
 This package is also published on
-[CRAN](https://cran.r-project.org/web/packages/tensr/index.html).
+[CRAN](https://cran.r-project.org/package=tensr).
 
 Vignettes are available on [Equivariant
 Inference](https://cran.r-project.org/web/packages/tensr/vignettes/equivariant_estimation.html)
