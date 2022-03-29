@@ -4,8 +4,14 @@
 \alias{multiway_takemura}
 \title{Calculate a truncated multiway Takemura estimator.}
 \usage{
-multiway_takemura(X, ortho_max = 2, mcmc_itermax = 1000,
-  start_identity = FALSE, print_mcmc = FALSE, mode_rep = NULL)
+multiway_takemura(
+  X,
+  ortho_max = 2,
+  mcmc_itermax = 1000,
+  start_identity = FALSE,
+  print_mcmc = FALSE,
+  mode_rep = NULL
+)
 }
 \arguments{
 \item{X}{An array. This is the data array.}

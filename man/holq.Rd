@@ -4,9 +4,17 @@
 \alias{holq}
 \title{Calculate the incredible higher-order LQ decomposition (HOLQ).}
 \usage{
-holq(X, tol = 10^-9, itermax = 1000, mode_rep = NULL, mode_diag = NULL,
-  mode_ldu = NULL, print_diff = TRUE, start_vals = "identity",
-  use_sig = TRUE)
+holq(
+  X,
+  tol = 10^-9,
+  itermax = 1000,
+  mode_rep = NULL,
+  mode_diag = NULL,
+  mode_ldu = NULL,
+  print_diff = TRUE,
+  start_vals = "identity",
+  use_sig = TRUE
+)
 }
 \arguments{
 \item{X}{An array of numerics.}

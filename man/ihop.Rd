@@ -4,8 +4,14 @@
 \alias{ihop}
 \title{The incredible higher-order polar decomposition (IHOP).}
 \usage{
-ihop(X, itermax = 100, tol = 10^-9, print_diff = TRUE, mode_rep = NULL,
-  use_sig = TRUE)
+ihop(
+  X,
+  itermax = 100,
+  tol = 10^-9,
+  print_diff = TRUE,
+  mode_rep = NULL,
+  use_sig = TRUE
+)
 }
 \arguments{
 \item{X}{An array of numerics.}

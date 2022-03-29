@@ -3,7 +3,6 @@
 \docType{package}
 \name{tensr}
 \alias{tensr}
-\alias{tensr-package}
 \title{tensr: A package for Kronecker structured covariance inference.}
 \description{
 This package provides a collection of functions for likelihood and

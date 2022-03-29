@@ -4,9 +4,18 @@
 \alias{lrt_null_dist_dim_same}
 \title{Draw from null distribution of likelihood ratio test statistic.}
 \usage{
-lrt_null_dist_dim_same(p, null_ident = NULL, alt_ident = NULL,
-  null_diag = NULL, alt_diag = NULL, reference_dist = "normal",
-  t_df = NULL, itermax = 100, holq_itermax = 100, holq_tol = 10^-9)
+lrt_null_dist_dim_same(
+  p,
+  null_ident = NULL,
+  alt_ident = NULL,
+  null_diag = NULL,
+  alt_diag = NULL,
+  reference_dist = "normal",
+  t_df = NULL,
+  itermax = 100,
+  holq_itermax = 100,
+  holq_tol = 10^-9
+)
 }
 \arguments{
 \item{p}{A vector of integers. The dimensions of the array.}

@@ -4,8 +4,13 @@
 \alias{equi_mcmc}
 \title{Gibbs sampler using an invariant prior.}
 \usage{
-equi_mcmc(X, itermax = 1000, start_identity = FALSE, print_iter = FALSE,
-  mode_rep = NULL)
+equi_mcmc(
+  X,
+  itermax = 1000,
+  start_identity = FALSE,
+  print_iter = FALSE,
+  mode_rep = NULL
+)
 }
 \arguments{
 \item{X}{A tensor.}

@@ -4,8 +4,13 @@
 \alias{array_bic_aic}
 \title{Calculate the AIC and BIC.}
 \usage{
-array_bic_aic(sig_squared, p, mode_ident = NULL, mode_diag = NULL,
-  mode_unstructured = NULL)
+array_bic_aic(
+  sig_squared,
+  p,
+  mode_ident = NULL,
+  mode_diag = NULL,
+  mode_unstructured = NULL
+)
 }
 \arguments{
 \item{sig_squared}{A numeric. The MLE of sigma^2 in the array normal model
