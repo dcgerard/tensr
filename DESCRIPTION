@@ -2,7 +2,6 @@ Package: tensr
 Type: Package
 Title: Covariance Inference and Decompositions for Tensor Datasets
 Version: 1.0.2
-Date: 2018-08-13
 Authors@R: c(person("David", "Gerard", email = "gerard.1787@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9450-5023")),
              person("Peter", "Hoff", email = "peter.hoff@duke.edu", role = "aut"))
 Description: A collection of functions for Kronecker structured covariance
@@ -18,6 +17,7 @@ License: GPL-3
 Encoding: UTF-8
 RoxygenNote: 7.1.2
 BugReports: http://github.com/dcgerard/tensr/issues
+URL: http://github.com/dcgerard/tensr
 Suggests: knitr,
     rmarkdown,
     covr,
