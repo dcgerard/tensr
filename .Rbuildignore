@@ -6,3 +6,4 @@
 ^LICENSE
 ^appveyor\.yml$
 ^docs$
+^\.github$

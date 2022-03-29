@@ -1,17 +1,17 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tensr, Because tensor was Already Taken.
+# tensr, Because tensor was Already Taken
 
-[![Build
-Status](https://travis-ci.org/dcgerard/tensr.svg?branch=master)](https://travis-ci.org/dcgerard/tensr)
-[![AppVeyor Build
-Status](https://ci.appveyor.com/api/projects/status/github/dcgerard/tensr?branch=master&svg=true)](https://ci.appveyor.com/project/dcgerard/tensr)
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/dcgerard/tensr/workflows/R-CMD-check/badge.svg)](https://github.com/dcgerard/tensr/actions)
 [![CRAN
 Version](http://www.r-pkg.org/badges/version/tensr)](https://cran.r-project.org/package=tensr)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/tensr)](https://cran.r-project.org/package=tensr)
 [![License: GPL
 v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+<!-- badges: end -->
 
 # Description
 
@@ -19,21 +19,21 @@ This package contains a collection of functions for statistical analysis
 with tensor(array)-variate data sets. In particular, `tensr` has the
 following features:
 
-  - Basic functions for handling arrays, such as vectorization, matrix
+-   Basic functions for handling arrays, such as vectorization, matrix
     unfolding, and multilinear multiplication.
-  - Functions for calculating (Tucker) tensor decompositions, such as
+-   Functions for calculating (Tucker) tensor decompositions, such as
     the incredible higher-order LQ decomposition (incredible HOLQ), the
     incredible singular value decomposition (ISVD), the incredible
     higher-order polar decomposition (IHOP), the higher-order singular
     value decomposition (HOSVD), and the low multilinear rank
     approximation using the higher-order orthogonal iteration (HOOI).
-  - Perform likelihood inference in mean-zero Kronecker structured
+-   Perform likelihood inference in mean-zero Kronecker structured
     covariance models, such as
-      - Derive the maximum likelihood estimates of the covariance
+    -   Derive the maximum likelihood estimates of the covariance
         matrices under the array normal model,
-      - Run a likelihood ratio test in separable covariance models, and
-      - Calculate AIC’s and BIC’s for separable covariance models.
-  - Run a Gibbs sampler to draw from the posterior distribution of the
+    -   Run a likelihood ratio test in separable covariance models, and
+    -   Calculate AIC’s and BIC’s for separable covariance models.
+-   Run a Gibbs sampler to draw from the posterior distribution of the
     Kronecker structured covariance matrix in the array normal model.
     This posterior is with respect to a (non-informative) prior induced
     by the right Haar measure over a product group of lower triangular
@@ -41,11 +41,11 @@ following features:
     matrices. For any invariant loss function, any Bayes rule with
     respect to this prior will be the uniformly minimum risk equivariant
     estimator (UMREE) with respect to that loss.
-  - Calculate the UMREE under a multiway generalization of Stein’s loss.
+-   Calculate the UMREE under a multiway generalization of Stein’s loss.
     This estimator dominates the maximum likelihood estimator uniformly
     over the entire parameter space of Kronecker structured covariance
     matrices.
-  - Calculate a (randomized) orthogonally invariant estimator of the
+-   Calculate a (randomized) orthogonally invariant estimator of the
     Kronecker structured covariance matrix. This estimator dominates the
     UMREE under the product group of lower triangular matrices.
 
