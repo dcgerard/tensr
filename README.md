@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tensr, Because tensor was Already Taken
+# tensr, Because tensor was Already Taken <img src="man/figures/logo.png" align="right" height="138" />
 
 <!-- badges: start -->
 

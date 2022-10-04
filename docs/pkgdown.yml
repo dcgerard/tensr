@@ -1,8 +1,8 @@
-pandoc: 2.14.0.3
-pkgdown: 2.0.2
+pandoc: '2.18'
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   equivariant_estimation: equivariant_estimation.html
   maximum_likelihood: maximum_likelihood.html
-last_built: 2022-03-30T15:09Z
+last_built: 2022-10-04T17:44Z
 
