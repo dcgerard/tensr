@@ -28,11 +28,9 @@ Kronecker structured covariance models (not just the normal). The
 distribution of the likelihood ratio test statistic does change.
 }
 \references{
-Gerard, D., & Hoff, P. (2016). A higher-order LQ
-    decomposition for separable covariance models.
-    \emph{Linear Algebra and its Applications}, 505, 57-84.
-    \url{https://doi.org/10.1016/j.laa.2016.04.033}
-    \url{http://arxiv.org/pdf/1410.1094v1.pdf}
+\itemize{
+  \item{Gerard, D., & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. \emph{Linear Algebra and its Applications}, 505, 57-84. \doi{10.1016/j.laa.2016.04.033}}
+}
 }
 \seealso{
 \code{\link{holq}} for obtaining the MLE of the total variation

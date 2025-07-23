@@ -38,15 +38,11 @@ kendalltau <- function(x, y, nmc = 1e+05) {
 #' \code{c(A)} to \code{c(t(A))} for an \eqn{m} by \eqn{n} matrix
 #' \code{A}.
 #'
-#' @references Magnus, J. R., & Neudecker,
-#'     H. (1979). \href{http://doi.org/10.1214/aos/1176344621}{The
-#'     commutation matrix: some properties and
-#'     applications}. \emph{The Annals of Statistics}, 381-394.
-#'
-#'     Tracy, D. S., & Dwyer,
-#'     P. S. (1969). \href{http://doi.org/10.1080/01621459.1969.10501078}{Multivariate
-#'     maxima and minima with matrix derivatives}. \emph{Journal of the
-#'     American Statistical Association}, 64(328), 1576-1594.
+#' @references
+#' \itemize{
+#'   \item{Magnus, J. R., & Neudecker, H. (1979). The commutation matrix: some properties and applications. \emph{The Annals of Statistics}, 381-394. \doi{10.1214/aos/1176344621}}
+#'   \item{Tracy, D. S., & Dwyer, P. S. (1969). Multivariate maxima and minima with matrix derivatives. \emph{Journal of the American Statistical Association}, 64(328), 1576-1594. \doi{10.1080/01621459.1969.10501078}}
+#' }
 #'
 #' @param m a natural number.
 #' @param n another natural number.
@@ -245,10 +241,10 @@ arrIndices <- function(saidx) {
 #' @author Peter Hoff.
 #' @keywords multivariate
 #'
-#' @references Hoff, P. D. (2011).
-#'   \href{http://doi.org/10.1214/11-BA606}{Separable covariance arrays via the
-#'   Tucker product, with applications to multivariate relational data}.
-#'   \emph{Bayesian Analysis}, 6(2), 179-196.
+#' @references
+#' \itemize{
+#'   \item{Hoff, P. D. (2011). Separable covariance arrays via the Tucker product, with applications to multivariate relational data. \emph{Bayesian Analysis}, 6(2), 179-196. \doi{10.1214/11-BA606}}
+#' }
 #' @export
 #' @examples
 #' p <- c(4, 4, 4)

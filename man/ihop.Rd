@@ -57,8 +57,7 @@ atrans(R, L)} up to numerical precision.
 \code{t(solve(L[[i]])) \%*\% mat(R, i)} will have orthonormal rows for all
 \code{i}.
 
-For more details on the IHOP, see
-\href{https://doi.org/10.1016/j.laa.2016.04.033}{Gerard and Hoff (2016)}.
+For more details on the IHOP, see Gerard and Hoff (2016).
 }
 \examples{
 #Generate random data.
@@ -85,11 +84,9 @@ ortho_3 <- t(solve(L[[3]])) \%*\% mat(R, 3)
 trim(ortho_3 \%*\% t(ortho_3))
 }
 \references{
-Gerard, D., & Hoff, P. (2016). A higher-order LQ
-    decomposition for separable covariance models.
-    \emph{Linear Algebra and its Applications}, 505, 57-84.
-    \url{https://doi.org/10.1016/j.laa.2016.04.033}
-    \url{http://arxiv.org/pdf/1410.1094v1.pdf}
+\itemize{
+  \item {Gerard, D., & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. \emph{Linear Algebra and its Applications}, 505, 57-84. \doi{10.1016/j.laa.2016.04.033}}
+}
 }
 \author{
 David Gerard.

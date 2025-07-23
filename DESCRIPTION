@@ -15,7 +15,7 @@ Description: A collection of functions for Kronecker structured covariance
     Gerard and Hoff (2016) <doi:10.1016/j.laa.2016.04.033>.
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.2
 BugReports: http://github.com/dcgerard/tensr/issues
 URL: http://github.com/dcgerard/tensr
 Suggests: knitr,

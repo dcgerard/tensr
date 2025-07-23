@@ -31,8 +31,7 @@ calculates the SVD of each \code{L[[i]]}, call it \code{U[[i]] \%*\% D[[i]]
 equal to \code{l * atrans(atrans(V, D), U)}, up to numerical precision.
 \code{V} is also scaled all-orthonormal.
 
-For more details on the ISVD, see
-\href{https://doi.org/10.1016/j.laa.2016.04.033}{Gerard and Hoff (2016)}.
+For more details on the ISVD, see Gerard and Hoff (2016).
 }
 \examples{
 #Generate random data.
@@ -58,11 +57,9 @@ trim(mat(V, 2) \%*\% t(mat(V, 2)), epsilon = 10^-5)
 trim(mat(V, 3) \%*\% t(mat(V, 3)), epsilon = 10^-5)
 }
 \references{
-Gerard, D., & Hoff, P. (2016). A higher-order LQ
-    decomposition for separable covariance models.
-    \emph{Linear Algebra and its Applications}, 505, 57-84.
-    \url{https://doi.org/10.1016/j.laa.2016.04.033}
-    \url{http://arxiv.org/pdf/1410.1094v1.pdf}
+\itemize{
+  \item {Gerard, D., & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. \emph{Linear Algebra and its Applications}, 505, 57-84. \doi{10.1016/j.laa.2016.04.033}}
+}
 }
 \author{
 David Gerard.

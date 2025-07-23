@@ -35,9 +35,7 @@ of matrices with orthonormal columns \code{U} that minimizes \code{fnorm(X -
 atrans(G, U))}. If \code{r} is equal to the dimension of \code{X}, then it
 returns the HOSVD (see \code{\link{hosvd}}).
 
-For details on the HOOI see
-\href{https://doi.org/10.1137/S0895479898346995}{Lathauwer et
-al (2000)}.
+For details on the HOOI see Lathauwer et al (2000).
 }
 \examples{
 ## Generate random data.
@@ -55,10 +53,9 @@ X_approx <- atrans(G, U)
 fnorm(X - X_approx)
 }
 \references{
-De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000).
-  \href{http://doi.org/10.1137/S0895479898346995}{On the best
-  rank-1 and rank-(\eqn{r_1, r_2,..., r_n}) approximation of higher-order tensors}.
-  \emph{SIAM Journal on Matrix Analysis and Applications}, 21(4), 1324-1342.
+\itemize{
+  \item{De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000). On the best rank-1 and rank-(\eqn{r_1, r_2,..., r_n}) approximation of higher-order tensors. \emph{SIAM Journal on Matrix Analysis and Applications}, 21(4), 1324-1342. \doi{10.1137/S0895479898346995}}
+}
 }
 \author{
 David Gerard.

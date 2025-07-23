@@ -7,9 +7,7 @@
 #' If \code{r} is equal to the rank of \code{Y}, then \code{Y} is equal to
 #' \code{atrans(S, U)}, up to numerical accuracy.
 #'
-#' More details on the HOSVD can be found in
-#' \href{https://doi.org/10.1137/S0895479896305696}{ De Lathauwer
-#' et. al. (2000)}.
+#' More details on the HOSVD can be found in De Lathauwer et. al. (2000).
 #'
 #' @param Y An array of numerics.
 #' @param r A vector of integers. The rank of the truncated HOSVD.
@@ -23,10 +21,10 @@
 #'
 #' @author Peter Hoff.
 #'
-#' @references De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000).
-#'   \href{http://doi.org/10.1137/S0895479896305696}{A
-#'   multilinear singular value decomposition}. \emph{SIAM journal on Matrix
-#'   Analysis and Applications}, 21(4), 1253-1278.
+#' @references
+#' \itemize{
+#'   \item{De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000). A multilinear singular value decomposition. \emph{SIAM journal on Matrix Analysis and Applications}, 21(4), 1253-1278. \doi{10.1137/S0895479896305696}}
+#' }
 #'
 #' @keywords decompositions
 #'
@@ -111,9 +109,8 @@ hosvd <- function(Y, r = NULL) {
 #' diagonal, lower triangular with unit diagonal, or the identity matrix. Each
 #' of these correspond to submodels in Kronecker structured covariance models.
 #' The core array corresponding to each of these options has different
-#' properities (see \href{https://doi.org/10.1016/j.laa.2016.04.033}{Gerard and Hoff
-#' (2016)}). These more constrained tensor decompositions are called HOLQ
-#' juniors.
+#' properities (see Gerard and Hoff, 2016). These more constrained tensor
+#' decompositions are called HOLQ juniors.
 #'
 #' The MLE of the \eqn{i}th component covariance matrix under \emph{any}
 #' elliptically contoured Kronecker structured covariance model is given by
@@ -128,8 +125,7 @@ hosvd <- function(Y, r = NULL) {
 #' The algorithm used to fit the HOLQ iteratively repeats the LQ decomposition
 #' along each mode.
 #'
-#' For more details on the incredible HOLQ, see
-#' \href{https://doi.org/10.1016/j.laa.2016.04.033}{Gerard and Hoff (2016)}.
+#' For more details on the incredible HOLQ, see Gerard and Hoff (2016).
 #'
 #' @param X An array of numerics.
 #' @param tol A numeric. The maximum difference in frobenius norm between two
@@ -178,11 +174,10 @@ hosvd <- function(Y, r = NULL) {
 #'
 #' @export
 #'
-#' @references Gerard, D., & Hoff, P. (2016). A higher-order LQ
-#'     decomposition for separable covariance models.
-#'     \emph{Linear Algebra and its Applications}, 505, 57-84.
-#'     \url{https://doi.org/10.1016/j.laa.2016.04.033}
-#'     \url{http://arxiv.org/pdf/1410.1094v1.pdf}
+#' @references
+#' \itemize{
+#'   \item {Gerard, D., & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. \emph{Linear Algebra and its Applications}, 505, 57-84. \doi{10.1016/j.laa.2016.04.033}}
+#' }
 #'
 #' @author David Gerard.
 #'
@@ -353,8 +348,7 @@ holq <- function(X, tol = 10 ^ -9, itermax = 1000, mode_rep = NULL, mode_diag = 
 #' \code{t(solve(L[[i]])) \%*\% mat(R, i)} will have orthonormal rows for all
 #' \code{i}.
 #'
-#' For more details on the IHOP, see
-#' \href{https://doi.org/10.1016/j.laa.2016.04.033}{Gerard and Hoff (2016)}.
+#' For more details on the IHOP, see Gerard and Hoff (2016).
 #'
 #' @param X An array of numerics.
 #' @param itermax An integer. The maximum number of iterations to perform during
@@ -379,11 +373,10 @@ holq <- function(X, tol = 10 ^ -9, itermax = 1000, mode_rep = NULL, mode_diag = 
 #'
 #' @keywords decompositions
 #'
-#' @references Gerard, D., & Hoff, P. (2016). A higher-order LQ
-#'     decomposition for separable covariance models.
-#'     \emph{Linear Algebra and its Applications}, 505, 57-84.
-#'     \url{https://doi.org/10.1016/j.laa.2016.04.033}
-#'     \url{http://arxiv.org/pdf/1410.1094v1.pdf}
+#' @references
+#' \itemize{
+#'   \item {Gerard, D., & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. \emph{Linear Algebra and its Applications}, 505, 57-84. \doi{10.1016/j.laa.2016.04.033}}
+#' }
 #'
 #' @author David Gerard.
 #'
@@ -478,8 +471,7 @@ ihop <- function(X, itermax = 100, tol = 10 ^ -9, print_diff = TRUE, mode_rep = 
 #' equal to \code{l * atrans(atrans(V, D), U)}, up to numerical precision.
 #' \code{V} is also scaled all-orthonormal.
 #'
-#' For more details on the ISVD, see
-#' \href{https://doi.org/10.1016/j.laa.2016.04.033}{Gerard and Hoff (2016)}.
+#' For more details on the ISVD, see Gerard and Hoff (2016).
 #'
 #' @param x_holq The output from \code{\link{holq}}.
 #'
@@ -495,11 +487,10 @@ ihop <- function(X, itermax = 100, tol = 10 ^ -9, print_diff = TRUE, mode_rep = 
 #'
 #' @keywords decompositions
 #'
-#' @references Gerard, D., & Hoff, P. (2016). A higher-order LQ
-#'     decomposition for separable covariance models.
-#'     \emph{Linear Algebra and its Applications}, 505, 57-84.
-#'     \url{https://doi.org/10.1016/j.laa.2016.04.033}
-#'     \url{http://arxiv.org/pdf/1410.1094v1.pdf}
+#' @references
+#' \itemize{
+#'   \item {Gerard, D., & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. \emph{Linear Algebra and its Applications}, 505, 57-84. \doi{10.1016/j.laa.2016.04.033}}
+#' }
 #'
 #' @examples
 #' #Generate random data.
@@ -554,9 +545,7 @@ get_isvd <- function(x_holq) {
 #' atrans(G, U))}. If \code{r} is equal to the dimension of \code{X}, then it
 #' returns the HOSVD (see \code{\link{hosvd}}).
 #'
-#' For details on the HOOI see
-#' \href{https://doi.org/10.1137/S0895479898346995}{Lathauwer et
-#' al (2000)}.
+#' For details on the HOOI see Lathauwer et al (2000).
 #'
 #' @param X An array of numerics.
 #' @param r A vector of integers. This is the given low multilinear rank of the
@@ -576,10 +565,10 @@ get_isvd <- function(x_holq) {
 #'
 #' @keywords decompositions
 #'
-#' @references De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000).
-#'   \href{http://doi.org/10.1137/S0895479898346995}{On the best
-#'   rank-1 and rank-(\eqn{r_1, r_2,..., r_n}) approximation of higher-order tensors}.
-#'   \emph{SIAM Journal on Matrix Analysis and Applications}, 21(4), 1324-1342.
+#' @references
+#' \itemize{
+#'   \item{De Lathauwer, L., De Moor, B., & Vandewalle, J. (2000). On the best rank-1 and rank-(\eqn{r_1, r_2,..., r_n}) approximation of higher-order tensors. \emph{SIAM Journal on Matrix Analysis and Applications}, 21(4), 1324-1342. \doi{10.1137/S0895479898346995}}
+#' }
 #'
 #' @examples
 #' ## Generate random data.

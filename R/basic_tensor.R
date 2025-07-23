@@ -29,8 +29,7 @@ tr <- function(X) {
 #' Applies the matrix unfolding operator (also called 'matricization' or 'matrix
 #' flattening' operator) on a provided tensor. There are multiple ways one could
 #' do this. This function performs the matrix unfolding described in
-#' \href{https://doi.org/10.1137/07070111X}{Kolda and Bader
-#' (2009)}.
+#' Kolda and Bader (2009).
 #'
 #' @param A An array to be unfolded.
 #' @param k The mode, or dimension, along which the unfolding is to be applied.
@@ -43,9 +42,10 @@ tr <- function(X) {
 #'
 #' @export
 #'
-#' @references Kolda, T. G., & Bader, B. W. (2009).
-#'   \href{https://doi.org/10.1137/07070111X}{Tensor
-#'   decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
+#' @references
+#' \itemize{
+#'   \item{Kolda, T. G., & Bader, B. W. (2009). Tensor decompositions and applications. \emph{SIAM review}, 51(3), 455-500 \doi{10.1137/07070111X}.}
+#' }
 #'
 #'
 #' @examples
@@ -71,8 +71,7 @@ mat <- function(A, k) {
 #' the \eqn{k}-mode unfolding of \eqn{A}. That is
 #' \code{mat(amprod(A,M,k)) = M \%*\% mat(A,k)}.  More details of the
 #' \eqn{k}-mode product can be found in
-#' \href{https://doi.org/10.1137/07070111X}{ Kolda and
-#' Bader (2009)}.
+#' Kolda and Bader (2009).
 #'
 #' @param A A real valued array.
 #' @param M A real matrix.
@@ -88,9 +87,10 @@ mat <- function(A, k) {
 #' @author Peter Hoff.
 #'
 #'
-#' @references Kolda, T. G., & Bader, B. W. (2009).
-#'   \href{https://doi.org/10.1137/07070111X}{Tensor
-#'   decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
+#' @references
+#' \itemize{
+#'   \item{Kolda, T. G., & Bader, B. W. (2009). Tensor decompositions and applications. \emph{SIAM review}, 51(3), 455-500. \doi{10.1137/07070111X}}
+#' }
 #'
 #' @export
 #'
@@ -116,9 +116,8 @@ amprod <- function(A, M, k) {
 #' \code{A} and each list element in \code{B}. For example, if the dimension of
 #' \code{A} is three, then \code{atrans(A,B) =
 #' amprod(amprod(amprod(A,B[[1]],1),B[[2]],2),B[[3]],3)}.  The ordering of this
-#' \eqn{k}-mode product does not matter. See
-#' \href{https://doi.org/10.1137/07070111X}{ Kolda and Bader
-#' (2009)} for details.
+#' \eqn{k}-mode product does not matter. See Kolda and Bader (2009) for
+#' details.
 #'
 #' @param A An array of dimension \eqn{K}.
 #' @param B A list of matrices of length \eqn{K}. It must be that
@@ -129,9 +128,10 @@ amprod <- function(A, M, k) {
 #'
 #' @author Peter Hoff.
 #'
-#' @references Kolda, T. G., & Bader, B. W. (2009).
-#'   \href{https://doi.org/10.1137/07070111X}{Tensor
-#'   decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
+#' @references
+#' \itemize{
+#'   \item{Kolda, T. G., & Bader, B. W. (2009). Tensor decompositions and applications. \emph{SIAM review}, 51(3), 455-500. \doi{10.1137/07070111X}}
+#' }
 #'
 #' @export
 #'

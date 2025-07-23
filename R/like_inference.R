@@ -21,11 +21,10 @@
 #'
 #' @export
 #'
-#' @references Gerard, D., & Hoff, P. (2016). A higher-order LQ
-#'     decomposition for separable covariance models.
-#'     \emph{Linear Algebra and its Applications}, 505, 57-84.
-#'     \url{https://doi.org/10.1016/j.laa.2016.04.033}
-#'     \url{http://arxiv.org/pdf/1410.1094v1.pdf}
+#' @references
+#' \itemize{
+#'   \item{Gerard, D., & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. \emph{Linear Algebra and its Applications}, 505, 57-84. \doi{10.1016/j.laa.2016.04.033}}
+#' }
 #'
 #' @seealso \code{\link{holq}} for obtaining the MLE of the total variation
 #'   parameter.
@@ -175,11 +174,10 @@ array_bic_aic <- function(sig_squared, p, mode_ident = NULL, mode_diag = NULL, m
 #'
 #' @keywords likelihood
 #'
-#' @references Gerard, D., & Hoff, P. (2016). A higher-order LQ
-#'     decomposition for separable covariance models.
-#'     \emph{Linear Algebra and its Applications}, 505, 57-84.
-#'     \url{https://doi.org/10.1016/j.laa.2016.04.033}
-#'     \url{http://arxiv.org/pdf/1410.1094v1.pdf}
+#' @references
+#' \itemize{
+#'   \item{Gerard, D., & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. \emph{Linear Algebra and its Applications}, 505, 57-84. \doi{10.1016/j.laa.2016.04.033}}
+#' }
 #'
 #' @author David Gerard.
 #'
@@ -268,11 +266,10 @@ lrt_null_dist_dim_same <- function(p, null_ident = NULL, alt_ident = NULL, null_
 #'
 #' @author David Gerard.
 #'
-#' @references Gerard, D., & Hoff, P. (2016). A higher-order LQ
-#'     decomposition for separable covariance models.
-#'     \emph{Linear Algebra and its Applications}, 505, 57-84.
-#'     \url{https://doi.org/10.1016/j.laa.2016.04.033}
-#'     \url{http://arxiv.org/pdf/1410.1094v1.pdf}
+#' @references
+#' \itemize{
+#'   \item{Gerard, D., & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. \emph{Linear Algebra and its Applications}, 505, 57-84. \doi{10.1016/j.laa.2016.04.033}}
+#' }
 #'
 #' @seealso \code{\link{holq}}.
 mle_from_holq <- function(holq_obj){

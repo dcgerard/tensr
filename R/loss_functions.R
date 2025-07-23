@@ -9,8 +9,7 @@
 #'
 #' Multiway Stein's loss is a generalization of Stein's loss. More details on
 #' multiway Stein's loss and the Bayes rules under it can be found in
-#' \href{https://doi.org/10.1016/j.jmva.2015.01.020}{
-#' Gerard and Hoff (2015)}.
+#' Gerard and Hoff (2015).
 #'
 #' The function \code{multi_stien_loss_cov} also calculates multiway Stein's
 #' loss, but uses the component covariance matrices (not the Cholesky roots) as
@@ -32,11 +31,10 @@
 #'
 #' @export
 #'
-#' @references Gerard, D., & Hoff, P. (2015). Equivariant minimax
-#'     dominators of the MLE in the array normal model.
-#'     \emph{Journal of Multivariate Analysis}, 137, 32-49.
-#'     \url{https://doi.org/10.1016/j.jmva.2015.01.020}
-#'     \url{http://arxiv.org/pdf/1408.0424.pdf}
+#' @references
+#' \itemize{
+#'   \item{Gerard, D., & Hoff, P. (2015). Equivariant minimax dominators of the MLE in the array normal model. \emph{Journal of Multivariate Analysis}, 137, 32-49. \doi{10.1016/j.jmva.2015.01.020}}
+#' }
 #'
 #' @author David Gerard.
 #'
@@ -63,8 +61,7 @@ multi_stein_loss <- function(B, Psi, b, psi) {
 #'
 #' Multiway Stein's loss is a generalization of Stein's loss. More details on
 #' multiway Stein's loss and the Bayes rules under it can be found in
-#' \href{https://doi.org/10.1016/j.jmva.2015.01.020}{
-#' Gerard and Hoff (2015)}.
+#' Gerard and Hoff (2015).
 #'
 #' The function \code{multi_stien_loss} also calculates multiway Stein's loss,
 #' but uses the lower-triangular Cholesky square roots of the component
@@ -84,11 +81,10 @@ multi_stein_loss <- function(B, Psi, b, psi) {
 #'
 #' @export
 #'
-#' @references Gerard, D., & Hoff, P. (2015). Equivariant minimax
-#'     dominators of the MLE in the array normal model.
-#'     \emph{Journal of Multivariate Analysis}, 137, 32-49.
-#'     \url{https://doi.org/10.1016/j.jmva.2015.01.020}
-#'     \url{http://arxiv.org/pdf/1408.0424.pdf}
+#' @references
+#' \itemize{
+#'   \item{Gerard, D., & Hoff, P. (2015). Equivariant minimax dominators of the MLE in the array normal model. \emph{Journal of Multivariate Analysis}, 137, 32-49. \doi{10.1016/j.jmva.2015.01.020}}
+#' }
 #'
 #' @author David Gerard.
 #'

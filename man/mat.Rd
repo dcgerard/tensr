@@ -23,8 +23,7 @@ A matrix  whose rows  index the  \eqn{k}th mode  and whose columns
 Applies the matrix unfolding operator (also called 'matricization' or 'matrix
 flattening' operator) on a provided tensor. There are multiple ways one could
 do this. This function performs the matrix unfolding described in
-\href{https://doi.org/10.1137/07070111X}{Kolda and Bader
-(2009)}.
+Kolda and Bader (2009).
 }
 \examples{
 A <- array(1:8, dim = c(2,2,2))
@@ -33,9 +32,9 @@ mat(A, 2)
 mat(A, 3)
 }
 \references{
-Kolda, T. G., & Bader, B. W. (2009).
-  \href{https://doi.org/10.1137/07070111X}{Tensor
-  decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
+\itemize{
+  \item{Kolda, T. G., & Bader, B. W. (2009). Tensor decompositions and applications. \emph{SIAM review}, 51(3), 455-500 \doi{10.1137/07070111X}.}
+}
 }
 \author{
 Peter Hoff.

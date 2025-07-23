@@ -25,15 +25,12 @@ Given scale matrix \code{Phi} and degrees of freedom \code{nu},
 Wishart(\eqn{\nu,I})-distributed random matrix and \eqn{UU'} is the upper
 triangular Cholesky decomposition of \eqn{\Phi}. That is, \eqn{V} is lower
 triangular and \eqn{U} is upper triangular. For details on its applications,
-see
-\href{https://doi.org/10.1016/j.jmva.2015.01.020}{Gerard and Hoff (2015)}.
+see Gerard and Hoff (2015).
 }
 \references{
-Gerard, D., & Hoff, P. (2015). Equivariant minimax
-    dominators of the MLE in the array normal model.
-    \emph{Journal of Multivariate Analysis}, 137, 32-49.
-    \url{https://doi.org/10.1016/j.jmva.2015.01.020}
-    \url{http://arxiv.org/pdf/1408.0424.pdf}
+\itemize{
+  \item{Gerard, D., & Hoff, P. (2015). Equivariant minimax dominators of the MLE in the array normal model. \emph{Journal of Multivariate Analysis}, 137, 32-49. \doi{10.1016/j.jmva.2015.01.020}}
+}
 }
 \seealso{
 \code{\link{sample_right_wishart}}

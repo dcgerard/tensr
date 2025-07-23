@@ -115,5 +115,5 @@ cat("P-value:", p_value_z,"\n")
 
 # References
 
-**Gerard, D.**, & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. _Linear Algebra and its Applications_, 505, 57-84. [[Link to LAA]](https://doi.org/10.1016/j.laa.2016.04.033) [[Link to arXiv]](http://arxiv.org/pdf/1410.1094v1.pdf)
+**Gerard, D.**, & Hoff, P. (2016). A higher-order LQ decomposition for separable covariance models. _Linear Algebra and its Applications_, 505, 57-84. doi: 10.1016/j.laa.2016.04.033
 

@@ -33,11 +33,9 @@ the data and the component covariance matrices. Roughly, this is the update
 for the standard deviation, not the variance.
 }
 \references{
-Gerard, D., & Hoff, P. (2015). Equivariant minimax
-    dominators of the MLE in the array normal model.
-    \emph{Journal of Multivariate Analysis}, 137, 32-49.
-    \url{https://doi.org/10.1016/j.jmva.2015.01.020}
-    \url{http://arxiv.org/pdf/1408.0424.pdf}
+\itemize{
+  \item{Gerard, D., & Hoff, P. (2015). Equivariant minimax dominators of the MLE in the array normal model. \emph{Journal of Multivariate Analysis}, 137, 32-49. \doi{10.1016/j.jmva.2015.01.020}}
+}
 }
 \seealso{
 \code{\link{equi_mcmc}} for a Gibbs sampler where this function is

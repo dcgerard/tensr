@@ -42,10 +42,9 @@ cond_params$Mab
 cond_params$Sab
 }
 \references{
-Hoff, P. D. (2011).
-  \href{http://doi.org/10.1214/11-BA606}{Separable covariance arrays via the
-  Tucker product, with applications to multivariate relational data}.
-  \emph{Bayesian Analysis}, 6(2), 179-196.
+\itemize{
+  \item{Hoff, P. D. (2011). Separable covariance arrays via the Tucker product, with applications to multivariate relational data. \emph{Bayesian Analysis}, 6(2), 179-196. \doi{10.1214/11-BA606}}
+}
 }
 \author{
 Peter Hoff.

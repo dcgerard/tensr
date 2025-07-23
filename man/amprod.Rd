@@ -28,8 +28,7 @@ results in a tensor whose \eqn{k}-mode unfolding is \eqn{M} times
 the \eqn{k}-mode unfolding of \eqn{A}. That is
 \code{mat(amprod(A,M,k)) = M \%*\% mat(A,k)}.  More details of the
 \eqn{k}-mode product can be found in
-\href{https://doi.org/10.1137/07070111X}{ Kolda and
-Bader (2009)}.
+Kolda and Bader (2009).
 }
 \examples{
 A <- array(1:8, dim = c(2,2,2))
@@ -39,9 +38,9 @@ Y
 identical(M \%*\% mat(A,2), mat(Y,2))
 }
 \references{
-Kolda, T. G., & Bader, B. W. (2009).
-  \href{https://doi.org/10.1137/07070111X}{Tensor
-  decompositions and applications}. \emph{SIAM review}, 51(3), 455-500.
+\itemize{
+  \item{Kolda, T. G., & Bader, B. W. (2009). Tensor decompositions and applications. \emph{SIAM review}, 51(3), 455-500. \doi{10.1137/07070111X}}
+}
 }
 \seealso{
 \code{\link{atrans}} for applying multiple \eqn{k}-mode
