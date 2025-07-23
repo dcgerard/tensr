@@ -20,10 +20,11 @@ with tensor(array)-variate data sets.
 
 Let $X$ be a multidimensional array (also called a tensor) of $K$
 dimensions. This package provides a series of functions to perform
-statistical inference when $X \sim N(0,\Sigma)$, where $\Sigma$ is
-assumed to be Kronecker structured. That is, $\Sigma$ is the Kronecker
-product of $K$ covariance matrices, each of which has the interpretation
-of being the covariance of $X$ along its $k$th mode, or dimension.
+statistical inference when $\text{vec}(X) \sim N(0,\Sigma)$, where
+$\Sigma$ is assumed to be Kronecker structured. That is, $\Sigma$ is the
+Kronecker product of $K$ covariance matrices, each of which has the
+interpretation of being the covariance of $X$ along its $k$th mode, or
+dimension.
 
 Pay particular attention to the zero mean assumption. That is, you need
 to de-mean your data prior to applying these functions. If you have more
