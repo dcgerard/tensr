@@ -13,8 +13,8 @@ A collection of functions for Kronecker structured covariance estimation and tes
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://github.com/dcgerard/tensr}
-  \item Report bugs at \url{http://github.com/dcgerard/tensr/issues}
+  \item \url{https://github.com/dcgerard/tensr}
+  \item Report bugs at \url{https://github.com/dcgerard/tensr/issues}
 }
 
 }

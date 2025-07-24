@@ -16,8 +16,8 @@ Description: A collection of functions for Kronecker structured covariance
 License: GPL-3
 Encoding: UTF-8
 RoxygenNote: 7.3.2
-BugReports: http://github.com/dcgerard/tensr/issues
-URL: http://github.com/dcgerard/tensr
+BugReports: https://github.com/dcgerard/tensr/issues
+URL: https://github.com/dcgerard/tensr
 Suggests: knitr,
     rmarkdown,
     covr,
